@@ -1,0 +1,8 @@
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\bin\Debug\Mdw.exe.config
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\bin\Debug\Mdw.exe
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\bin\Debug\Mdw.pdb
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\obj\Debug\Mdw.csprojResolveAssemblyReference.cache
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\obj\Debug\Mdw.Properties.Resources.resources
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\obj\Debug\Mdw.csproj.GenerateResource.Cache
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\obj\Debug\Mdw.exe
+C:\Users\Loic\Documents\University\Mdw\Mdw\Mdw\obj\Debug\Mdw.pdb
