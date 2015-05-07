@@ -51,7 +51,14 @@ namespace Mdw
 
         public void CreateToken(List<Player> players)
         {
-
+            foreach (Player p in players)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    Token t = new Token(tokens.Count, p.Color);
+                    tokens.Add(t);
+                }
+            }
         }
 
     }

@@ -15,6 +15,7 @@ namespace Mdw
         bool atBase;
         bool atEnd;
 
+
         //Properties
         public int Id
         {

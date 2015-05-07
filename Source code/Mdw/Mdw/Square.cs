@@ -16,6 +16,7 @@ namespace Mdw
         bool isEnd;
         bool isEmpty;
 
+        List<Token> tokens;
 
         //Properties
         public int Position
@@ -48,22 +49,29 @@ namespace Mdw
             set { color = value; }
         }
 
+        public List<Token> Tokens
+        {
+            get { return tokens; }
+        }
+
         //Constructor
         public Square(int position, Color color, bool isBase, bool isEnd)
         {
-
+            this.position = position;
+            this.color = color;
+            this.isBase = isBase;
+            this.isEnd = isEnd;
         }
 
         //Methods
 
         public void AddToken(Token token)
         {
-
+            isEmpty = false;
         }
 
         public void RemoveToken(Token token)
         {
-
         }
 
 
