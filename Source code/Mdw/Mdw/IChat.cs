@@ -8,7 +8,7 @@ namespace Mdw
 {
     interface IChat
     {
-
+        //try
 
     }
 
