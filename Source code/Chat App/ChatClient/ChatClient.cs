@@ -27,17 +27,22 @@ namespace ChatClient
 
     public partial class ChatClient : Form, IChatService
     {
-        private delegate void UserJoined(string userName);
-        private delegate void UserSendMessage(string userName, string message);
+        //Delegates for event being used when a user joins or sends a message
+        private delegate void UserJoin(string userName);
+        private delegate void SendMessage(string userName, string message);
 
-        private static event UserJoined NewJoin;
-        private static event UserSendMessage MessageSent;
+        private static event UserJoin JoinNew;
+        private static event SendMessage MessageSent;
 
+        //Will be changed for final app, just for testing purposes
         private string userName;
+
+        //Declaring the interface to use methods later
         private IChatChannel channel;
+        //For duplex communication
         private DuplexChannelFactory<IChatChannel> factory;
 
-        
+
 
         public ChatClient()
         {
@@ -56,23 +61,28 @@ namespace ChatClient
                 try
                 {
                     //Events
-                    NewJoin += new UserJoined(ChatClient_NewJoin);
+                    JoinNew += new UserJoin(ChatClient_JoinNew);
                     //This because when someone logs in they need to be notified
-                    MessageSent += new UserSendMessage(ChatClient_MessageSent);
+                    //And this event is for the message sending
+                    MessageSent += new SendMessage(ChatClient_MessageSent);
 
                     channel = null;
 
+                    //set the username from the textbox
                     this.userName = tBUser.Text;
 
+                    //Each instance gets created with a new username so we have to lock it so they can only log it once
+                    //But ideally each user is unique so maybe add a method tocheck if username is unique, or use database
                     InstanceContext context = new InstanceContext(new ChatClient(tBUser.Text));
 
+                    //each client creates a connection
                     factory = new DuplexChannelFactory<IChatChannel>(context, "ChatEndPoint");
 
                     channel = factory.CreateChannel();
                     channel.Open();
                     channel.Login(this.userName);
 
-                    richTextBox1.AppendText("Yay chat application!\r\n");
+                    richTextBox1.AppendText("Welcome! Feel free to chat.\r\n");
                 }
                 catch (Exception ex)
                 {
@@ -80,6 +90,12 @@ namespace ChatClient
                 }
             }
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            channel.SendMessage(this.userName, textBox2.Text);
+        }
+
 
 
         //Event
@@ -96,7 +112,7 @@ namespace ChatClient
         }
 
         //event
-        void ChatClient_NewJoin(string userName)
+        void ChatClient_JoinNew(string userName)
         {
             richTextBox1.AppendText("\r\n");
             richTextBox1.AppendText(userName + " joined at: [" + DateTime.Now.ToString() + "]");
@@ -108,11 +124,13 @@ namespace ChatClient
             }
         }
 
+        //Methods
+
         public void Login(string userName)
         {
-            if (NewJoin != null)
+            if (JoinNew != null)
             {
-                NewJoin(userName);
+                JoinNew(userName);
             }
         }
 
@@ -125,9 +143,6 @@ namespace ChatClient
         }
 
 
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            channel.SendMessage(this.userName, textBox2.Text);
-        }
+
     }
 }
