@@ -16,6 +16,8 @@ namespace ChatApplication
     public partial class Server : Form
     {
         //Found on msdn for peer to peer
+        //This can all be added to the main service for the game
+        //We just have to change the app.config accordingly
         private CustomPeerResolverService cprs;
         private ServiceHost host;
 
