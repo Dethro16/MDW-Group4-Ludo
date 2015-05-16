@@ -29,10 +29,12 @@ namespace ChatClient
     {
         //Delegates for event being used when a user joins or sends a message
         private delegate void UserJoin(string userName);
-        private delegate void SendMessage(string userName, string message);
+
+        //Added an s to the name as it causes ambiguity with the method SendMessage from IChatService
+        private delegate void SendMessages(string userName, string message);
 
         private static event UserJoin JoinNew;
-        private static event SendMessage MessageSent;
+        private static event SendMessages MessageSent;
 
         //Will be changed for final app, just for testing purposes
         private string userName;
@@ -56,7 +58,7 @@ namespace ChatClient
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tBUser.Text.Trim()))
+            if (!string.IsNullOrEmpty(tBUser.Text))
             {
                 try
                 {
@@ -64,7 +66,7 @@ namespace ChatClient
                     JoinNew += new UserJoin(ChatClient_JoinNew);
                     //This because when someone logs in they need to be notified
                     //And this event is for the message sending
-                    MessageSent += new SendMessage(ChatClient_MessageSent);
+                    MessageSent += new SendMessages(ChatClient_MessageSent);
 
                     channel = null;
 
@@ -107,15 +109,13 @@ namespace ChatClient
                 lstUsers.Items.Add(userName);
             }
 
-            richTextBox1.AppendText("\r\n");
-            richTextBox1.AppendText(userName + " says: " + message);
+            richTextBox1.AppendText("\r\n"+userName + " says: " + message);
         }
 
         //event
         void ChatClient_JoinNew(string userName)
         {
-            richTextBox1.AppendText("\r\n");
-            richTextBox1.AppendText(userName + " joined at: [" + DateTime.Now.ToString() + "]");
+            richTextBox1.AppendText("\r\n" + userName + " joined at: [" + DateTime.Now.ToString() + "]");
             lstUsers.Items.Add(userName);
 
             if (!lstUsers.Items.Contains(userName))
@@ -134,11 +134,14 @@ namespace ChatClient
             }
         }
 
+
         public void SendMessage(string userName, string message)
         {
+            //If the message is not null, it will
             if (MessageSent != null)
             {
                 MessageSent(userName, message);
+                
             }
         }
 
