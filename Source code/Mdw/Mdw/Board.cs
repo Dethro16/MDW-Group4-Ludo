@@ -41,7 +41,7 @@ namespace Mdw
         //Methods
         public void MoveToken(Token token, Square square)
         {
-
+            
         }
 
         public void InitializeBoard()
@@ -60,6 +60,15 @@ namespace Mdw
                 }
             }
         }
-
+        public void PutTokenInPlay(Token token, Square square)
+        {
+            if (token.AtBase == true)
+            {
+                if (square.IsEmpty == true)
+                {
+                    square.AddToken(token);
+                }
+            }
+        }
     }
 }

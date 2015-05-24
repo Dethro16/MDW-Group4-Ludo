@@ -68,10 +68,16 @@ namespace Mdw
         public void AddToken(Token token)
         {
             isEmpty = false;
+            tokens.Add(token);
         }
 
         public void RemoveToken(Token token)
         {
+            if (tokens.Count < 1)
+            {
+                isEmpty = true;
+            }
+            tokens.Remove(token);
         }
 
 
