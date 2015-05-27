@@ -127,30 +127,62 @@ namespace RegisterLoginService
 
         public string Register(string userName, string password)
         {
-            string query = "SELECT "+userName+" FROM ludoplayers WHERE login="+userName;
-            string query1 = "INSERT INTO ludoplayers (Username, `Password) VALUES (" + userName + "," + password + ")";
-            connection.Open();
+            string query = "SELECT Username FROM ludoplayers";
+            List<string> usernames = new List<string>();
+            string query1 = "INSERT INTO ludoplayers (Username, Password) VALUES (@Username, @Password)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            int exist = Convert.ToInt32(cmd.ExecuteScalar());
-            connection.Close();
 
-            if (exist > 0)
+            try
             {
-                return "User already exists.";
+                connection.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string uName = reader.GetString("Username");
+                    usernames.Add(uName);
+                }
             }
-            else
+            catch
+            {
+                Console.WriteLine("Error whilst loading data");
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            foreach (string item in usernames)
+            {
+                if (item == userName)
+                {
+                    return "User already exists.";
+                }
+            }
+
+            try
             {
                 connection.Open();
                 MySqlCommand cmd1 = new MySqlCommand(query1, connection);
-                connection.Close();
+                cmd1.Parameters.Add("Username", MySqlDbType.VarChar, 20).Value = userName;
+                cmd1.Parameters.Add("Password", MySqlDbType.VarChar, 20).Value = password;
+                cmd1.ExecuteNonQuery();
+
                 return "You have been successfully registered.";
             }
+            catch
+            {
+                Console.WriteLine("Error whilst loading data");
+            }
+
+            return "Error";
             
         }
 
         public string Login(string userName, string password)
         {
-            string query = "SELECT Username, Password FROM login";
+            string query = "SELECT Username, Password FROM ludoplayers";
             MySqlCommand cmd = new MySqlCommand(query, connection);
 
             try
@@ -163,13 +195,14 @@ namespace RegisterLoginService
                     {
                         return "No such username.";
                     }
-                    if (password != Convert.ToString(reader["Password"]))
+
+                    if (userName == Convert.ToString(reader["Username"]))
                     {
-                        return "Wrong password.";
-                    }
-                    if (userName == Convert.ToString(reader["Username"]) == true)
-                    {
-                        if (password == Convert.ToString(reader["Password"]) == true)
+                        if (password != Convert.ToString(reader["Password"]))
+                        {
+                            return "Wrong password";
+                        }
+                        if (password == Convert.ToString(reader["Password"]))
                         {
                             return "You have successfully logged in.";
                         }

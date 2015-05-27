@@ -28,12 +28,19 @@ namespace Mdw
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            proxy.Login(tbUserNameL.Text, tbPasswordL.Text);
+           MessageBox.Show(proxy.Login(tbUserNameL.Text, tbPasswordL.Text));
         }
 
         private void btn_Register_Click(object sender, EventArgs e)
         {
-            proxy.Register(tbUserNameR.Text, tbPasswordR.Text, tbConfPass.Text);
+            if (tbPasswordR.Text != tbConfPass.Text)
+            {
+                MessageBox.Show("Your passwords do not match.");
+            }
+            else
+            {
+                MessageBox.Show(proxy.Register(tbUserNameR.Text, tbPasswordR.Text, tbConfPass.Text));
+            }
         }
     }
 }
