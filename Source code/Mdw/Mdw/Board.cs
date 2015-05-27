@@ -68,6 +68,17 @@ namespace Mdw
                 {
                     square.AddToken(token);
                 }
+                else
+                {
+                    foreach (Token t in square.Tokens)
+                    {
+                        if (t.Color != token.Color)
+                        {
+                            t.AtBase = true;
+                        }
+                    }
+                }
+                
             }
         }
     }
