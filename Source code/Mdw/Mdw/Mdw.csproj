@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LudoGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LudoGUI.Designer.cs">
+      <DependentUpon>LudoGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterLoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="LudoGUI.resx">
+      <DependentUpon>LudoGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterLoginGUI.resx">
       <DependentUpon>RegisterLoginGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -72,6 +81,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,6 +123,27 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayBoardv1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
