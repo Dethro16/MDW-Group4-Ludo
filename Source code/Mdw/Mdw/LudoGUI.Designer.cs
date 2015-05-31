@@ -161,7 +161,6 @@
             this.lbChat.Location = new System.Drawing.Point(44, 25);
             this.lbChat.Name = "lbChat";
             this.lbChat.ScrollAlwaysVisible = true;
-            this.lbChat.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbChat.Size = new System.Drawing.Size(226, 368);
             this.lbChat.TabIndex = 0;
             // 
