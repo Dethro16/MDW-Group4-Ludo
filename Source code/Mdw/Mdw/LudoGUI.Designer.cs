@@ -791,6 +791,7 @@
             this.pbDice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbDice.TabIndex = 27;
             this.pbDice.TabStop = false;
+            this.pbDice.Click += new System.EventHandler(this.pbDice_Click);
             // 
             // tbBlue
             // 

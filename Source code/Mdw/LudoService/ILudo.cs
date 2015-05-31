@@ -8,15 +8,26 @@ using System.Text;
 namespace LudoService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(Namespace = "ludoService", SessionMode = SessionMode.Required, CallbackContract = typeof(ILudoCallback))]
     public interface ILudo
     {
-        [OperationContract]
-        string GetData(int value);
+        //[OperationContract]
+        //string GetData(int value);
 
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        //[OperationContract]
+        //CompositeType GetDataUsingDataContract(CompositeType composite);
 
+        [OperationContract(IsOneWay = false)]
+        int GetDiceRoll();
+
+        [OperationContract(IsOneWay = true)]
+        void Roll(string userName);
+
+        [OperationContract(IsOneWay = false, IsInitiating = true)]
+        void Subscribe();
+
+        [OperationContract(IsOneWay = true, IsTerminating = true)]
+        void Unsubscribe();
         // TODO: Add your service operations here
     }
 
@@ -41,5 +52,11 @@ namespace LudoService
             get { return stringValue; }
             set { stringValue = value; }
         }
+    }
+
+    public interface ILudoCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void showDiceRoll(string userName, int diceNumber);
     }
 }
