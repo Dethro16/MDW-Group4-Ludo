@@ -63,6 +63,8 @@ namespace Mdw
             this.isEnd = isEnd;
         }
 
+        //this.squares.Add(new Square(Color.White, i, false, false));
+
         //Methods
 
         public void AddToken(Token token)

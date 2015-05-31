@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mdw", "Mdw\Mdw.csproj", "{7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterLoginService", "RegisterLoginService\RegisterLoginService.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LudoService", "LudoService\LudoService.csproj", "{961AB378-148C-4C20-A9C6-C803E8CEF75D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{961AB378-148C-4C20-A9C6-C803E8CEF75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{961AB378-148C-4C20-A9C6-C803E8CEF75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{961AB378-148C-4C20-A9C6-C803E8CEF75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{961AB378-148C-4C20-A9C6-C803E8CEF75D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
