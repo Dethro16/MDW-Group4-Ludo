@@ -16,11 +16,7 @@ namespace Mdw
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
             Application.Run(new RegisterLoginGUI());
-=======
-            Application.Run(new LudoGUI());
->>>>>>> origin/GUI
         }
     }
 }
