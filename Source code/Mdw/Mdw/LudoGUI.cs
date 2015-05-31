@@ -17,6 +17,7 @@ namespace Mdw
         InstanceContext context;
         ILudoServiceReference.LudoClient proxy;
         string userName;
+        int diceNr;
 
         public LudoGUI()
         {
@@ -28,13 +29,17 @@ namespace Mdw
 
         public void showDiceRoll(string userName, int diceNumber)
         {
-            string s = "<" + userName + "> has rolled a " + diceNumber.ToString();
+            diceNr = diceNumber;
+            string s = "<" + userName + "> has rolled a " + diceNr.ToString();
             lbChat.Items.Add(s);
         }
 
         private void pbDice_Click(object sender, EventArgs e)
         {
-            int caseSwitch = proxy.GetDiceRoll();
+
+            proxy.Roll(userName);
+
+            int caseSwitch = diceNr;
             switch (caseSwitch)
             {
                 case 1:
@@ -57,7 +62,6 @@ namespace Mdw
                     break;
             }
 
-            proxy.Roll(userName);
         }
 
         private void RollDiceGUI_FormClosing(object sender, FormClosingEventArgs e)
