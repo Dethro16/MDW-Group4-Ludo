@@ -28,3 +28,13 @@ C:\Users\J\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\obj\Debug\Mdw.Lu
 C:\Users\J\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\obj\Debug\Mdw.RegisterLoginGUI.resources
 C:\Users\J\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\obj\Debug\Mdw.Properties.Resources.resources
 C:\Users\J\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\obj\Debug\Mdw.csproj.GenerateResource.Cache
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\bin\Debug\Mdw.exe.config
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\bin\Debug\Mdw.exe
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\bin\Debug\Mdw.pdb
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Mdw.csprojResolveAssemblyReference.cache
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Mdw.LudoGUI.resources
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Mdw.RegisterLoginGUI.resources
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Mdw.Properties.Resources.resources
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Mdw.csproj.GenerateResource.Cache
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Mdw.exe
+C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Mdw.pdb
