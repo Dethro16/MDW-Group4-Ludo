@@ -87,7 +87,7 @@ namespace Mdw
             this.Squares[75].Color = Color.Red;
             this.Squares[75].IsEnd = true;
 
-            this.Squares[3].Color = Color.Black;
+            this.Squares[3].Color = Color.Blue;
 
             this.Squares[16].Color = Color.Green;
 
