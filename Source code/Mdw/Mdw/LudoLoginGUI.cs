@@ -66,14 +66,29 @@ namespace Mdw
 
         private void btLogin_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+
+        private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                Login();
+            }
+        }
+
+        private void Login()
+        {
             MessageBox.Show(proxy.Login(tbUsername.Text, tbPassword.Text));
             string check = proxy.Login(tbUsername.Text, tbPassword.Text);
             bool login = check.Contains("successfully");
             if (login)
             {
                 LudoGUI game = new LudoGUI();
-                game.Show();
                 this.SetVisibleCore(false);
+                game.ShowDialog();
+                tbPassword.Text = "";
+                this.SetVisibleCore(true);
             }
         }
     }

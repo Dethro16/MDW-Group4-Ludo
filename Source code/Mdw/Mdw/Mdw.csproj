@@ -88,6 +88,9 @@
     <EmbeddedResource Include="LudoLoginGUI.resx">
       <DependentUpon>LudoLoginGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LudoRegisterGUI.resx">
+      <DependentUpon>LudoRegisterGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterLoginGUI.resx">
       <DependentUpon>RegisterLoginGUI.cs</DependentUpon>
     </EmbeddedResource>

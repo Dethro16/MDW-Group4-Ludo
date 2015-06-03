@@ -96,9 +96,7 @@ namespace Mdw
         private void btLeave_Click(object sender, EventArgs e)
         {
             proxy.Unsubscribe();
-            LudoLoginGUI login = new LudoLoginGUI();
-            login.Show();
-            this.SetVisibleCore(false);
+            this.Close();
         }
         #endregion
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LudoLoginGUI));
             this.btClose = new System.Windows.Forms.Button();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
@@ -74,8 +75,10 @@
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Location = new System.Drawing.Point(30, 173);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(215, 26);
             this.tbPassword.TabIndex = 3;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPassword_KeyPress);
             // 
             // btMinimize
             // 
@@ -136,6 +139,8 @@
             this.btLogin.BackgroundImage = global::Mdw.Properties.Resources.Loginb;
             this.btLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btLogin.FlatAppearance.BorderSize = 0;
+            this.btLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogin.Location = new System.Drawing.Point(30, 270);
             this.btLogin.Name = "btLogin";
@@ -176,6 +181,7 @@
             this.Controls.Add(this.pbDragDrop);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LudoLoginGUI";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbDragDrop)).EndInit();

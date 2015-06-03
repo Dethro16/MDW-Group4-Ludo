@@ -54,15 +54,31 @@ namespace Mdw
 
         private void btRegister_Click(object sender, EventArgs e)
         {
+
             if (tbPassword.Text != tbRePassword.Text)
             {
                 MessageBox.Show("Your passwords do not match.");
+                ClearFields();
             }
             else
             {
-                MessageBox.Show(proxy.Register(tbUsername.Text, tbPassword.Text, tbRePassword.Text));
-                this.Close();
+                string check = proxy.Register(tbUsername.Text, tbPassword.Text, tbRePassword.Text);
+                MessageBox.Show(check);
+                bool regi = check.Contains("successfully");
+                if (regi)
+                {
+                    this.Close();
+                }
+                ClearFields();
             }
+
+        }
+
+        private void ClearFields()
+        {
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+            tbRePassword.Text = "";
         }
     }
 }
