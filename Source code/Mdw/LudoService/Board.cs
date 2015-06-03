@@ -34,8 +34,6 @@ namespace Mdw
             this.InitializeBoard();
 
             this.CreateToken(players);
-
-
         }
 
         //Methods
@@ -46,74 +44,70 @@ namespace Mdw
 
         public void InitializeBoard()
         {
+            //Initializes ALL squares to be colorless firts
             for (int i = 0; i < 92; i++)
             {
                 this.squares.Add(new Square(i, Color.White, false, false));
             }
 
-            for (int i = 76; i <= 79; i++)
-            {
-                this.Squares[i].Color = Color.Yellow;
-                this.Squares[i].IsBase = true;
-            }
+            #region Starting Squares
+            //Starting squares
+            this.Squares[53].Color = Color.Red;
+            this.Squares[54].Color = Color.Blue;
+            this.Squares[55].Color = Color.Green;
+            this.Squares[56].Color = Color.Yellow;
+            #endregion
 
-            for (int i = 80; i <= 83; i++)
-            {
-                this.Squares[i].Color = Color.Green;
-                this.Squares[i].IsBase = true;
-            }
-
-            for (int i = 84; i <= 87; i++)
-            {
-                this.Squares[i].Color = Color.Blue;
-                this.Squares[i].IsBase = true;
-            }
-
-            for (int i = 88; i <= 91; i++)
+            #region Home Squares 
+            //Home squares almost until the goal
+            for (int i = 57; i <= 61; i++)
             {
                 this.Squares[i].Color = Color.Red;
-                this.Squares[i].IsBase = true;
             }
 
-            this.Squares[57].Color = Color.Yellow;
-            this.Squares[57].IsEnd = true;
-
-            this.Squares[63].Color = Color.Green;
-            this.Squares[63].IsEnd = true;
-
-            this.Squares[69].Color = Color.Blue;
-            this.Squares[69].IsEnd = true;
-
-            this.Squares[75].Color = Color.Red;
-            this.Squares[75].IsEnd = true;
-
-            this.Squares[3].Color = Color.Blue;
-
-            this.Squares[16].Color = Color.Green;
-
-            this.Squares[29].Color = Color.Blue;
-
-            this.Squares[42].Color = Color.Red;
-
-            for (int i = 52; i <= 56; i++)
-            {
-                this.Squares[i].Color = Color.Yellow;
-            }
-
-            for (int i = 58; i <= 62; i++)
-            {
-                this.Squares[i].Color = Color.Green;
-            }
-
-            for (int i = 64; i <= 68; i++)
+            for (int i = 62; i <= 66; i++)
             {
                 this.Squares[i].Color = Color.Blue;
             }
 
-            for (int i = 70; i <= 74; i++)
+            for (int i = 67; i <= 71; i++)
+            {
+                this.Squares[i].Color = Color.Green;
+            }
+
+            for (int i = 72; i <= 77; i++)
+            {
+                this.Squares[i].Color = Color.Yellow;
+            }
+            #endregion
+
+            #region Goal Squares
+            for (int i = 77; i <= 80; i++)
             {
                 this.Squares[i].Color = Color.Red;
+                this.Squares[i].IsEnd = true;
             }
+
+            for (int i = 81; i <= 84; i++)
+            {
+                this.Squares[i].Color = Color.Blue;
+                this.Squares[i].IsEnd = true;
+            }
+
+            for (int i = 85; i <= 88; i++)
+            {
+                this.Squares[i].Color = Color.Green;
+                this.Squares[i].IsEnd = true;
+            }
+
+            for (int i = 89; i <= 92; i++)
+            {
+                this.Squares[i].Color = Color.Yellow;
+                this.Squares[i].IsEnd = true;
+            }
+            #endregion
+
+
         }
 
         public void CreateToken(List<Player> players)
