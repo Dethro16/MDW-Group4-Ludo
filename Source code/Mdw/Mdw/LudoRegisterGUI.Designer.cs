@@ -59,6 +59,7 @@
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Location = new System.Drawing.Point(12, 140);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(210, 26);
             this.tbPassword.TabIndex = 6;
             // 
@@ -68,6 +69,7 @@
             this.tbRePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRePassword.Location = new System.Drawing.Point(12, 207);
             this.tbRePassword.Name = "tbRePassword";
+            this.tbRePassword.PasswordChar = '*';
             this.tbRePassword.Size = new System.Drawing.Size(210, 26);
             this.tbRePassword.TabIndex = 7;
             // 
