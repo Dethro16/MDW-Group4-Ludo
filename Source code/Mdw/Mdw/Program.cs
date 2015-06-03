@@ -17,10 +17,7 @@ namespace Mdw
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LudoGUI());
-<<<<<<< HEAD
             //Application.Run(new RegisterLoginGUI());
-=======
->>>>>>> origin/NewRollDice
         }
     }
 }

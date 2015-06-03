@@ -14,14 +14,11 @@ namespace Mdw
     public partial class LudoGUI : Form,
         ILudoServiceReference.ILudoCallback
     {
-<<<<<<< HEAD
         Panel selectedPanel = null;
 
-=======
         InstanceContext context;
         ILudoServiceReference.LudoClient proxy;
         string userName;
->>>>>>> origin/NewRollDice
 
         public LudoGUI()
         {
@@ -70,7 +67,6 @@ namespace Mdw
             proxy.Unsubscribe();
         }
 
-<<<<<<< HEAD
         private int GetSquareNumber(Panel p)
         {
             switch (p.Name)
@@ -86,7 +82,6 @@ namespace Mdw
 
             MessageBox.Show(p.Name);
         }
-=======
         #region Leave Button functions
         private void btLeave_MouseDown(object sender, MouseEventArgs e)
         {
@@ -105,6 +100,5 @@ namespace Mdw
         }
         #endregion
 
->>>>>>> origin/NewRollDice
     }
 }
