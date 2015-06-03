@@ -10,6 +10,7 @@ namespace Mdw
     class Square
     {
         //Fields
+        string name;
         Color color;
         int position = 0;
         bool isBase;
@@ -19,6 +20,12 @@ namespace Mdw
         List<Token> tokens;
 
         //Properties
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
         public int Position
         {
             get { return position; }
@@ -57,10 +64,11 @@ namespace Mdw
         //Constructor
         public Square(int position, Color color, bool isBase, bool isEnd)
         {
-            this.position = position;
-            this.color = color;
-            this.isBase = isBase;
-            this.isEnd = isEnd;
+            this.Name = name;
+            this.Position = position;
+            this.Color = color;
+            this.IsBase = isBase;
+            this.IsEnd = isEnd;
         }
 
         //this.squares.Add(new Square(Color.White, i, false, false));

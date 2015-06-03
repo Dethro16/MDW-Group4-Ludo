@@ -181,6 +181,7 @@
             this.startRed.Name = "startRed";
             this.startRed.Size = new System.Drawing.Size(30, 30);
             this.startRed.TabIndex = 3;
+            this.startRed.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field1
             // 
@@ -189,6 +190,7 @@
             this.field1.Name = "field1";
             this.field1.Size = new System.Drawing.Size(30, 30);
             this.field1.TabIndex = 4;
+            this.field1.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field2
             // 
@@ -197,6 +199,7 @@
             this.field2.Name = "field2";
             this.field2.Size = new System.Drawing.Size(30, 30);
             this.field2.TabIndex = 3;
+            this.field2.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field3
             // 
@@ -205,6 +208,7 @@
             this.field3.Name = "field3";
             this.field3.Size = new System.Drawing.Size(30, 30);
             this.field3.TabIndex = 2;
+            this.field3.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field4
             // 
@@ -213,6 +217,7 @@
             this.field4.Name = "field4";
             this.field4.Size = new System.Drawing.Size(30, 30);
             this.field4.TabIndex = 5;
+            this.field4.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field5
             // 
@@ -221,6 +226,7 @@
             this.field5.Name = "field5";
             this.field5.Size = new System.Drawing.Size(30, 30);
             this.field5.TabIndex = 4;
+            this.field5.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field6
             // 
@@ -229,6 +235,7 @@
             this.field6.Name = "field6";
             this.field6.Size = new System.Drawing.Size(30, 30);
             this.field6.TabIndex = 3;
+            this.field6.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field7
             // 
@@ -237,6 +244,7 @@
             this.field7.Name = "field7";
             this.field7.Size = new System.Drawing.Size(30, 30);
             this.field7.TabIndex = 5;
+            this.field7.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field8
             // 
@@ -245,6 +253,7 @@
             this.field8.Name = "field8";
             this.field8.Size = new System.Drawing.Size(30, 30);
             this.field8.TabIndex = 6;
+            this.field8.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field9
             // 
@@ -253,6 +262,7 @@
             this.field9.Name = "field9";
             this.field9.Size = new System.Drawing.Size(30, 30);
             this.field9.TabIndex = 7;
+            this.field9.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field10
             // 
@@ -261,6 +271,7 @@
             this.field10.Name = "field10";
             this.field10.Size = new System.Drawing.Size(30, 30);
             this.field10.TabIndex = 8;
+            this.field10.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field11
             // 
@@ -269,6 +280,7 @@
             this.field11.Name = "field11";
             this.field11.Size = new System.Drawing.Size(30, 30);
             this.field11.TabIndex = 9;
+            this.field11.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field12
             // 
@@ -277,6 +289,7 @@
             this.field12.Name = "field12";
             this.field12.Size = new System.Drawing.Size(30, 30);
             this.field12.TabIndex = 10;
+            this.field12.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field13
             // 
@@ -285,6 +298,7 @@
             this.field13.Name = "field13";
             this.field13.Size = new System.Drawing.Size(30, 30);
             this.field13.TabIndex = 11;
+            this.field13.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // startGreen
             // 
@@ -293,6 +307,7 @@
             this.startGreen.Name = "startGreen";
             this.startGreen.Size = new System.Drawing.Size(30, 30);
             this.startGreen.TabIndex = 12;
+            this.startGreen.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field14
             // 
@@ -301,6 +316,7 @@
             this.field14.Name = "field14";
             this.field14.Size = new System.Drawing.Size(30, 30);
             this.field14.TabIndex = 13;
+            this.field14.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field15
             // 
@@ -309,6 +325,7 @@
             this.field15.Name = "field15";
             this.field15.Size = new System.Drawing.Size(30, 30);
             this.field15.TabIndex = 14;
+            this.field15.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field16
             // 
@@ -317,6 +334,7 @@
             this.field16.Name = "field16";
             this.field16.Size = new System.Drawing.Size(30, 30);
             this.field16.TabIndex = 5;
+            this.field16.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field17
             // 
@@ -325,6 +343,7 @@
             this.field17.Name = "field17";
             this.field17.Size = new System.Drawing.Size(30, 30);
             this.field17.TabIndex = 5;
+            this.field17.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field18
             // 
@@ -333,6 +352,7 @@
             this.field18.Name = "field18";
             this.field18.Size = new System.Drawing.Size(30, 30);
             this.field18.TabIndex = 5;
+            this.field18.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field19
             // 
@@ -341,6 +361,7 @@
             this.field19.Name = "field19";
             this.field19.Size = new System.Drawing.Size(30, 30);
             this.field19.TabIndex = 5;
+            this.field19.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field20
             // 
@@ -349,6 +370,7 @@
             this.field20.Name = "field20";
             this.field20.Size = new System.Drawing.Size(30, 30);
             this.field20.TabIndex = 15;
+            this.field20.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field21
             // 
@@ -357,6 +379,7 @@
             this.field21.Name = "field21";
             this.field21.Size = new System.Drawing.Size(30, 30);
             this.field21.TabIndex = 5;
+            this.field21.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field22
             // 
@@ -365,6 +388,7 @@
             this.field22.Name = "field22";
             this.field22.Size = new System.Drawing.Size(30, 30);
             this.field22.TabIndex = 16;
+            this.field22.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field23
             // 
@@ -373,6 +397,7 @@
             this.field23.Name = "field23";
             this.field23.Size = new System.Drawing.Size(30, 30);
             this.field23.TabIndex = 17;
+            this.field23.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field24
             // 
@@ -381,6 +406,7 @@
             this.field24.Name = "field24";
             this.field24.Size = new System.Drawing.Size(30, 30);
             this.field24.TabIndex = 18;
+            this.field24.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field25
             // 
@@ -389,6 +415,7 @@
             this.field25.Name = "field25";
             this.field25.Size = new System.Drawing.Size(30, 30);
             this.field25.TabIndex = 19;
+            this.field25.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field26
             // 
@@ -397,6 +424,7 @@
             this.field26.Name = "field26";
             this.field26.Size = new System.Drawing.Size(30, 30);
             this.field26.TabIndex = 20;
+            this.field26.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // startYellow
             // 
@@ -405,6 +433,7 @@
             this.startYellow.Name = "startYellow";
             this.startYellow.Size = new System.Drawing.Size(30, 30);
             this.startYellow.TabIndex = 5;
+            this.startYellow.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field27
             // 
@@ -413,6 +442,7 @@
             this.field27.Name = "field27";
             this.field27.Size = new System.Drawing.Size(30, 30);
             this.field27.TabIndex = 21;
+            this.field27.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field28
             // 
@@ -421,6 +451,7 @@
             this.field28.Name = "field28";
             this.field28.Size = new System.Drawing.Size(30, 30);
             this.field28.TabIndex = 5;
+            this.field28.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field29
             // 
@@ -429,6 +460,7 @@
             this.field29.Name = "field29";
             this.field29.Size = new System.Drawing.Size(30, 30);
             this.field29.TabIndex = 5;
+            this.field29.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field30
             // 
@@ -437,6 +469,7 @@
             this.field30.Name = "field30";
             this.field30.Size = new System.Drawing.Size(30, 30);
             this.field30.TabIndex = 5;
+            this.field30.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field31
             // 
@@ -445,6 +478,7 @@
             this.field31.Name = "field31";
             this.field31.Size = new System.Drawing.Size(30, 30);
             this.field31.TabIndex = 5;
+            this.field31.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field32
             // 
@@ -453,6 +487,7 @@
             this.field32.Name = "field32";
             this.field32.Size = new System.Drawing.Size(30, 30);
             this.field32.TabIndex = 22;
+            this.field32.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field33
             // 
@@ -461,6 +496,7 @@
             this.field33.Name = "field33";
             this.field33.Size = new System.Drawing.Size(30, 30);
             this.field33.TabIndex = 23;
+            this.field33.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field34
             // 
@@ -469,6 +505,7 @@
             this.field34.Name = "field34";
             this.field34.Size = new System.Drawing.Size(30, 30);
             this.field34.TabIndex = 24;
+            this.field34.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field35
             // 
@@ -477,6 +514,7 @@
             this.field35.Name = "field35";
             this.field35.Size = new System.Drawing.Size(30, 30);
             this.field35.TabIndex = 25;
+            this.field35.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field36
             // 
@@ -485,6 +523,7 @@
             this.field36.Name = "field36";
             this.field36.Size = new System.Drawing.Size(30, 30);
             this.field36.TabIndex = 25;
+            this.field36.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field37
             // 
@@ -493,6 +532,7 @@
             this.field37.Name = "field37";
             this.field37.Size = new System.Drawing.Size(30, 30);
             this.field37.TabIndex = 25;
+            this.field37.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field38
             // 
@@ -501,6 +541,7 @@
             this.field38.Name = "field38";
             this.field38.Size = new System.Drawing.Size(30, 30);
             this.field38.TabIndex = 25;
+            this.field38.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field39
             // 
@@ -509,6 +550,7 @@
             this.field39.Name = "field39";
             this.field39.Size = new System.Drawing.Size(30, 30);
             this.field39.TabIndex = 26;
+            this.field39.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // startBlue
             // 
@@ -517,6 +559,7 @@
             this.startBlue.Name = "startBlue";
             this.startBlue.Size = new System.Drawing.Size(30, 30);
             this.startBlue.TabIndex = 26;
+            this.startBlue.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field40
             // 
@@ -525,6 +568,7 @@
             this.field40.Name = "field40";
             this.field40.Size = new System.Drawing.Size(30, 30);
             this.field40.TabIndex = 26;
+            this.field40.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field41
             // 
@@ -533,6 +577,7 @@
             this.field41.Name = "field41";
             this.field41.Size = new System.Drawing.Size(30, 30);
             this.field41.TabIndex = 26;
+            this.field41.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field42
             // 
@@ -541,6 +586,7 @@
             this.field42.Name = "field42";
             this.field42.Size = new System.Drawing.Size(30, 30);
             this.field42.TabIndex = 26;
+            this.field42.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field43
             // 
@@ -549,6 +595,7 @@
             this.field43.Name = "field43";
             this.field43.Size = new System.Drawing.Size(30, 30);
             this.field43.TabIndex = 26;
+            this.field43.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field44
             // 
@@ -557,6 +604,7 @@
             this.field44.Name = "field44";
             this.field44.Size = new System.Drawing.Size(30, 30);
             this.field44.TabIndex = 26;
+            this.field44.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field45
             // 
@@ -565,6 +613,7 @@
             this.field45.Name = "field45";
             this.field45.Size = new System.Drawing.Size(30, 30);
             this.field45.TabIndex = 26;
+            this.field45.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field46
             // 
@@ -573,6 +622,7 @@
             this.field46.Name = "field46";
             this.field46.Size = new System.Drawing.Size(30, 30);
             this.field46.TabIndex = 26;
+            this.field46.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field47
             // 
@@ -581,6 +631,7 @@
             this.field47.Name = "field47";
             this.field47.Size = new System.Drawing.Size(30, 30);
             this.field47.TabIndex = 26;
+            this.field47.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field48
             // 
@@ -589,6 +640,7 @@
             this.field48.Name = "field48";
             this.field48.Size = new System.Drawing.Size(30, 30);
             this.field48.TabIndex = 26;
+            this.field48.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field49
             // 
@@ -597,6 +649,7 @@
             this.field49.Name = "field49";
             this.field49.Size = new System.Drawing.Size(30, 30);
             this.field49.TabIndex = 26;
+            this.field49.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field50
             // 
@@ -605,6 +658,7 @@
             this.field50.Name = "field50";
             this.field50.Size = new System.Drawing.Size(30, 30);
             this.field50.TabIndex = 26;
+            this.field50.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field51
             // 
@@ -613,6 +667,7 @@
             this.field51.Name = "field51";
             this.field51.Size = new System.Drawing.Size(30, 30);
             this.field51.TabIndex = 1;
+            this.field51.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // field52
             // 
@@ -621,6 +676,7 @@
             this.field52.Name = "field52";
             this.field52.Size = new System.Drawing.Size(30, 30);
             this.field52.TabIndex = 2;
+            this.field52.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeRed1
             // 
@@ -629,6 +685,7 @@
             this.homeRed1.Name = "homeRed1";
             this.homeRed1.Size = new System.Drawing.Size(30, 30);
             this.homeRed1.TabIndex = 26;
+            this.homeRed1.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeRed2
             // 
@@ -637,6 +694,7 @@
             this.homeRed2.Name = "homeRed2";
             this.homeRed2.Size = new System.Drawing.Size(30, 30);
             this.homeRed2.TabIndex = 26;
+            this.homeRed2.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeRed3
             // 
@@ -645,6 +703,7 @@
             this.homeRed3.Name = "homeRed3";
             this.homeRed3.Size = new System.Drawing.Size(30, 30);
             this.homeRed3.TabIndex = 26;
+            this.homeRed3.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeRed4
             // 
@@ -653,6 +712,7 @@
             this.homeRed4.Name = "homeRed4";
             this.homeRed4.Size = new System.Drawing.Size(30, 30);
             this.homeRed4.TabIndex = 26;
+            this.homeRed4.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeRed5
             // 
@@ -661,6 +721,7 @@
             this.homeRed5.Name = "homeRed5";
             this.homeRed5.Size = new System.Drawing.Size(30, 30);
             this.homeRed5.TabIndex = 26;
+            this.homeRed5.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeGreen1
             // 
@@ -669,6 +730,7 @@
             this.homeGreen1.Name = "homeGreen1";
             this.homeGreen1.Size = new System.Drawing.Size(30, 30);
             this.homeGreen1.TabIndex = 26;
+            this.homeGreen1.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeGreen2
             // 
@@ -677,6 +739,7 @@
             this.homeGreen2.Name = "homeGreen2";
             this.homeGreen2.Size = new System.Drawing.Size(30, 30);
             this.homeGreen2.TabIndex = 26;
+            this.homeGreen2.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeGreen3
             // 
@@ -685,6 +748,7 @@
             this.homeGreen3.Name = "homeGreen3";
             this.homeGreen3.Size = new System.Drawing.Size(30, 30);
             this.homeGreen3.TabIndex = 26;
+            this.homeGreen3.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeGreen4
             // 
@@ -693,6 +757,7 @@
             this.homeGreen4.Name = "homeGreen4";
             this.homeGreen4.Size = new System.Drawing.Size(30, 30);
             this.homeGreen4.TabIndex = 26;
+            this.homeGreen4.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeGreen5
             // 
@@ -701,6 +766,7 @@
             this.homeGreen5.Name = "homeGreen5";
             this.homeGreen5.Size = new System.Drawing.Size(30, 30);
             this.homeGreen5.TabIndex = 26;
+            this.homeGreen5.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeYellow1
             // 
@@ -709,6 +775,7 @@
             this.homeYellow1.Name = "homeYellow1";
             this.homeYellow1.Size = new System.Drawing.Size(30, 30);
             this.homeYellow1.TabIndex = 26;
+            this.homeYellow1.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeYellow2
             // 
@@ -717,6 +784,7 @@
             this.homeYellow2.Name = "homeYellow2";
             this.homeYellow2.Size = new System.Drawing.Size(30, 30);
             this.homeYellow2.TabIndex = 26;
+            this.homeYellow2.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeYellow3
             // 
@@ -725,6 +793,7 @@
             this.homeYellow3.Name = "homeYellow3";
             this.homeYellow3.Size = new System.Drawing.Size(30, 30);
             this.homeYellow3.TabIndex = 26;
+            this.homeYellow3.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeYellow4
             // 
@@ -733,6 +802,7 @@
             this.homeYellow4.Name = "homeYellow4";
             this.homeYellow4.Size = new System.Drawing.Size(30, 30);
             this.homeYellow4.TabIndex = 26;
+            this.homeYellow4.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeYellow5
             // 
@@ -741,6 +811,7 @@
             this.homeYellow5.Name = "homeYellow5";
             this.homeYellow5.Size = new System.Drawing.Size(30, 30);
             this.homeYellow5.TabIndex = 26;
+            this.homeYellow5.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeBlue1
             // 
@@ -749,6 +820,7 @@
             this.homeBlue1.Name = "homeBlue1";
             this.homeBlue1.Size = new System.Drawing.Size(30, 30);
             this.homeBlue1.TabIndex = 26;
+            this.homeBlue1.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeBlue2
             // 
@@ -757,6 +829,7 @@
             this.homeBlue2.Name = "homeBlue2";
             this.homeBlue2.Size = new System.Drawing.Size(30, 30);
             this.homeBlue2.TabIndex = 26;
+            this.homeBlue2.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeBlue3
             // 
@@ -765,6 +838,7 @@
             this.homeBlue3.Name = "homeBlue3";
             this.homeBlue3.Size = new System.Drawing.Size(30, 30);
             this.homeBlue3.TabIndex = 26;
+            this.homeBlue3.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeBlue4
             // 
@@ -773,6 +847,7 @@
             this.homeBlue4.Name = "homeBlue4";
             this.homeBlue4.Size = new System.Drawing.Size(30, 30);
             this.homeBlue4.TabIndex = 26;
+            this.homeBlue4.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // homeBlue5
             // 
@@ -781,6 +856,7 @@
             this.homeBlue5.Name = "homeBlue5";
             this.homeBlue5.Size = new System.Drawing.Size(30, 30);
             this.homeBlue5.TabIndex = 26;
+            this.homeBlue5.Click += new System.EventHandler(this.PanelOnClick);
             // 
             // pbDice
             // 

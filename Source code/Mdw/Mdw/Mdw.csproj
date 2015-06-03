@@ -58,8 +58,6 @@
     <Compile Include="RegisterLoginGUI.Designer.cs">
       <DependentUpon>RegisterLoginGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="IChat.cs" />
-    <Compile Include="ILudo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\RegisterLoginServiceReference\Reference.cs">
