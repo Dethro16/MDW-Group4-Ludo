@@ -175,6 +175,16 @@
   <ItemGroup>
     <None Include="Resources\buttondown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Desktop\ChatServer\Client\Client.csproj">
+      <Project>{9202a56f-ef37-4b6f-af2a-5af8a844546a}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\Desktop\ChatServer\Server\Server.csproj">
+      <Project>{1fd08ac5-f5dc-4a9d-9883-fd55ae14b526}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

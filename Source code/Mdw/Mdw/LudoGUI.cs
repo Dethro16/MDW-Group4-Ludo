@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
+using Client;
+using Server;
 
 namespace Mdw
 {
@@ -15,14 +17,15 @@ namespace Mdw
         ILudoServiceReference.ILudoCallback
     {
         Panel selectedPanel = null;
-
+        ServiceHost host;
         InstanceContext context;
         ILudoServiceReference.LudoClient proxy;
         string userName;
-
+        //Form serverForm = new Server.ChatServerGUI();
+        Form clientForm = new Client.ChatClientGUI();
         public LudoGUI()
         {
-            InitializeComponent();
+            InitializeComponent();             
             context = new InstanceContext(this);
             proxy = new ILudoServiceReference.LudoClient(context);
             proxy.Subscribe();
@@ -99,6 +102,11 @@ namespace Mdw
             this.Close();
         }
         #endregion
+
+        private void btn_Chat_Click(object sender, EventArgs e)
+        {                   
+            clientForm.Show();            
+        }
 
     }
 }

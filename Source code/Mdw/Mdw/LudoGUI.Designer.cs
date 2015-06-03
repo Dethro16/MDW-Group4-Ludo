@@ -134,6 +134,7 @@
             this.goalBlue3 = new System.Windows.Forms.Panel();
             this.goalBlue2 = new System.Windows.Forms.Panel();
             this.goalBlue4 = new System.Windows.Forms.Panel();
+            this.btn_Chat = new System.Windows.Forms.Button();
             this.pnChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).BeginInit();
@@ -1095,6 +1096,16 @@
             this.goalBlue4.Size = new System.Drawing.Size(15, 15);
             this.goalBlue4.TabIndex = 40;
             // 
+            // btn_Chat
+            // 
+            this.btn_Chat.Location = new System.Drawing.Point(695, 379);
+            this.btn_Chat.Name = "btn_Chat";
+            this.btn_Chat.Size = new System.Drawing.Size(75, 23);
+            this.btn_Chat.TabIndex = 41;
+            this.btn_Chat.Text = "Chat";
+            this.btn_Chat.UseVisualStyleBackColor = true;
+            this.btn_Chat.Click += new System.EventHandler(this.btn_Chat_Click);
+            // 
             // LudoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1102,6 +1113,7 @@
             this.BackgroundImage = global::Mdw.Properties.Resources.PlayBoardv1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1124, 632);
+            this.Controls.Add(this.btn_Chat);
             this.Controls.Add(this.goalBlue4);
             this.Controls.Add(this.goalBlue2);
             this.Controls.Add(this.goalBlue3);
@@ -1329,5 +1341,6 @@
         private System.Windows.Forms.Panel goalBlue3;
         private System.Windows.Forms.Panel goalBlue2;
         private System.Windows.Forms.Panel goalBlue4;
+        private System.Windows.Forms.Button btn_Chat;
     }
 }
