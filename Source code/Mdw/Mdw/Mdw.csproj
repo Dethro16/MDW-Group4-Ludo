@@ -52,6 +52,18 @@
     <Compile Include="LudoGUI.Designer.cs">
       <DependentUpon>LudoGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="LudoLoginGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LudoLoginGUI.Designer.cs">
+      <DependentUpon>LudoLoginGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LudoRegisterGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LudoRegisterGUI.Designer.cs">
+      <DependentUpon>LudoRegisterGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterLoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="LudoGUI.resx">
       <DependentUpon>LudoGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LudoLoginGUI.resx">
+      <DependentUpon>LudoLoginGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterLoginGUI.resx">
       <DependentUpon>RegisterLoginGUI.cs</DependentUpon>
@@ -174,6 +189,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\buttondown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\004-Minus-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\005-X-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgTrial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loginb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RCancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registerbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rePassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Username.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood_floor_by_gnrbishop.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
