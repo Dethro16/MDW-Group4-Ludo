@@ -7,16 +7,9 @@ using System.Text;
 
 namespace LudoService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract(Namespace = "ludoService", SessionMode = SessionMode.Required, CallbackContract = typeof(ILudoCallback))]
     public interface ILudo
     {
-        //[OperationContract]
-        //string GetData(int value);
-
-        //[OperationContract]
-        //CompositeType GetDataUsingDataContract(CompositeType composite);
-
         [OperationContract(IsOneWay = false)]
         int GetDiceRoll();
 
@@ -28,7 +21,6 @@ namespace LudoService
 
         [OperationContract(IsOneWay = true, IsTerminating = true)]
         void Unsubscribe();
-        // TODO: Add your service operations here
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
