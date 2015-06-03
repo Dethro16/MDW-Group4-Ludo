@@ -161,7 +161,6 @@
             this.lbChat.Location = new System.Drawing.Point(44, 25);
             this.lbChat.Name = "lbChat";
             this.lbChat.ScrollAlwaysVisible = true;
-            this.lbChat.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbChat.Size = new System.Drawing.Size(226, 368);
             this.lbChat.TabIndex = 0;
             // 
@@ -867,6 +866,7 @@
             this.pbDice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbDice.TabIndex = 27;
             this.pbDice.TabStop = false;
+            this.pbDice.Click += new System.EventHandler(this.pbDice_Click);
             // 
             // tbBlue
             // 
@@ -950,13 +950,22 @@
             // 
             // btLeave
             // 
+            this.btLeave.BackColor = System.Drawing.Color.Transparent;
+            this.btLeave.BackgroundImage = global::Mdw.Properties.Resources.button;
+            this.btLeave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btLeave.FlatAppearance.BorderSize = 0;
+            this.btLeave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btLeave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLeave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLeave.Location = new System.Drawing.Point(12, 583);
             this.btLeave.Name = "btLeave";
             this.btLeave.Size = new System.Drawing.Size(142, 37);
             this.btLeave.TabIndex = 36;
-            this.btLeave.Text = "Leave Game";
-            this.btLeave.UseVisualStyleBackColor = true;
+            this.btLeave.UseVisualStyleBackColor = false;
+            this.btLeave.Click += new System.EventHandler(this.btLeave_Click);
+            this.btLeave.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btLeave_MouseDown);
+            this.btLeave.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btLeave_MouseUp);
             // 
             // goalRed1
             // 
