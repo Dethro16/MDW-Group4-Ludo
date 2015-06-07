@@ -175,42 +175,33 @@ namespace RegisterLoginService
             {
                 Console.WriteLine("Error whilst loading data");
             }
+            finally
+            {
+                connection.Close();
+            }
 
             return "Error";
-            
+        
         }
 
         public string Login(string userName, string password)
         {
-            string query = "SELECT Username, Password FROM ludoplayers";
+            string query = "SELECT Username FROM ludoplayers";
+            List<string> usernames = new List<string>();
+
+            string query1 = "SELECT Username, Password FROM ludoplayers";
             MySqlCommand cmd = new MySqlCommand(query, connection);
 
             try
             {
                 connection.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
-                    if (userName != Convert.ToString(reader["Username"]))
-                    {
-                        return "No such username.";
-                    }
-
-                    if (userName == Convert.ToString(reader["Username"]))
-                    {
-                        if (password != Convert.ToString(reader["Password"]))
-                        {
-                            return "Wrong password";
-                        }
-                        if (password == Convert.ToString(reader["Password"]))
-                        {
-                            return "You have successfully logged in.";
-                        }
-                    }
-
+                    string uName = reader.GetString("Username");
+                    usernames.Add(uName);
                 }
-
-
             }
             catch
             {
@@ -221,6 +212,49 @@ namespace RegisterLoginService
             {
                 connection.Close();
             }
+
+            if (usernames.Exists(x => x.Equals(userName)))
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                        if (userName == Convert.ToString(reader["Username"]))
+                        {
+                            if (password != Convert.ToString(reader["Password"]))
+                            {
+                                return "Wrong password";
+                            }
+                            if (password == Convert.ToString(reader["Password"]))
+                            {
+                                return "You have successfully logged in.";
+                            }
+                        }
+
+                    }
+
+
+                }
+                catch
+                {
+                    Console.WriteLine("Error whilst loading data");
+                }
+
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                return "No such username.";
+            }
+
+
+
             return "Error, please try again.";
         }
 
