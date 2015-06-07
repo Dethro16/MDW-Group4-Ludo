@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="ludoService/Imports">
       <xsd:import namespace="ludoService" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ILudo_GetDiceRoll_InputMessage">
@@ -14,6 +15,18 @@
   </wsdl:message>
   <wsdl:message name="ILudo_Roll_InputMessage">
     <wsdl:part name="parameters" element="tns:Roll" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_CreatePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayer" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_GetPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_GetPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerResponse" />
   </wsdl:message>
   <wsdl:message name="ILudo_Subscribe_InputMessage">
     <wsdl:part name="parameters" element="tns:Subscribe" />
@@ -34,6 +47,16 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Roll">
       <wsdl:input wsaw:Action="ludoService/ILudo/Roll" message="tns:ILudo_Roll_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartGame">
+      <wsdl:input wsaw:Action="ludoService/ILudo/StartGame" message="tns:ILudo_StartGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CreatePlayer">
+      <wsdl:input wsaw:Action="ludoService/ILudo/CreatePlayer" message="tns:ILudo_CreatePlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPlayer">
+      <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayer" message="tns:ILudo_GetPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerResponse" message="tns:ILudo_GetPlayer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Subscribe">
       <wsdl:input wsaw:Action="ludoService/ILudo/Subscribe" message="tns:ILudo_Subscribe_InputMessage" />

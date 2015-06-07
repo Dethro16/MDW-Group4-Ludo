@@ -11,21 +11,71 @@ using System.ServiceModel;
 
 namespace Mdw
 {
-    public partial class LudoLoginGUI : Form
+    public partial class LudoLoginGUI : Form, ILudoServiceReference.ILudoCallback
     {
         private RegisterLoginServiceReference.RegisterLoginClient proxy;
+        private ILudoServiceReference.LudoClient proxy1;
         InstanceContext context;
 
         bool togMove;
         int mValX;
         int mValY;
 
+        private string loginName;
+        private static Color color;
+
+        public string LoginName
+        {
+            get { return loginName; }
+            set { loginName = value; }
+        }
+
+        public static Color Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+
         public LudoLoginGUI()
         {
             InitializeComponent();
             context = new InstanceContext(this);
             proxy = new RegisterLoginServiceReference.RegisterLoginClient();
+            proxy1 = new ILudoServiceReference.LudoClient(context);
         }
+
+
+        public void showDiceRoll(string userName, int diceNumber)
+        {
+            /*
+            string s = "<" + userName + "> has rolled a " + diceNumber.ToString();
+            lbChat.Items.Add(s);
+
+            int caseSwitch = diceNumber;
+            switch (caseSwitch)
+            {
+                case 1:
+                    pbDice.Image = Properties.Resources.d1;
+                    break;
+                case 2:
+                    pbDice.Image = Properties.Resources.d2;
+                    break;
+                case 3:
+                    pbDice.Image = Properties.Resources.d3;
+                    break;
+                case 4:
+                    pbDice.Image = Properties.Resources.d4;
+                    break;
+                case 5:
+                    pbDice.Image = Properties.Resources.d5;
+                    break;
+                case 6:
+                    pbDice.Image = Properties.Resources.d6;
+                    break;
+            }
+             */
+        }
+
 
         #region dragdrop
         private void pbDragDrop_MouseDown(object sender, MouseEventArgs e)
@@ -77,6 +127,28 @@ namespace Mdw
             }
         }
 
+        private Color ChooseColor()
+        {
+
+            if ("Red" == cBColor.SelectedItem.ToString())
+            {
+                return Color.Red;
+            }
+            if ("Blue" == cBColor.ValueMember)
+            {
+                return Color.Blue;
+            }
+            if ("Green" == cBColor.ValueMember)
+            {
+                return Color.Green;
+            }
+            else
+            {
+                return Color.Yellow;
+            }
+
+        }
+
         private void Login()
         {
             MessageBox.Show(proxy.Login(tbUsername.Text, tbPassword.Text));
@@ -84,6 +156,11 @@ namespace Mdw
             bool login = check.Contains("successfully");
             if (login)
             {
+
+                loginName = tbUsername.Text;
+                Color = ChooseColor();
+                proxy1.CreatePlayer(loginName, Color);
+                //MessageBox.Show("You have successfully logged in");
                 LudoGUI game = new LudoGUI();
                 this.SetVisibleCore(false);
                 game.ShowDialog();

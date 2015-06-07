@@ -38,6 +38,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btLogin = new System.Windows.Forms.Button();
             this.lRegister = new System.Windows.Forms.Label();
+            this.cBColor = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbDragDrop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -142,9 +144,9 @@
             this.btLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLogin.Location = new System.Drawing.Point(30, 270);
+            this.btLogin.Location = new System.Drawing.Point(30, 273);
             this.btLogin.Name = "btLogin";
-            this.btLogin.Size = new System.Drawing.Size(185, 104);
+            this.btLogin.Size = new System.Drawing.Size(144, 89);
             this.btLogin.TabIndex = 7;
             this.btLogin.UseVisualStyleBackColor = false;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
@@ -163,6 +165,31 @@
             this.lRegister.Text = "Register Here";
             this.lRegister.Click += new System.EventHandler(this.lRegister_Click);
             // 
+            // cBColor
+            // 
+            this.cBColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBColor.FormattingEnabled = true;
+            this.cBColor.Items.AddRange(new object[] {
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow"});
+            this.cBColor.Location = new System.Drawing.Point(180, 273);
+            this.cBColor.Name = "cBColor";
+            this.cBColor.Size = new System.Drawing.Size(97, 21);
+            this.cBColor.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Razer Header Regular Oblique", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(180, 254);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Color:";
+            // 
             // LudoLoginGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +197,8 @@
             this.BackgroundImage = global::Mdw.Properties.Resources.bgTrial;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(716, 403);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cBColor);
             this.Controls.Add(this.lRegister);
             this.Controls.Add(this.btLogin);
             this.Controls.Add(this.pictureBox2);
@@ -203,5 +232,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btLogin;
         private System.Windows.Forms.Label lRegister;
+        private System.Windows.Forms.ComboBox cBColor;
+        private System.Windows.Forms.Label label1;
     }
 }

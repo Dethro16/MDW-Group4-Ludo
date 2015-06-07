@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
+
 namespace RegisterLoginService
 {
     class DatabaseHelper
@@ -191,6 +192,7 @@ namespace RegisterLoginService
 
             string query1 = "SELECT Username, Password FROM ludoplayers";
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd1 = new MySqlCommand(query1, connection);
 
             try
             {
@@ -218,7 +220,7 @@ namespace RegisterLoginService
                 try
                 {
                     connection.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    MySqlDataReader reader = cmd1.ExecuteReader();
                     while (reader.Read())
                     {
 
@@ -231,6 +233,8 @@ namespace RegisterLoginService
                             if (password == Convert.ToString(reader["Password"]))
                             {
                                 return "You have successfully logged in.";
+                               
+
                             }
                         }
 

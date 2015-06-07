@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Mdw
+namespace LudoService
 {
     class Player
     {
@@ -13,6 +13,13 @@ namespace Mdw
         string name;
         Color color;
         bool hasWon;
+        List<Player> players = new List<Player>();
+
+        Player player;
+        List<Color> AllColors = new List<Color>{
+            Color.Red,Color.Blue, Color.Green, Color.Yellow};
+
+        Random rnd = new Random();
 
         //Properties
         public string Name
@@ -27,6 +34,10 @@ namespace Mdw
             set { color = value; }
         }
 
+        public List<Player> Players
+        {
+            get { return players; }
+        }
         public bool HasWon
         {
             get { return hasWon; }
@@ -41,6 +52,27 @@ namespace Mdw
             Color = color;
             HasWon = false;
         }
+
+        public void CreatePlayer(string playerName, Color color)
+        {
+            if (AllColors.Exists(x => x.Equals(color)))
+            {
+                player = new Player(playerName, color);
+                AllColors.Remove(color);
+                players.Add(player);
+            }
+
+            else
+            {
+                int index = rnd.Next(0, AllColors.Count);
+                player = new Player(playerName, AllColors.ElementAt(index));
+                players.Add(player);
+                AllColors.Remove(AllColors.ElementAt(index));
+            }
+
+        }
+
+
 
         //Method
 

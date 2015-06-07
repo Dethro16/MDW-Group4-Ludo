@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Drawing;
 
 namespace LudoService
 {
@@ -12,28 +13,17 @@ namespace LudoService
     {
         public string userName;
         public int diceNumber;
+        
     }
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class CLudo : ILudo
     {
-        //public string GetData(int value)
-        //{
-        //    return string.Format("You entered: {0}", value);
-        //}
-
-        //public CompositeType GetDataUsingDataContract(CompositeType composite)
-        //{
-        //    if (composite == null)
-        //    {
-        //        throw new ArgumentNullException("composite");
-        //    }
-        //    if (composite.BoolValue)
-        //    {
-        //        composite.StringValue += "Suffix";
-        //    }
-        //    return composite;
-        //}
+        Player player = new Player("", Color.Red);
+        //List<Player> players = new List<Player>();
+        //Player player;
+        //List<Color> AllColors = new List<Color>();
+        
 
         public static event MessageEventHandler messageEvent;
         public delegate void MessageEventHandler(object sender, MessageEventArgs e);
@@ -48,6 +38,7 @@ namespace LudoService
         public CLudo()
         {
             rnd = new Random();
+            
         }
 
         public int GetDiceRoll()
@@ -62,6 +53,59 @@ namespace LudoService
             e.userName = userName;
             e.diceNumber = diceNumber;
             messageEvent(this, e);
+        }
+
+        public void CreatePlayer(string playerName, Color color)
+        {
+
+            player.CreatePlayer(playerName, color);
+            //if (AllColors.Exists(x => x.Equals(color)))
+            //{
+            //    player = new Player(playerName, color);
+            //    AllColors.Remove(color);
+            //    players.Add(player);
+            //}
+
+            //else
+            //{
+            //    int index = rnd.Next(0, AllColors.Count);
+            //    player = new Player(playerName, AllColors.ElementAt(index));
+            //    players.Add(player);
+            //    AllColors.Remove(AllColors.ElementAt(index));
+            //}
+
+        }
+
+        public string GetPlayer(Color color)
+        {
+            foreach (Player item in player.Players)
+            {
+                if (item.Color == color)
+                {
+                    return item.Name;
+                }
+            }
+
+            //foreach (var item in players)
+            //{
+            //    if (item.Color == color)
+            //    {
+            //        return item.Name;
+            //    }
+            //}
+            return "Jean";
+        }
+
+        public void StartGame()
+        {
+            //if (players.Count < 2)
+            //{
+            //    //Can't start game yet
+            //}
+            //else
+            //{
+            //    //Start game now
+            //}
         }
 
         public void Subscribe()

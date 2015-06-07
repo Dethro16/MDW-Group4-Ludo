@@ -112,6 +112,9 @@
     <None Include="Service References\ILudoServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ILudoServiceReference\System.Drawing.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\RegisterLoginServiceReference\RegisterLoginService.wsdl" />
     <None Include="Service References\RegisterLoginServiceReference\RegisterLoginService.xsd">
       <SubType>Designer</SubType>

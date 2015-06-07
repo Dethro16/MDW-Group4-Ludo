@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Drawing;
 
 namespace RegisterLoginService
 {
@@ -11,6 +12,7 @@ namespace RegisterLoginService
     [ServiceContract(Namespace = "RegisterLoginService")]
     public interface IRegisterLogin
     {
+        
         [OperationContract]
         string Register(string userName, string passWord, string confPWord);
 
@@ -23,6 +25,7 @@ namespace RegisterLoginService
     [DataContract]
     public class User
     {
+        
         string userName;
         string passWord;
         string confPassWord;

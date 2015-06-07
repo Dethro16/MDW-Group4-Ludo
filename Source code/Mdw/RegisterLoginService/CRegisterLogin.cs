@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
 
 namespace RegisterLoginService
 {
@@ -21,7 +23,5 @@ namespace RegisterLoginService
         {
             return db.Login(userName, passWord);
         }
-
-
     }
 }

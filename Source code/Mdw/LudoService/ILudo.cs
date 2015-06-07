@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Drawing;
 
 namespace LudoService
 {
@@ -22,6 +23,15 @@ namespace LudoService
 
         [OperationContract(IsOneWay = true)]
         void Roll(string userName);
+
+        [OperationContract(IsOneWay = true)]
+        void StartGame();
+
+        [OperationContract(IsOneWay = true)]
+        void CreatePlayer(string playerName, Color color);
+
+        [OperationContract(IsOneWay = false)]
+        string GetPlayer(Color color);
 
         [OperationContract(IsOneWay = false, IsInitiating = true)]
         void Subscribe();
@@ -58,5 +68,7 @@ namespace LudoService
     {
         [OperationContract(IsOneWay = true)]
         void showDiceRoll(string userName, int diceNumber);
+
+
     }
 }
