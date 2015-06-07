@@ -217,8 +217,10 @@ namespace RegisterLoginService
             {
                 try
                 {
+                    MySqlCommand cmd1 = new MySqlCommand(query1, connection);
                     connection.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    MySqlDataReader reader = cmd1.ExecuteReader();
                     while (reader.Read())
                     {
 
