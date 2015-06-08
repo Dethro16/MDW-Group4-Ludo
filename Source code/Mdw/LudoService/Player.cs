@@ -13,6 +13,7 @@ namespace Mdw
         string name;
         Color color;
         bool hasWon;
+        bool loggedIn = false;
 
         //Properties
         public string Name
@@ -33,6 +34,13 @@ namespace Mdw
             set { hasWon = value; }
         }
 
+        public bool LoggedIn
+        {
+            get { return loggedIn; }
+            set { loggedIn = value; }
+        }
+
+
         //Constructor
 
         public Player(string name, Color color)
@@ -40,6 +48,7 @@ namespace Mdw
             Name = name;
             Color = color;
             HasWon = false;
+            LoggedIn = true;
         }
 
         //Method
