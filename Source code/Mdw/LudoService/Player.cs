@@ -7,18 +7,16 @@ using System.Drawing;
 
 namespace LudoService
 {
-    class Player
+   public class Player
     {
         //Fields
         string name;
         Color color;
         bool hasWon;
         bool loggedIn = false;
-        List<Player> players = new List<Player>();
 
-        Player player;
-        List<Color> AllColors = new List<Color>{
-            Color.Red,Color.Blue, Color.Green, Color.Yellow};
+        //List<Player> players;
+        
 
         Random rnd = new Random();
 
@@ -47,40 +45,23 @@ namespace LudoService
             set { loggedIn = value; }
         }
 
-        public List<Player> Players
-        {
-            get { return players; }
-            set { players = value; }
-        }
-
 
         //Constructor
 
         public Player(string name, Color color)
         {
-            Name = name;
-            Color = color;
-            HasWon = false;
-            LoggedIn = true;
-        }
-
-        public void CreatePlayer(string playerName, Color color)
-        {
-            if (AllColors.Exists(x => x.Equals(color)))
+            if (color == Color.Black)
             {
-                player = new Player(playerName, color);
-                AllColors.Remove(color);
-                players.Add(player);
-            }
 
+            }
             else
             {
-                int index = rnd.Next(0, AllColors.Count);
-                player = new Player(playerName, AllColors.ElementAt(index));
-                players.Add(player);
-                AllColors.Remove(AllColors.ElementAt(index));
-            }
+                Name = name;
+                Color = color;
+                HasWon = false;
+                LoggedIn = true;
 
+            }
         }
 
         //Method

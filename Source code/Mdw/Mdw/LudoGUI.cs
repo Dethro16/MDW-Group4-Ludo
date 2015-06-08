@@ -18,6 +18,7 @@ namespace Mdw
 
         InstanceContext context;
         LudoGamePlayServiceReference.LudoClient proxy;
+
         string userName;
 
         public LudoGUI()
@@ -26,6 +27,15 @@ namespace Mdw
             context = new InstanceContext(this);
             proxy = new LudoGamePlayServiceReference.LudoClient(context);
             proxy.Subscribe();
+
+
+
+            this.tbRed.Text = proxy.GetColorPlayer(Color.Red);
+            this.tbBlue.Text = proxy.GetColorPlayer(Color.Blue);
+            this.tbGreen.Text = proxy.GetColorPlayer(Color.Green);
+            this.tbYellow.Text = proxy.GetColorPlayer(Color.Yellow);
+
+            
         }
 
         public void showDiceRoll(string userName, int diceNumber)

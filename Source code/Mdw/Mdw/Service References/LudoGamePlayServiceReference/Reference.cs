@@ -38,6 +38,24 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="ludoService/ILudo/Unsubscribe")]
         System.Threading.Tasks.Task UnsubscribeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Register", ReplyAction="ludoService/ILudo/RegisterResponse")]
+        string Register(string userName, string passWord, string confPassWord);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Register", ReplyAction="ludoService/ILudo/RegisterResponse")]
+        System.Threading.Tasks.Task<string> RegisterAsync(string userName, string passWord, string confPassWord);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Login", ReplyAction="ludoService/ILudo/LoginResponse")]
+        string Login(string userName, string passWord, System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Login", ReplyAction="ludoService/ILudo/LoginResponse")]
+        System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord, System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetColorPlayer", ReplyAction="ludoService/ILudo/GetColorPlayerResponse")]
+        string GetColorPlayer(System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetColorPlayer", ReplyAction="ludoService/ILudo/GetColorPlayerResponse")]
+        System.Threading.Tasks.Task<string> GetColorPlayerAsync(System.Drawing.Color color);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -105,6 +123,30 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         public System.Threading.Tasks.Task UnsubscribeAsync() {
             return base.Channel.UnsubscribeAsync();
+        }
+        
+        public string Register(string userName, string passWord, string confPassWord) {
+            return base.Channel.Register(userName, passWord, confPassWord);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegisterAsync(string userName, string passWord, string confPassWord) {
+            return base.Channel.RegisterAsync(userName, passWord, confPassWord);
+        }
+        
+        public string Login(string userName, string passWord, System.Drawing.Color color) {
+            return base.Channel.Login(userName, passWord, color);
+        }
+        
+        public System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord, System.Drawing.Color color) {
+            return base.Channel.LoginAsync(userName, passWord, color);
+        }
+        
+        public string GetColorPlayer(System.Drawing.Color color) {
+            return base.Channel.GetColorPlayer(color);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetColorPlayerAsync(System.Drawing.Color color) {
+            return base.Channel.GetColorPlayerAsync(color);
         }
     }
 }
