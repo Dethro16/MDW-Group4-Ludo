@@ -119,11 +119,11 @@ namespace Mdw
             {
                 return Color.Red;
             }
-            if ("Blue" == cBColor.ValueMember)
+            if ("Blue" == cBColor.SelectedItem.ToString())
             {
                 return Color.Blue;
             }
-            if ("Green" == cBColor.ValueMember)
+            if ("Green" == cBColor.SelectedItem.ToString())
             {
                 return Color.Green;
             }
