@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="ludoService" elementFormDefault="qualified" targetNamespace="ludoService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
   <xs:element name="Register">
     <xs:complexType>
       <xs:sequence>
@@ -21,6 +22,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="passWord" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q1:Color" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Drawing;
 
 namespace LudoService
 {
@@ -15,6 +16,6 @@ namespace LudoService
         string Register(string userName, string passWord, string confPWord);
 
         [OperationContract]
-        string Login(string userName, string passWord);
+        string Login(string userName, string passWord, Color color);
     }
 }

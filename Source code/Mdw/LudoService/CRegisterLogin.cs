@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Drawing;
 
 namespace LudoService
 {
@@ -12,15 +13,25 @@ namespace LudoService
     public class CRegisterLogin : IRegisterLogin
     {
         DatabaseHelper db = new DatabaseHelper();
+        Player player = new Player("", Color.Black);
 
         public string Register(string userName, string passWord, string confPassWord)
         {
             return db.Register(userName, passWord);
         }
 
-        public string Login(string userName, string passWord)
+        public string Login(string userName, string passWord, Color color)
         {
-            return db.Login(userName, passWord);
+            string check = db.Login(userName, passWord);
+            if (check.Contains("successfully"))
+            {
+                player.CreatePlayer(userName, color);
+                return check;
+            }
+            else
+            {
+                return check;
+            }
         }
     }
 }

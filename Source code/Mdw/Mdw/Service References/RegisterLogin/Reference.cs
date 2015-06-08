@@ -22,10 +22,10 @@ namespace Mdw.RegisterLogin {
         System.Threading.Tasks.Task<string> RegisterAsync(string userName, string passWord, string confPWord);
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/IRegisterLogin/Login", ReplyAction="ludoService/IRegisterLogin/LoginResponse")]
-        string Login(string userName, string passWord);
+        string Login(string userName, string passWord, System.Drawing.Color color);
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/IRegisterLogin/Login", ReplyAction="ludoService/IRegisterLogin/LoginResponse")]
-        System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord);
+        System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord, System.Drawing.Color color);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -63,12 +63,12 @@ namespace Mdw.RegisterLogin {
             return base.Channel.RegisterAsync(userName, passWord, confPWord);
         }
         
-        public string Login(string userName, string passWord) {
-            return base.Channel.Login(userName, passWord);
+        public string Login(string userName, string passWord, System.Drawing.Color color) {
+            return base.Channel.Login(userName, passWord, color);
         }
         
-        public System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord) {
-            return base.Channel.LoginAsync(userName, passWord);
+        public System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord, System.Drawing.Color color) {
+            return base.Channel.LoginAsync(userName, passWord, color);
         }
     }
 }
