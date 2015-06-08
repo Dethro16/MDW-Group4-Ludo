@@ -66,12 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ILudoServiceReference\Reference.cs">
+    <Compile Include="Service References\LudoGamePlayServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\RegisterLoginServiceReference\Reference.cs">
+    <Compile Include="Service References\RegisterLogin\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -95,6 +95,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,25 +105,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ILudoServiceReference\ludoService.wsdl" />
-    <None Include="Service References\ILudoServiceReference\ludoService.xsd">
+    <None Include="Service References\LudoGamePlayServiceReference\ludoService.wsdl" />
+    <None Include="Service References\LudoGamePlayServiceReference\ludoService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ILudoServiceReference\service.wsdl" />
-    <None Include="Service References\ILudoServiceReference\service.xsd">
+    <None Include="Service References\LudoGamePlayServiceReference\service.wsdl" />
+    <None Include="Service References\LudoGamePlayServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterLoginServiceReference\RegisterLoginService.wsdl" />
-    <None Include="Service References\RegisterLoginServiceReference\RegisterLoginService.xsd">
+    <None Include="Service References\RegisterLogin\ludoService.wsdl" />
+    <None Include="Service References\RegisterLogin\ludoService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterLoginServiceReference\service.wsdl" />
-    <None Include="Service References\RegisterLoginServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
+    <None Include="Service References\RegisterLogin\service.wsdl" />
+    <None Include="Service References\RegisterLogin\service.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -130,20 +126,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ILudoServiceReference\" />
-    <WCFMetadataStorage Include="Service References\RegisterLoginServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegisterLoginServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegisterLoginServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegisterLoginServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <WCFMetadataStorage Include="Service References\LudoGamePlayServiceReference\" />
+    <WCFMetadataStorage Include="Service References\RegisterLogin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlayBoardv1.png" />
@@ -165,18 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\d6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ILudoServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ILudoServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ILudoServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button.png" />
@@ -216,6 +188,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Wood_floor_by_gnrbishop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LudoGamePlayServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LudoGamePlayServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LudoGamePlayServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RegisterLogin\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RegisterLogin\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RegisterLogin\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

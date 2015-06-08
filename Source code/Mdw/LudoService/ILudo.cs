@@ -11,12 +11,6 @@ namespace LudoService
     [ServiceContract(Namespace = "ludoService", SessionMode = SessionMode.Required, CallbackContract = typeof(ILudoCallback))]
     public interface ILudo
     {
-        //[OperationContract]
-        //string GetData(int value);
-
-        //[OperationContract]
-        //CompositeType GetDataUsingDataContract(CompositeType composite);
-
         [OperationContract(IsOneWay = false)]
         int GetDiceRoll();
 
