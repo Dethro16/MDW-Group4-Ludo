@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="Cchat.cs" />
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="IChat.cs" />
     <Compile Include="ILudo.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
