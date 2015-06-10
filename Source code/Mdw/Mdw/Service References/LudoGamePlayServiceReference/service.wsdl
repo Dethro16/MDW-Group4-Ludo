@@ -91,6 +91,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPlayerName">
+      <soap12:operation soapAction="ludoService/ILudo/GetPlayerName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="showDiceRoll">
       <soap12:operation soapAction="ludoService/ILudo/showDiceRoll" style="document" />
       <wsdl:output>

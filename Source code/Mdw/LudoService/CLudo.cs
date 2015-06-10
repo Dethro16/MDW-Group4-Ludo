@@ -77,6 +77,11 @@ namespace LudoService
         }
 
 
+        public string GetPlayerName()
+        {
+            return players.ElementAt(players.Count - 1).Name;
+        }
+
         public int GetDiceRoll()
         {
             return diceNumber;

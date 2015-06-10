@@ -33,6 +33,9 @@ namespace LudoService
         [OperationContract(IsOneWay = false)]
         string GetColorPlayer(Color color);
 
+        [OperationContract(IsOneWay = false)]
+        string GetPlayerName();
+
         // TODO: Add your service operations here
     }
 

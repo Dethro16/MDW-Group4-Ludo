@@ -43,6 +43,12 @@
   <wsdl:message name="ILudo_GetColorPlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetColorPlayerResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_GetPlayerName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerName" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_GetPlayerName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerNameResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_showDiceRoll_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:showDiceRoll" />
   </wsdl:message>
@@ -72,6 +78,10 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetColorPlayer">
       <wsdl:input wsaw:Action="ludoService/ILudo/GetColorPlayer" message="tns:ILudo_GetColorPlayer_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/GetColorPlayerResponse" message="tns:ILudo_GetColorPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPlayerName">
+      <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayerName" message="tns:ILudo_GetPlayerName_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerNameResponse" message="tns:ILudo_GetPlayerName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="showDiceRoll">
       <wsdl:output wsaw:Action="ludoService/ILudo/showDiceRoll" message="tns:ILudo_showDiceRoll_OutputCallbackMessage" />

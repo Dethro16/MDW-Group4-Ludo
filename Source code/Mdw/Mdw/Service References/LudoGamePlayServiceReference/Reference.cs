@@ -56,6 +56,12 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetColorPlayer", ReplyAction="ludoService/ILudo/GetColorPlayerResponse")]
         System.Threading.Tasks.Task<string> GetColorPlayerAsync(System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayerName", ReplyAction="ludoService/ILudo/GetPlayerNameResponse")]
+        string GetPlayerName();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayerName", ReplyAction="ludoService/ILudo/GetPlayerNameResponse")]
+        System.Threading.Tasks.Task<string> GetPlayerNameAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -147,6 +153,14 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         public System.Threading.Tasks.Task<string> GetColorPlayerAsync(System.Drawing.Color color) {
             return base.Channel.GetColorPlayerAsync(color);
+        }
+        
+        public string GetPlayerName() {
+            return base.Channel.GetPlayerName();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetPlayerNameAsync() {
+            return base.Channel.GetPlayerNameAsync();
         }
     }
 }

@@ -19,7 +19,10 @@ namespace LudoService
 
         public static event ListOfNames ChatListOfNames;
 
-        public CChat() { }
+        public CChat()
+        {
+
+        }
 
         public void Close()
         {

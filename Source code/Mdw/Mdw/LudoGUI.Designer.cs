@@ -134,6 +134,8 @@
             this.goalBlue3 = new System.Windows.Forms.Panel();
             this.goalBlue2 = new System.Windows.Forms.Panel();
             this.goalBlue4 = new System.Windows.Forms.Panel();
+            this.lBPlayers = new System.Windows.Forms.ListBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.pnChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).BeginInit();
@@ -146,6 +148,8 @@
             // 
             this.pnChat.BackColor = System.Drawing.Color.Transparent;
             this.pnChat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnChat.Controls.Add(this.btnSend);
+            this.pnChat.Controls.Add(this.lBPlayers);
             this.pnChat.Controls.Add(this.lbChat);
             this.pnChat.Controls.Add(this.rtbChat);
             this.pnChat.Location = new System.Drawing.Point(792, 44);
@@ -158,15 +162,15 @@
             this.lbChat.BackColor = System.Drawing.Color.LightBlue;
             this.lbChat.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.Location = new System.Drawing.Point(44, 25);
+            this.lbChat.Location = new System.Drawing.Point(44, 132);
             this.lbChat.Name = "lbChat";
             this.lbChat.ScrollAlwaysVisible = true;
-            this.lbChat.Size = new System.Drawing.Size(226, 368);
+            this.lbChat.Size = new System.Drawing.Size(226, 225);
             this.lbChat.TabIndex = 0;
             // 
             // rtbChat
             // 
-            this.rtbChat.Location = new System.Drawing.Point(44, 425);
+            this.rtbChat.Location = new System.Drawing.Point(44, 363);
             this.rtbChat.Name = "rtbChat";
             this.rtbChat.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.rtbChat.Size = new System.Drawing.Size(226, 92);
@@ -1095,6 +1099,27 @@
             this.goalBlue4.Size = new System.Drawing.Size(15, 15);
             this.goalBlue4.TabIndex = 40;
             // 
+            // lBPlayers
+            // 
+            this.lBPlayers.BackColor = System.Drawing.Color.LightBlue;
+            this.lBPlayers.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lBPlayers.FormattingEnabled = true;
+            this.lBPlayers.Location = new System.Drawing.Point(44, 3);
+            this.lBPlayers.Name = "lBPlayers";
+            this.lBPlayers.ScrollAlwaysVisible = true;
+            this.lBPlayers.Size = new System.Drawing.Size(226, 121);
+            this.lBPlayers.TabIndex = 2;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(106, 488);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 3;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
             // LudoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1211,6 +1236,7 @@
             this.MaximizeBox = false;
             this.Name = "LudoGUI";
             this.Text = "Ludo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RollDiceGUI_FormClosing);
             this.pnChat.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).EndInit();
@@ -1329,5 +1355,7 @@
         private System.Windows.Forms.Panel goalBlue3;
         private System.Windows.Forms.Panel goalBlue2;
         private System.Windows.Forms.Panel goalBlue4;
+        private System.Windows.Forms.ListBox lBPlayers;
+        private System.Windows.Forms.Button btnSend;
     }
 }

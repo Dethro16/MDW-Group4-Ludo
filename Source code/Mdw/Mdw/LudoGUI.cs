@@ -14,6 +14,7 @@ namespace Mdw
     public partial class LudoGUI : Form,
         LudoGamePlayServiceReference.ILudoCallback
     {
+        ChatClient client = null;
         Panel selectedPanel = null;
 
         InstanceContext context;
@@ -23,18 +24,49 @@ namespace Mdw
 
         public LudoGUI()
         {
+
             InitializeComponent();
             context = new InstanceContext(this);
             proxy = new LudoGamePlayServiceReference.LudoClient(context);
             proxy.Subscribe();
 
+            userName = proxy.GetPlayerName();
             this.tbRed.Text = proxy.GetColorPlayer(Color.Red);
             this.tbBlue.Text = proxy.GetColorPlayer(Color.Blue);
             this.tbGreen.Text = proxy.GetColorPlayer(Color.Green);
             this.tbYellow.Text = proxy.GetColorPlayer(Color.Yellow);
 
+            client = new ChatClient();
+            client.Start(client, userName);
+            client.ReceiveMsg += new ReceiveMessage(client_ReceiveMsg);
+            client.NewNames += new GotNames(client_NewNames);
+
+
+            
+
             
         }
+
+        void client_NewNames(object sender, List<string> names)
+        {
+            lBPlayers.Items.Clear();
+            foreach (string item in names)
+            {
+                if (item != userName)
+                {
+                    lBPlayers.Items.Add(item);
+                }
+            }
+        }
+
+        void client_ReceiveMsg(string sender, string message)
+        {
+            if (message.Length > 0)
+            {
+                lbChat.Text += Environment.NewLine + sender + ">" + message;
+            }
+        }
+
 
         public void showDiceRoll(string userName, int diceNumber)
         {
@@ -73,6 +105,7 @@ namespace Mdw
         private void RollDiceGUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             proxy.Unsubscribe();
+            client.Stop(userName);
         }
 
         private int GetSquareNumber(Panel p)
@@ -107,6 +140,34 @@ namespace Mdw
             this.Close();
         }
         #endregion
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            if (lBPlayers.SelectedIndex >= 0 && lBPlayers.SelectedIndex < lBPlayers.Items.Count)
+            {
+                SendMessage();
+            }
+        }
+
+        private void SendMessage()
+        {
+            if (lBPlayers.Items.Count != 0)
+            {
+                lbChat.Text += Environment.NewLine + userName + ">" + rtbChat.Text;
+                if (lBPlayers.SelectedItems.Count == 0)
+                {
+                    client.SendMessage(rtbChat.Text, userName, lBPlayers.Items[0].ToString());
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(lBPlayers.SelectedItem.ToString()))
+                    {
+                        client.SendMessage(rtbChat.Text, userName, lBPlayers.SelectedItem.ToString());
+                    }
+                }
+                rtbChat.Clear();
+            }
+        }
 
     }
 }
