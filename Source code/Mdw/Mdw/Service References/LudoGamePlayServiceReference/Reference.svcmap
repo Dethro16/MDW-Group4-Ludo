@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9027d5cc-e3e0-44e2-9129-8353502347f0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c11bb879-2642-4d45-ba79-e4025c7aa4a0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,21 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/LudoService/Service1/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
+<<<<<<< HEAD:Source code/Mdw/Mdw/Service References/ILudoServiceReference/Reference.svcmap
     <MetadataFile FileName="ludoService.wsdl" MetadataType="Wsdl" ID="9129ea0c-f8d4-4abd-b2a8-924b4135809e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/Service1/mex" />
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="010d4ff1-cd9e-4341-ad32-d1c766a5674e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/Service1/mex" />
     <MetadataFile FileName="ludoService.xsd" MetadataType="Schema" ID="c0221afc-9dc8-418c-a417-16a34a2db106" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/Service1/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a0f10aff-8d57-4fcb-be55-90c92ba2c42a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/Service1/mex" />
     <MetadataFile FileName="System.Drawing.xsd" MetadataType="Schema" ID="b0aba80a-14a3-4aa4-ad63-b90ef71f5a6a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/Service1/mex" />
+=======
+    <MetadataFile FileName="ludoService.wsdl" MetadataType="Wsdl" ID="96908628-6825-4f5a-b015-1f54e6d9f06e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="70187d33-bbd4-4c94-8e56-b8f8d870b83f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
+    <MetadataFile FileName="ludoService.xsd" MetadataType="Schema" ID="c8c0ec22-d2c4-4430-abf3-e13aefb1375e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d005c412-4eb3-490e-a510-08f3c59f51f0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
+>>>>>>> origin/master:Source code/Mdw/Mdw/Service References/LudoGamePlayServiceReference/Reference.svcmap
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

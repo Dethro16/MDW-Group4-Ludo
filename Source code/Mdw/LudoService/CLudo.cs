@@ -19,12 +19,15 @@ namespace LudoService
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class CLudo : ILudo
     {
+<<<<<<< HEAD
         Player player = new Player("", Color.Red);
         //List<Player> players = new List<Player>();
         //Player player;
         //List<Color> AllColors = new List<Color>();
         
 
+=======
+>>>>>>> origin/master
         public static event MessageEventHandler messageEvent;
         public delegate void MessageEventHandler(object sender, MessageEventArgs e);
         

@@ -8,33 +8,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mdw.RegisterLoginServiceReference {
+namespace Mdw.RegisterLogin {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="RegisterLoginService", ConfigurationName="RegisterLoginServiceReference.IRegisterLogin")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="ludoService", ConfigurationName="RegisterLogin.IRegisterLogin")]
     public interface IRegisterLogin {
         
-        [System.ServiceModel.OperationContractAttribute(Action="RegisterLoginService/IRegisterLogin/Register", ReplyAction="RegisterLoginService/IRegisterLogin/RegisterResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/IRegisterLogin/Register", ReplyAction="ludoService/IRegisterLogin/RegisterResponse")]
         string Register(string userName, string passWord, string confPWord);
         
-        [System.ServiceModel.OperationContractAttribute(Action="RegisterLoginService/IRegisterLogin/Register", ReplyAction="RegisterLoginService/IRegisterLogin/RegisterResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/IRegisterLogin/Register", ReplyAction="ludoService/IRegisterLogin/RegisterResponse")]
         System.Threading.Tasks.Task<string> RegisterAsync(string userName, string passWord, string confPWord);
         
-        [System.ServiceModel.OperationContractAttribute(Action="RegisterLoginService/IRegisterLogin/Login", ReplyAction="RegisterLoginService/IRegisterLogin/LoginResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/IRegisterLogin/Login", ReplyAction="ludoService/IRegisterLogin/LoginResponse")]
         string Login(string userName, string passWord);
         
-        [System.ServiceModel.OperationContractAttribute(Action="RegisterLoginService/IRegisterLogin/Login", ReplyAction="RegisterLoginService/IRegisterLogin/LoginResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/IRegisterLogin/Login", ReplyAction="ludoService/IRegisterLogin/LoginResponse")]
         System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IRegisterLoginChannel : Mdw.RegisterLoginServiceReference.IRegisterLogin, System.ServiceModel.IClientChannel {
+    public interface IRegisterLoginChannel : Mdw.RegisterLogin.IRegisterLogin, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RegisterLoginClient : System.ServiceModel.ClientBase<Mdw.RegisterLoginServiceReference.IRegisterLogin>, Mdw.RegisterLoginServiceReference.IRegisterLogin {
+    public partial class RegisterLoginClient : System.ServiceModel.ClientBase<Mdw.RegisterLogin.IRegisterLogin>, Mdw.RegisterLogin.IRegisterLogin {
         
         public RegisterLoginClient() {
         }

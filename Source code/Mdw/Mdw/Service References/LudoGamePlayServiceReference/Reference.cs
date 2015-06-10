@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mdw.ILudoServiceReference {
+namespace Mdw.LudoGamePlayServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="ludoService", ConfigurationName="ILudoServiceReference.ILudo", CallbackContract=typeof(Mdw.ILudoServiceReference.ILudoCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="ludoService", ConfigurationName="LudoGamePlayServiceReference.ILudo", CallbackContract=typeof(Mdw.LudoGamePlayServiceReference.ILudoCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface ILudo {
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetDiceRoll", ReplyAction="ludoService/ILudo/GetDiceRollResponse")]
@@ -66,12 +66,12 @@ namespace Mdw.ILudoServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ILudoChannel : Mdw.ILudoServiceReference.ILudo, System.ServiceModel.IClientChannel {
+    public interface ILudoChannel : Mdw.LudoGamePlayServiceReference.ILudo, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class LudoClient : System.ServiceModel.DuplexClientBase<Mdw.ILudoServiceReference.ILudo>, Mdw.ILudoServiceReference.ILudo {
+    public partial class LudoClient : System.ServiceModel.DuplexClientBase<Mdw.LudoGamePlayServiceReference.ILudo>, Mdw.LudoGamePlayServiceReference.ILudo {
         
         public LudoClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
