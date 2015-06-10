@@ -28,8 +28,6 @@ namespace Mdw
             proxy = new LudoGamePlayServiceReference.LudoClient(context);
             proxy.Subscribe();
 
-
-
             this.tbRed.Text = proxy.GetColorPlayer(Color.Red);
             this.tbBlue.Text = proxy.GetColorPlayer(Color.Blue);
             this.tbGreen.Text = proxy.GetColorPlayer(Color.Green);

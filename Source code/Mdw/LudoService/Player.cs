@@ -15,16 +15,16 @@ namespace LudoService
         bool hasWon;
         bool loggedIn = false;
 
-<<<<<<< HEAD
+
         List<Player> players = new List<Player>();
         
-=======
+
         //List<Player> players;
         
 
         Random rnd = new Random();
 
->>>>>>> origin/NewCreatePlayers
+
         //Properties
         public string Name
         {

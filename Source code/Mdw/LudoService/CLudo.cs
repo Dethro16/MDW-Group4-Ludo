@@ -104,13 +104,6 @@ namespace LudoService
             return "No player";
         }
 
-        //public void createPlayer(string name, Color color)
-        //{
-        //    Player player = new Player(name, color);
-        //    players.Add(player);
-        //    player.getColorPlayer(players, color);
-        //}
-
 
         public void Subscribe()
         {

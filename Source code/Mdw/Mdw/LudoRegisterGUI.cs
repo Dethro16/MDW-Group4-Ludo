@@ -53,6 +53,8 @@ namespace Mdw
             this.Close();
         }
 
+       
+
         private void btRegister_Click(object sender, EventArgs e)
         {
 
