@@ -26,6 +26,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="70187d33-bbd4-4c94-8e56-b8f8d870b83f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
     <MetadataFile FileName="ludoService.xsd" MetadataType="Schema" ID="c8c0ec22-d2c4-4430-abf3-e13aefb1375e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d005c412-4eb3-490e-a510-08f3c59f51f0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
+    <MetadataFile FileName="System.Drawing.xsd" MetadataType="Schema" ID="40c348cd-c4f6-4a08-b92a-dca00a5b8b0c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LudoService/LudoGamePlay/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

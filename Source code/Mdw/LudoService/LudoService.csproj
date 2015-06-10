@@ -49,11 +49,9 @@
     <Compile Include="Board.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="ILudo.cs" />
-    <Compile Include="IRegisterLogin.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CLudo.cs" />
-    <Compile Include="CRegisterLogin.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="Token.cs" />
   </ItemGroup>

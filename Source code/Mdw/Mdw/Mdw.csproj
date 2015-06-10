@@ -71,11 +71,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\RegisterLogin\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="LudoGUI.resx">
       <DependentUpon>LudoGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,12 +108,7 @@
     <None Include="Service References\LudoGamePlayServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RegisterLogin\ludoService.wsdl" />
-    <None Include="Service References\RegisterLogin\ludoService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RegisterLogin\service.wsdl" />
-    <None Include="Service References\RegisterLogin\service.xsd">
+    <None Include="Service References\LudoGamePlayServiceReference\System.Drawing.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -127,7 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\LudoGamePlayServiceReference\" />
-    <WCFMetadataStorage Include="Service References\RegisterLogin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlayBoardv1.png" />
@@ -197,18 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\LudoGamePlayServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegisterLogin\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegisterLogin\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\RegisterLogin\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

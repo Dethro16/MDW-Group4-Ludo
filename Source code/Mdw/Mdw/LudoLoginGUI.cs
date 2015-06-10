@@ -11,12 +11,12 @@ using System.ServiceModel;
 
 namespace Mdw
 {
-    public partial class LudoLoginGUI : Form
+    public partial class LudoLoginGUI : Form, LudoGamePlayServiceReference.ILudoCallback
     {
         //private RegisterLoginServiceReference.RegisterLoginClient proxy;
-        private LudoGamePlayServiceReference.LudoClient proxy1;
-        private RegisterLogin.RegisterLoginClient proxy;
-        //private ILudoServiceReference.LudoClient proxy1;
+        private LudoGamePlayServiceReference.LudoClient proxy;
+        //private RegisterLogin.RegisterLoginClient proxy;
+        //private ILudoServiceReference.LudoClient proxy;
 
 
         InstanceContext context;
@@ -29,8 +29,8 @@ namespace Mdw
         {
             InitializeComponent();
             context = new InstanceContext(this);
-            proxy = new RegisterLogin.RegisterLoginClient();
-            proxy1 = new LudoGamePlayServiceReference.LudoClient(context);
+            //proxy1 = new RegisterLogin.RegisterLoginClient();
+            proxy = new LudoGamePlayServiceReference.LudoClient(context);
         }
 
         #region dragdrop
@@ -83,17 +83,63 @@ namespace Mdw
             }
         }
 
+        public void showDiceRoll(string userName, int diceNumber)
+        {
+        //    string s = "<" + userName + "> has rolled a " + diceNumber.ToString();
+        //    lbChat.Items.Add(s);
+
+        //    int caseSwitch = diceNumber;
+        //    switch (caseSwitch)
+        //    {
+        //        case 1:
+        //            pbDice.Image = Properties.Resources.d1;
+        //            break;
+        //        case 2:
+        //            pbDice.Image = Properties.Resources.d2;
+        //            break;
+        //        case 3:
+        //            pbDice.Image = Properties.Resources.d3;
+        //            break;
+        //        case 4:
+        //            pbDice.Image = Properties.Resources.d4;
+        //            break;
+        //        case 5:
+        //            pbDice.Image = Properties.Resources.d5;
+        //            break;
+        //        case 6:
+        //            pbDice.Image = Properties.Resources.d6;
+        //            break;
+        //    }
+        }
+
+        private Color ChooseColor()
+        {
+
+            if ("Red" == cBColor.SelectedItem.ToString())
+            {
+                return Color.Red;
+            }
+            if ("Blue" == cBColor.SelectedItem.ToString())
+            {
+                return Color.Blue;
+            }
+            if ("Green" == cBColor.SelectedItem.ToString())
+            {
+                return Color.Green;
+            }
+            else
+            {
+                return Color.Yellow;
+            }
+
+        }
+
         private void Login()
         {
 
+            string check = proxy.Login(tbUsername.Text, tbPassword.Text, ChooseColor());
+            MessageBox.Show(check);
 
-
-            MessageBox.Show(proxy.Login(tbUsername.Text, tbPassword.Text));
-            string check = proxy.Login(tbUsername.Text, tbPassword.Text);
-
-
-            //MessageBox.Show(proxy.Login(tbUsername.Text, tbPassword.Text));
-            //string check = proxy.Login(tbUsername.Text, tbPassword.Text);
             bool login = check.Contains("successfully");
             if (login)
             {

@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="ludoService/Imports">
       <xsd:import namespace="ludoService" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ILudo_GetDiceRoll_InputMessage">
@@ -24,6 +25,24 @@
   <wsdl:message name="ILudo_Unsubscribe_InputMessage">
     <wsdl:part name="parameters" element="tns:Unsubscribe" />
   </wsdl:message>
+  <wsdl:message name="ILudo_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_GetColorPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetColorPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_GetColorPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetColorPlayerResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_showDiceRoll_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:showDiceRoll" />
   </wsdl:message>
@@ -41,6 +60,18 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="true" name="Unsubscribe">
       <wsdl:input wsaw:Action="ludoService/ILudo/Unsubscribe" message="tns:ILudo_Unsubscribe_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Register">
+      <wsdl:input wsaw:Action="ludoService/ILudo/Register" message="tns:ILudo_Register_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/RegisterResponse" message="tns:ILudo_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
+      <wsdl:input wsaw:Action="ludoService/ILudo/Login" message="tns:ILudo_Login_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/LoginResponse" message="tns:ILudo_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetColorPlayer">
+      <wsdl:input wsaw:Action="ludoService/ILudo/GetColorPlayer" message="tns:ILudo_GetColorPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/GetColorPlayerResponse" message="tns:ILudo_GetColorPlayer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="showDiceRoll">
       <wsdl:output wsaw:Action="ludoService/ILudo/showDiceRoll" message="tns:ILudo_showDiceRoll_OutputCallbackMessage" />

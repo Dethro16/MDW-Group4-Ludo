@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace LudoService
 {
-    class Player
+   public class Player
     {
         //Fields
         string name;
@@ -15,8 +15,16 @@ namespace LudoService
         bool hasWon;
         bool loggedIn = false;
 
+<<<<<<< HEAD
         List<Player> players = new List<Player>();
         
+=======
+        //List<Player> players;
+        
+
+        Random rnd = new Random();
+
+>>>>>>> origin/NewCreatePlayers
         //Properties
         public string Name
         {
@@ -47,10 +55,18 @@ namespace LudoService
 
         public Player(string name, Color color)
         {
-            Name = name;
-            Color = color;
-            HasWon = false;
-            LoggedIn = true;
+            if (color == Color.Black)
+            {
+
+            }
+            else
+            {
+                Name = name;
+                Color = color;
+                HasWon = false;
+                LoggedIn = true;
+
+            }
         }
 
         //Method
