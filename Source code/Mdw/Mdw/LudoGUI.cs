@@ -14,6 +14,9 @@ namespace Mdw
     public partial class LudoGUI : Form,
         LudoGamePlayServiceReference.ILudoCallback
     {
+
+        ChatClient clientChat = null;
+
         Panel selectedPanel = null;
 
         InstanceContext context;
@@ -76,6 +79,8 @@ namespace Mdw
             }
         }
 
+
+
         private void PanelOnClick(object sender, EventArgs e)
         {
             Panel p = (Panel)sender;
@@ -96,7 +101,9 @@ namespace Mdw
         private void btLeave_Click(object sender, EventArgs e)
         {
             proxy.Unsubscribe();
+            //clientChat.Stop(name);
             this.Close();
+            
         }
         #endregion
 
