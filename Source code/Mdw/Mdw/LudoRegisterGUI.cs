@@ -13,7 +13,7 @@ namespace Mdw
 {
     public partial class LudoRegisterGUI : Form
     {
-        private RegisterLogin.RegisterLoginClient proxy;
+        private RegisterLoginServiceReference.RegisterLoginClient proxy;
         InstanceContext context;
 
         bool togMove;
@@ -24,7 +24,7 @@ namespace Mdw
         {
             InitializeComponent();
             context = new InstanceContext(this);
-            proxy = new RegisterLogin.RegisterLoginClient();
+            proxy = new RegisterLoginServiceReference.RegisterLoginClient();
         }
 
         #region dragdrop

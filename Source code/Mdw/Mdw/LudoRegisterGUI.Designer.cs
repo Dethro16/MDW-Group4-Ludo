@@ -171,7 +171,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LudoRegisterGUI";
-            this.Text = "Ludo Register";
+            this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbDragDrop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -13,7 +13,6 @@ namespace LudoService
         string name;
         Color color;
         bool hasWon;
-<<<<<<< HEAD
         List<Player> players = new List<Player>();
 
         Player player;
@@ -21,9 +20,6 @@ namespace LudoService
             Color.Red,Color.Blue, Color.Green, Color.Yellow};
 
         Random rnd = new Random();
-=======
-        bool loggedIn = false;
->>>>>>> origin/master
 
         //Properties
         public string Name
@@ -48,13 +44,6 @@ namespace LudoService
             set { hasWon = value; }
         }
 
-        public bool LoggedIn
-        {
-            get { return loggedIn; }
-            set { loggedIn = value; }
-        }
-
-
         //Constructor
 
         public Player(string name, Color color)
@@ -62,7 +51,6 @@ namespace LudoService
             Name = name;
             Color = color;
             HasWon = false;
-            LoggedIn = true;
         }
 
         public void CreatePlayer(string playerName, Color color)

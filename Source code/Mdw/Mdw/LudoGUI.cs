@@ -12,24 +12,20 @@ using System.ServiceModel;
 namespace Mdw
 {
     public partial class LudoGUI : Form,
-        LudoGamePlayServiceReference.ILudoCallback
+        ILudoServiceReference.ILudoCallback
     {
         Panel selectedPanel = null;
 
         InstanceContext context;
-<<<<<<< HEAD
         ILudoServiceReference.LudoClient proxy;
 
-=======
-        LudoGamePlayServiceReference.LudoClient proxy;
->>>>>>> origin/master
         string userName;
 
         public LudoGUI()
         {
             InitializeComponent();
             context = new InstanceContext(this);
-            proxy = new LudoGamePlayServiceReference.LudoClient(context);
+            proxy = new ILudoServiceReference.LudoClient(context);
             proxy.Subscribe();
 
             //proxy.CreatePlayer(lu.LoginName, lu.Color);
