@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Mdw
+namespace LudoService
 {
     class Player
     {
@@ -15,6 +15,8 @@ namespace Mdw
         bool hasWon;
         bool loggedIn = false;
 
+        List<Player> players = new List<Player>();
+        
         //Properties
         public string Name
         {
