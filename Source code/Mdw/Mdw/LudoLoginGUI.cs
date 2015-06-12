@@ -15,12 +15,8 @@ namespace Mdw
     {
         public static string userName;
         public static Color color;
-        //private RegisterLoginServiceReference.RegisterLoginClient proxy;
-        //private LudoGamePlayServiceReference.LudoClient proxy;
-        private RegisterLoginServiceReference.RegisterLoginClient proxy;
-        //private RegisterLogin.RegisterLoginClient proxy;
-        //private ILudoServiceReference.LudoClient proxy;
 
+        private RegisterLoginServiceReference.RegisterLoginClient proxy;
 
         InstanceContext context;
 
@@ -32,7 +28,6 @@ namespace Mdw
         {
             InitializeComponent();
             context = new InstanceContext(this);
-            //proxy1 = new RegisterLogin.RegisterLoginClient();
             proxy = new RegisterLoginServiceReference.RegisterLoginClient();
         }
 
@@ -80,44 +75,17 @@ namespace Mdw
 
         private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
+            if (cBColor.SelectedIndex != -1)
             {
-                Login();
+                if (e.KeyChar == (char)13)
+                {
+                    Login();
+                }
             }
-        }
-
-        public void showDiceRoll(string userName, int diceNumber)
-        {
-            //    string s = "<" + userName + "> has rolled a " + diceNumber.ToString();
-            //    lbChat.Items.Add(s);
-
-            //    int caseSwitch = diceNumber;
-            //    switch (caseSwitch)
-            //    {
-            //        case 1:
-            //            pbDice.Image = Properties.Resources.d1;
-            //            break;
-            //        case 2:
-            //            pbDice.Image = Properties.Resources.d2;
-            //            break;
-            //        case 3:
-            //            pbDice.Image = Properties.Resources.d3;
-            //            break;
-            //        case 4:
-            //            pbDice.Image = Properties.Resources.d4;
-            //            break;
-            //        case 5:
-            //            pbDice.Image = Properties.Resources.d5;
-            //            break;
-            //        case 6:
-            //            pbDice.Image = Properties.Resources.d6;
-            //            break;
-            //    }
         }
 
         private Color ChooseColor()
         {
-
             if ("Red" == cBColor.SelectedItem.ToString())
             {
                 return Color.Red;
@@ -134,13 +102,12 @@ namespace Mdw
             {
                 return Color.Yellow;
             }
-
         }
 
         private void Login()
         {
-
-            string check = proxy.Login(tbUsername.Text, tbPassword.Text, ChooseColor());
+            color = ChooseColor();
+            string check = proxy.Login(tbUsername.Text, tbPassword.Text, color);
             MessageBox.Show(check);
 
 
@@ -148,13 +115,18 @@ namespace Mdw
             if (login)
             {
                 userName = tbUsername.Text;
-                color = ChooseColor();
+
                 LudoGUI game = new LudoGUI();
                 this.SetVisibleCore(false);
                 game.ShowDialog();
                 tbPassword.Text = "";
                 this.SetVisibleCore(true);
             }
+        }
+
+        private void cBColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btLogin.Enabled = true;
         }
     }
 }

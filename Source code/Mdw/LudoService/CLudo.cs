@@ -61,7 +61,7 @@ namespace LudoService
         public string RollToClient(string playername)
         {
             diceNumber = GenerateRoll();
-            string s = DateTime.Now.ToString("HH:MM") + " <" + playername + "> rolled: " + diceNumber.ToString();
+            string s = "[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + playername + "> rolled a " + diceNumber.ToString() + "!!! ~~~";
             return s;
         }
 
@@ -84,10 +84,14 @@ namespace LudoService
 
         public void CreatePlayers(string userName, Color color)
         {
-
             if (AllColors.Exists(x => x.Equals(color)))
             {
                 Player player = new Player(userName, color);
+                if (players.Count < 1)
+                {
+                    player.First = true;
+                }
+                player.ID = players.Count + 1;
                 player.callback = OperationContext.Current.GetCallbackChannel<ILudoCallback>();
                 AllColors.Remove(color);
                 players.Add(player);
@@ -119,7 +123,7 @@ namespace LudoService
         {
             if (message != "")
             {
-                string temp = DateTime.Now.ToString("HH:MM") + " <" + playername + ">: " + message;
+                string temp = "["+DateTime.Now.ToString("HH:MM") + "] <" + playername + ">: " + message;
                 return temp;
             }
             else return null;

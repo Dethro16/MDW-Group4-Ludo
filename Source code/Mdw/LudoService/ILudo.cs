@@ -50,6 +50,10 @@ namespace LudoService
         public bool HasWon { get; set; }
         [DataMember]
         public bool Loggedin { get; set; }
+        [DataMember]
+        public bool First { get; set; }
+        [DataMember]
+        public int ID { get; set; }
 
         [DataMember]
         public ILudoCallback callback { get; set; }

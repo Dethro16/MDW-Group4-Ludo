@@ -140,6 +140,7 @@
             this.btLogin.BackColor = System.Drawing.Color.Transparent;
             this.btLogin.BackgroundImage = global::Mdw.Properties.Resources.Loginb;
             this.btLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btLogin.Enabled = false;
             this.btLogin.FlatAppearance.BorderSize = 0;
             this.btLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -178,6 +179,7 @@
             this.cBColor.Name = "cBColor";
             this.cBColor.Size = new System.Drawing.Size(97, 21);
             this.cBColor.TabIndex = 11;
+            this.cBColor.SelectedIndexChanged += new System.EventHandler(this.cBColor_SelectedIndexChanged);
             // 
             // label1
             // 

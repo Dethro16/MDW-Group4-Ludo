@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LudoGUI));
             this.pnChat = new System.Windows.Forms.Panel();
-            this.lBPlayers = new System.Windows.Forms.ListBox();
+            this.tbChat = new System.Windows.Forms.TextBox();
+            this.BtnSend = new System.Windows.Forms.Button();
             this.lbChat = new System.Windows.Forms.ListBox();
             this.startRed = new System.Windows.Forms.Panel();
             this.field1 = new System.Windows.Forms.Panel();
@@ -134,8 +135,6 @@
             this.goalBlue3 = new System.Windows.Forms.Panel();
             this.goalBlue2 = new System.Windows.Forms.Panel();
             this.goalBlue4 = new System.Windows.Forms.Panel();
-            this.BtnSend = new System.Windows.Forms.Button();
-            this.tbChat = new System.Windows.Forms.TextBox();
             this.pnChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).BeginInit();
@@ -150,33 +149,40 @@
             this.pnChat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnChat.Controls.Add(this.tbChat);
             this.pnChat.Controls.Add(this.BtnSend);
-            this.pnChat.Controls.Add(this.lBPlayers);
             this.pnChat.Controls.Add(this.lbChat);
             this.pnChat.Location = new System.Drawing.Point(792, 44);
             this.pnChat.Name = "pnChat";
             this.pnChat.Size = new System.Drawing.Size(306, 537);
             this.pnChat.TabIndex = 0;
             // 
-            // lBPlayers
+            // tbChat
             // 
-            this.lBPlayers.BackColor = System.Drawing.Color.LightBlue;
-            this.lBPlayers.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lBPlayers.FormattingEnabled = true;
-            this.lBPlayers.Location = new System.Drawing.Point(44, 3);
-            this.lBPlayers.Name = "lBPlayers";
-            this.lBPlayers.ScrollAlwaysVisible = true;
-            this.lBPlayers.Size = new System.Drawing.Size(226, 121);
-            this.lBPlayers.TabIndex = 2;
+            this.tbChat.Location = new System.Drawing.Point(44, 368);
+            this.tbChat.Name = "tbChat";
+            this.tbChat.Size = new System.Drawing.Size(226, 20);
+            this.tbChat.TabIndex = 4;
+            this.tbChat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbChat_KeyPress);
+            // 
+            // BtnSend
+            // 
+            this.BtnSend.Location = new System.Drawing.Point(98, 396);
+            this.BtnSend.Name = "BtnSend";
+            this.BtnSend.Size = new System.Drawing.Size(119, 23);
+            this.BtnSend.TabIndex = 3;
+            this.BtnSend.Text = "Send message!";
+            this.BtnSend.UseVisualStyleBackColor = true;
+            this.BtnSend.Click += new System.EventHandler(this.BtnSend_Click);
             // 
             // lbChat
             // 
             this.lbChat.BackColor = System.Drawing.Color.LightBlue;
             this.lbChat.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.Location = new System.Drawing.Point(44, 132);
+            this.lbChat.Location = new System.Drawing.Point(44, 15);
             this.lbChat.Name = "lbChat";
             this.lbChat.ScrollAlwaysVisible = true;
-            this.lbChat.Size = new System.Drawing.Size(226, 225);
+            this.lbChat.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbChat.Size = new System.Drawing.Size(226, 342);
             this.lbChat.TabIndex = 0;
             // 
             // startRed
@@ -1101,23 +1107,6 @@
             this.goalBlue4.Size = new System.Drawing.Size(15, 15);
             this.goalBlue4.TabIndex = 40;
             // 
-            // BtnSend
-            // 
-            this.BtnSend.Location = new System.Drawing.Point(98, 396);
-            this.BtnSend.Name = "BtnSend";
-            this.BtnSend.Size = new System.Drawing.Size(119, 23);
-            this.BtnSend.TabIndex = 3;
-            this.BtnSend.Text = "Send message!";
-            this.BtnSend.UseVisualStyleBackColor = true;
-            this.BtnSend.Click += new System.EventHandler(this.BtnSend_Click);
-            // 
-            // tbChat
-            // 
-            this.tbChat.Location = new System.Drawing.Point(44, 368);
-            this.tbChat.Name = "tbChat";
-            this.tbChat.Size = new System.Drawing.Size(226, 20);
-            this.tbChat.TabIndex = 4;
-            // 
             // LudoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1353,7 +1342,6 @@
         private System.Windows.Forms.Panel goalBlue3;
         private System.Windows.Forms.Panel goalBlue2;
         private System.Windows.Forms.Panel goalBlue4;
-        private System.Windows.Forms.ListBox lBPlayers;
         private System.Windows.Forms.Button BtnSend;
         private System.Windows.Forms.TextBox tbChat;
     }

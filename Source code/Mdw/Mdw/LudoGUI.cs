@@ -66,12 +66,12 @@ namespace Mdw
 
         public void OnChatCallback(string username, string message)
         {
-            lbChat.Items.Add(DateTime.Now.ToString("HH:MM") + " <" + username + ">: " + message);
+            lbChat.Items.Add("["+DateTime.Now.ToString("HH:MM")+"] <" + username + ">: " + message);
         }
 
         public void OnRollCallback(string username, int diceroll)
         {
-            lbChat.Items.Add(DateTime.Now.ToString("HH:MM") + " <" + username + "> rolled: " + diceroll.ToString());
+            lbChat.Items.Add("["+DateTime.Now.ToString("HH:MM") + "] ~~~ <" + username + "> rolled a " + diceroll.ToString()+"!!! ~~~");
 
             caseSwitch = diceroll;
             switch (caseSwitch)
@@ -102,6 +102,7 @@ namespace Mdw
         {
             string temp = proxy.RollToClient(userName);
             proxy.Roll(userName);
+            
             lbChat.Items.Add(temp);
 
             switch (proxy.NumberToClient())
@@ -173,6 +174,20 @@ namespace Mdw
             lbChat.Items.Add(temp);
             tbChat.Clear();
             tbChat.Focus();
+        }
+
+        private void tbChat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                string message = this.tbChat.Text;
+                string temp = proxy.ChatToClient(userName, message);
+
+                proxy.Chat(userName, message);
+                lbChat.Items.Add(temp);
+                tbChat.Clear();
+                tbChat.Focus();
+            }
         }
 
 
