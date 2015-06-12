@@ -9,34 +9,65 @@ using System.Drawing;
 namespace LudoService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract(Namespace = "ludoService", SessionMode = SessionMode.Required, CallbackContract = typeof(ILudoCallback))]
+    [ServiceContract(Namespace = "ludoService", CallbackContract = typeof(ILudoCallback))]
     public interface ILudo
     {
-        [OperationContract(IsOneWay = false)]
-        int GetDiceRoll();
+        [OperationContract]
+        string RollToClient(string playername);
 
-        [OperationContract(IsOneWay = true)]
-        void Roll(string userName);
+        [OperationContract]
+        void Roll(string playername);
 
-        [OperationContract(IsOneWay = false, IsInitiating = true)]
+        [OperationContract]
+        int NumberToClient();
+
+        [OperationContract]
         void Subscribe();
 
-        [OperationContract(IsOneWay = true, IsTerminating = true)]
-        void Unsubscribe();
+        [OperationContract]
+        void CreatePlayers(string userName, Color color);
 
-        [OperationContract(IsOneWay = false)]
-        string Register(string userName, string passWord, string confPassWord);
+        [OperationContract]
+        string ChatToClient(string playername, string message);
 
-        [OperationContract(IsOneWay = false)]
-        string Login(string userName, string passWord, Color color);
+        [OperationContract]
+        void GetPlayerColor(string playername, Color color);
 
-        [OperationContract(IsOneWay = false)]
-        string GetColorPlayer(Color color);
+        [OperationContract]
+        string GetPlayer(Color color);
 
-        [OperationContract(IsOneWay = false)]
-        string GetPlayerName();
+        [OperationContract]
+        void Chat(string playername, string message);
+    }
 
-        // TODO: Add your service operations here
+    public class Player
+    {
+        [DataMember]
+        public string PlayerName { get; set; }
+        [DataMember]
+        public Color Color { get; set; }
+        [DataMember]
+        public bool HasWon { get; set; }
+        [DataMember]
+        public bool Loggedin { get; set; }
+
+        [DataMember]
+        public ILudoCallback callback { get; set; }
+
+        public Player(string name, Color color)
+        {
+            if (color == Color.Black)
+            {
+
+            }
+            else
+            {
+                this.PlayerName = name;
+                this.Color = color;
+                this.HasWon = false;
+                this.Loggedin = true;
+            }
+        }
     }
 
 
@@ -46,6 +77,12 @@ namespace LudoService
     public interface ILudoCallback
     {
         [OperationContract(IsOneWay = true)]
-        void showDiceRoll(string userName, int diceNumber);
+        void OnChatCallback(string userName, string message);
+
+        [OperationContract(IsOneWay = true)]
+        void OnRollCallback(string playername, int diceroll);
+
+        [OperationContract(IsOneWay = true)]
+        void OnPlayerLogin(string playername, Color color);
     }
 }

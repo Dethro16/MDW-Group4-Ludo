@@ -12,20 +12,26 @@ namespace Mdw.LudoGamePlayServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="ludoService", ConfigurationName="LudoGamePlayServiceReference.ILudo", CallbackContract=typeof(Mdw.LudoGamePlayServiceReference.ILudoCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="ludoService", ConfigurationName="LudoGamePlayServiceReference.ILudo", CallbackContract=typeof(Mdw.LudoGamePlayServiceReference.ILudoCallback))]
     public interface ILudo {
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetDiceRoll", ReplyAction="ludoService/ILudo/GetDiceRollResponse")]
-        int GetDiceRoll();
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/RollToClient", ReplyAction="ludoService/ILudo/RollToClientResponse")]
+        string RollToClient(string playername);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetDiceRoll", ReplyAction="ludoService/ILudo/GetDiceRollResponse")]
-        System.Threading.Tasks.Task<int> GetDiceRollAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/RollToClient", ReplyAction="ludoService/ILudo/RollToClientResponse")]
+        System.Threading.Tasks.Task<string> RollToClientAsync(string playername);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/Roll")]
-        void Roll(string userName);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Roll", ReplyAction="ludoService/ILudo/RollResponse")]
+        void Roll(string playername);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/Roll")]
-        System.Threading.Tasks.Task RollAsync(string userName);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Roll", ReplyAction="ludoService/ILudo/RollResponse")]
+        System.Threading.Tasks.Task RollAsync(string playername);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/NumberToClient", ReplyAction="ludoService/ILudo/NumberToClientResponse")]
+        int NumberToClient();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/NumberToClient", ReplyAction="ludoService/ILudo/NumberToClientResponse")]
+        System.Threading.Tasks.Task<int> NumberToClientAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Subscribe", ReplyAction="ludoService/ILudo/SubscribeResponse")]
         void Subscribe();
@@ -33,42 +39,48 @@ namespace Mdw.LudoGamePlayServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Subscribe", ReplyAction="ludoService/ILudo/SubscribeResponse")]
         System.Threading.Tasks.Task SubscribeAsync();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="ludoService/ILudo/Unsubscribe")]
-        void Unsubscribe();
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/CreatePlayers", ReplyAction="ludoService/ILudo/CreatePlayersResponse")]
+        void CreatePlayers(string userName, System.Drawing.Color color);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="ludoService/ILudo/Unsubscribe")]
-        System.Threading.Tasks.Task UnsubscribeAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/CreatePlayers", ReplyAction="ludoService/ILudo/CreatePlayersResponse")]
+        System.Threading.Tasks.Task CreatePlayersAsync(string userName, System.Drawing.Color color);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Register", ReplyAction="ludoService/ILudo/RegisterResponse")]
-        string Register(string userName, string passWord, string confPassWord);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/ChatToClient", ReplyAction="ludoService/ILudo/ChatToClientResponse")]
+        string ChatToClient(string playername, string message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Register", ReplyAction="ludoService/ILudo/RegisterResponse")]
-        System.Threading.Tasks.Task<string> RegisterAsync(string userName, string passWord, string confPassWord);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/ChatToClient", ReplyAction="ludoService/ILudo/ChatToClientResponse")]
+        System.Threading.Tasks.Task<string> ChatToClientAsync(string playername, string message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Login", ReplyAction="ludoService/ILudo/LoginResponse")]
-        string Login(string userName, string passWord, System.Drawing.Color color);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayerColor", ReplyAction="ludoService/ILudo/GetPlayerColorResponse")]
+        void GetPlayerColor(string playername, System.Drawing.Color color);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Login", ReplyAction="ludoService/ILudo/LoginResponse")]
-        System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord, System.Drawing.Color color);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayerColor", ReplyAction="ludoService/ILudo/GetPlayerColorResponse")]
+        System.Threading.Tasks.Task GetPlayerColorAsync(string playername, System.Drawing.Color color);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetColorPlayer", ReplyAction="ludoService/ILudo/GetColorPlayerResponse")]
-        string GetColorPlayer(System.Drawing.Color color);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayer", ReplyAction="ludoService/ILudo/GetPlayerResponse")]
+        string GetPlayer(System.Drawing.Color color);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetColorPlayer", ReplyAction="ludoService/ILudo/GetColorPlayerResponse")]
-        System.Threading.Tasks.Task<string> GetColorPlayerAsync(System.Drawing.Color color);
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayer", ReplyAction="ludoService/ILudo/GetPlayerResponse")]
+        System.Threading.Tasks.Task<string> GetPlayerAsync(System.Drawing.Color color);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayerName", ReplyAction="ludoService/ILudo/GetPlayerNameResponse")]
-        string GetPlayerName();
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Chat", ReplyAction="ludoService/ILudo/ChatResponse")]
+        void Chat(string playername, string message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayerName", ReplyAction="ludoService/ILudo/GetPlayerNameResponse")]
-        System.Threading.Tasks.Task<string> GetPlayerNameAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Chat", ReplyAction="ludoService/ILudo/ChatResponse")]
+        System.Threading.Tasks.Task ChatAsync(string playername, string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ILudoCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/showDiceRoll")]
-        void showDiceRoll(string userName, int diceNumber);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnChatCallback")]
+        void OnChatCallback(string userName, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnRollCallback")]
+        void OnRollCallback(string playername, int diceroll);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnPlayerLogin")]
+        void OnPlayerLogin(string playername, System.Drawing.Color color);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -99,20 +111,28 @@ namespace Mdw.LudoGamePlayServiceReference {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public int GetDiceRoll() {
-            return base.Channel.GetDiceRoll();
+        public string RollToClient(string playername) {
+            return base.Channel.RollToClient(playername);
         }
         
-        public System.Threading.Tasks.Task<int> GetDiceRollAsync() {
-            return base.Channel.GetDiceRollAsync();
+        public System.Threading.Tasks.Task<string> RollToClientAsync(string playername) {
+            return base.Channel.RollToClientAsync(playername);
         }
         
-        public void Roll(string userName) {
-            base.Channel.Roll(userName);
+        public void Roll(string playername) {
+            base.Channel.Roll(playername);
         }
         
-        public System.Threading.Tasks.Task RollAsync(string userName) {
-            return base.Channel.RollAsync(userName);
+        public System.Threading.Tasks.Task RollAsync(string playername) {
+            return base.Channel.RollAsync(playername);
+        }
+        
+        public int NumberToClient() {
+            return base.Channel.NumberToClient();
+        }
+        
+        public System.Threading.Tasks.Task<int> NumberToClientAsync() {
+            return base.Channel.NumberToClientAsync();
         }
         
         public void Subscribe() {
@@ -123,44 +143,44 @@ namespace Mdw.LudoGamePlayServiceReference {
             return base.Channel.SubscribeAsync();
         }
         
-        public void Unsubscribe() {
-            base.Channel.Unsubscribe();
+        public void CreatePlayers(string userName, System.Drawing.Color color) {
+            base.Channel.CreatePlayers(userName, color);
         }
         
-        public System.Threading.Tasks.Task UnsubscribeAsync() {
-            return base.Channel.UnsubscribeAsync();
+        public System.Threading.Tasks.Task CreatePlayersAsync(string userName, System.Drawing.Color color) {
+            return base.Channel.CreatePlayersAsync(userName, color);
         }
         
-        public string Register(string userName, string passWord, string confPassWord) {
-            return base.Channel.Register(userName, passWord, confPassWord);
+        public string ChatToClient(string playername, string message) {
+            return base.Channel.ChatToClient(playername, message);
         }
         
-        public System.Threading.Tasks.Task<string> RegisterAsync(string userName, string passWord, string confPassWord) {
-            return base.Channel.RegisterAsync(userName, passWord, confPassWord);
+        public System.Threading.Tasks.Task<string> ChatToClientAsync(string playername, string message) {
+            return base.Channel.ChatToClientAsync(playername, message);
         }
         
-        public string Login(string userName, string passWord, System.Drawing.Color color) {
-            return base.Channel.Login(userName, passWord, color);
+        public void GetPlayerColor(string playername, System.Drawing.Color color) {
+            base.Channel.GetPlayerColor(playername, color);
         }
         
-        public System.Threading.Tasks.Task<string> LoginAsync(string userName, string passWord, System.Drawing.Color color) {
-            return base.Channel.LoginAsync(userName, passWord, color);
+        public System.Threading.Tasks.Task GetPlayerColorAsync(string playername, System.Drawing.Color color) {
+            return base.Channel.GetPlayerColorAsync(playername, color);
         }
         
-        public string GetColorPlayer(System.Drawing.Color color) {
-            return base.Channel.GetColorPlayer(color);
+        public string GetPlayer(System.Drawing.Color color) {
+            return base.Channel.GetPlayer(color);
         }
         
-        public System.Threading.Tasks.Task<string> GetColorPlayerAsync(System.Drawing.Color color) {
-            return base.Channel.GetColorPlayerAsync(color);
+        public System.Threading.Tasks.Task<string> GetPlayerAsync(System.Drawing.Color color) {
+            return base.Channel.GetPlayerAsync(color);
         }
         
-        public string GetPlayerName() {
-            return base.Channel.GetPlayerName();
+        public void Chat(string playername, string message) {
+            base.Channel.Chat(playername, message);
         }
         
-        public System.Threading.Tasks.Task<string> GetPlayerNameAsync() {
-            return base.Channel.GetPlayerNameAsync();
+        public System.Threading.Tasks.Task ChatAsync(string playername, string message) {
+            return base.Channel.ChatAsync(playername, message);
         }
     }
 }

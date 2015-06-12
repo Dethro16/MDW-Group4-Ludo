@@ -7,14 +7,23 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ILudo_GetDiceRoll_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDiceRoll" />
+  <wsdl:message name="ILudo_RollToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollToClient" />
   </wsdl:message>
-  <wsdl:message name="ILudo_GetDiceRoll_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDiceRollResponse" />
+  <wsdl:message name="ILudo_RollToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollToClientResponse" />
   </wsdl:message>
   <wsdl:message name="ILudo_Roll_InputMessage">
     <wsdl:part name="parameters" element="tns:Roll" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_Roll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_NumberToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:NumberToClient" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_NumberToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NumberToClientResponse" />
   </wsdl:message>
   <wsdl:message name="ILudo_Subscribe_InputMessage">
     <wsdl:part name="parameters" element="tns:Subscribe" />
@@ -22,69 +31,90 @@
   <wsdl:message name="ILudo_Subscribe_OutputMessage">
     <wsdl:part name="parameters" element="tns:SubscribeResponse" />
   </wsdl:message>
-  <wsdl:message name="ILudo_Unsubscribe_InputMessage">
-    <wsdl:part name="parameters" element="tns:Unsubscribe" />
+  <wsdl:message name="ILudo_CreatePlayers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayers" />
   </wsdl:message>
-  <wsdl:message name="ILudo_Register_InputMessage">
-    <wsdl:part name="parameters" element="tns:Register" />
+  <wsdl:message name="ILudo_CreatePlayers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayersResponse" />
   </wsdl:message>
-  <wsdl:message name="ILudo_Register_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  <wsdl:message name="ILudo_ChatToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChatToClient" />
   </wsdl:message>
-  <wsdl:message name="ILudo_Login_InputMessage">
-    <wsdl:part name="parameters" element="tns:Login" />
+  <wsdl:message name="ILudo_ChatToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChatToClientResponse" />
   </wsdl:message>
-  <wsdl:message name="ILudo_Login_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  <wsdl:message name="ILudo_GetPlayerColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerColor" />
   </wsdl:message>
-  <wsdl:message name="ILudo_GetColorPlayer_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetColorPlayer" />
+  <wsdl:message name="ILudo_GetPlayerColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerColorResponse" />
   </wsdl:message>
-  <wsdl:message name="ILudo_GetColorPlayer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetColorPlayerResponse" />
+  <wsdl:message name="ILudo_GetPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayer" />
   </wsdl:message>
-  <wsdl:message name="ILudo_GetPlayerName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlayerName" />
+  <wsdl:message name="ILudo_GetPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerResponse" />
   </wsdl:message>
-  <wsdl:message name="ILudo_GetPlayerName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlayerNameResponse" />
+  <wsdl:message name="ILudo_Chat_InputMessage">
+    <wsdl:part name="parameters" element="tns:Chat" />
   </wsdl:message>
-  <wsdl:message name="ILudo_showDiceRoll_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:showDiceRoll" />
+  <wsdl:message name="ILudo_Chat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChatResponse" />
   </wsdl:message>
-  <wsdl:portType msc:usingSession="true" name="ILudo">
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetDiceRoll">
-      <wsdl:input wsaw:Action="ludoService/ILudo/GetDiceRoll" message="tns:ILudo_GetDiceRoll_InputMessage" />
-      <wsdl:output wsaw:Action="ludoService/ILudo/GetDiceRollResponse" message="tns:ILudo_GetDiceRoll_OutputMessage" />
+  <wsdl:message name="ILudo_OnChatCallback_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnChatCallback" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_OnRollCallback_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnRollCallback" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_OnPlayerLogin_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnPlayerLogin" />
+  </wsdl:message>
+  <wsdl:portType name="ILudo">
+    <wsdl:operation name="RollToClient">
+      <wsdl:input wsaw:Action="ludoService/ILudo/RollToClient" message="tns:ILudo_RollToClient_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/RollToClientResponse" message="tns:ILudo_RollToClient_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Roll">
+    <wsdl:operation name="Roll">
       <wsdl:input wsaw:Action="ludoService/ILudo/Roll" message="tns:ILudo_Roll_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/RollResponse" message="tns:ILudo_Roll_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Subscribe">
+    <wsdl:operation name="NumberToClient">
+      <wsdl:input wsaw:Action="ludoService/ILudo/NumberToClient" message="tns:ILudo_NumberToClient_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/NumberToClientResponse" message="tns:ILudo_NumberToClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Subscribe">
       <wsdl:input wsaw:Action="ludoService/ILudo/Subscribe" message="tns:ILudo_Subscribe_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/SubscribeResponse" message="tns:ILudo_Subscribe_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="true" name="Unsubscribe">
-      <wsdl:input wsaw:Action="ludoService/ILudo/Unsubscribe" message="tns:ILudo_Unsubscribe_InputMessage" />
+    <wsdl:operation name="CreatePlayers">
+      <wsdl:input wsaw:Action="ludoService/ILudo/CreatePlayers" message="tns:ILudo_CreatePlayers_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/CreatePlayersResponse" message="tns:ILudo_CreatePlayers_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Register">
-      <wsdl:input wsaw:Action="ludoService/ILudo/Register" message="tns:ILudo_Register_InputMessage" />
-      <wsdl:output wsaw:Action="ludoService/ILudo/RegisterResponse" message="tns:ILudo_Register_OutputMessage" />
+    <wsdl:operation name="ChatToClient">
+      <wsdl:input wsaw:Action="ludoService/ILudo/ChatToClient" message="tns:ILudo_ChatToClient_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/ChatToClientResponse" message="tns:ILudo_ChatToClient_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
-      <wsdl:input wsaw:Action="ludoService/ILudo/Login" message="tns:ILudo_Login_InputMessage" />
-      <wsdl:output wsaw:Action="ludoService/ILudo/LoginResponse" message="tns:ILudo_Login_OutputMessage" />
+    <wsdl:operation name="GetPlayerColor">
+      <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayerColor" message="tns:ILudo_GetPlayerColor_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerColorResponse" message="tns:ILudo_GetPlayerColor_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetColorPlayer">
-      <wsdl:input wsaw:Action="ludoService/ILudo/GetColorPlayer" message="tns:ILudo_GetColorPlayer_InputMessage" />
-      <wsdl:output wsaw:Action="ludoService/ILudo/GetColorPlayerResponse" message="tns:ILudo_GetColorPlayer_OutputMessage" />
+    <wsdl:operation name="GetPlayer">
+      <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayer" message="tns:ILudo_GetPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerResponse" message="tns:ILudo_GetPlayer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPlayerName">
-      <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayerName" message="tns:ILudo_GetPlayerName_InputMessage" />
-      <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerNameResponse" message="tns:ILudo_GetPlayerName_OutputMessage" />
+    <wsdl:operation name="Chat">
+      <wsdl:input wsaw:Action="ludoService/ILudo/Chat" message="tns:ILudo_Chat_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/ChatResponse" message="tns:ILudo_Chat_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="showDiceRoll">
-      <wsdl:output wsaw:Action="ludoService/ILudo/showDiceRoll" message="tns:ILudo_showDiceRoll_OutputCallbackMessage" />
+    <wsdl:operation name="OnChatCallback">
+      <wsdl:output wsaw:Action="ludoService/ILudo/OnChatCallback" message="tns:ILudo_OnChatCallback_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnRollCallback">
+      <wsdl:output wsaw:Action="ludoService/ILudo/OnRollCallback" message="tns:ILudo_OnRollCallback_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnPlayerLogin">
+      <wsdl:output wsaw:Action="ludoService/ILudo/OnPlayerLogin" message="tns:ILudo_OnPlayerLogin_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

@@ -8,30 +8,19 @@ using System.Drawing;
 
 namespace LudoService
 {
-
-    public class MessageEventArgs : EventArgs
-    {
-        public string userName;
-        public int diceNumber;
-    }
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class CLudo : ILudo
     {
         DatabaseHelper db = new DatabaseHelper();
-        public static event MessageEventHandler messageEvent;
-        public delegate void MessageEventHandler(object sender, MessageEventArgs e);
 
         public List<Player> players = new List<Player>();
 
-        List<Color> AllColors = new List<Color>{
+        public List<Color> AllColors = new List<Color>{
             Color.Red,Color.Blue, Color.Green, Color.Yellow};
-        
-        
-        ILudoCallback clientCallBack;
-        Player player = new Player("", Color.Black);
 
-        MessageEventHandler messageHandler = null;
+
+        ILudoCallback clientCallBack;
 
         Random rnd;
         public int diceNumber;
@@ -41,90 +30,105 @@ namespace LudoService
             rnd = new Random();
         }
 
-        public string Register(string userName, string passWord, string confPassWord)
+        public int GenerateRoll()
         {
-            return db.Register(userName, passWord);
+            return rnd.Next(1, 7);
         }
 
-        public string Login(string userName, string passWord, Color color)
+        public void GetPlayerColor(string playername, Color color)
         {
-            string check = db.Login(userName, passWord);
-            if (check.Contains("successfully"))
+            foreach (Player item in players)
             {
-
-                if (AllColors.Exists(x => x.Equals(color)))
+                if (item.PlayerName != playername)
                 {
-                    player = new Player(userName, color);
-                    AllColors.Remove(color);
-                    players.Add(player);
-                    return check; 
+                    item.callback.OnPlayerLogin(playername, color);
                 }
-
-                else
-                {
-                    int index = rnd.Next(0, AllColors.Count);
-                    player = new Player(userName, AllColors.ElementAt(index));
-                    players.Add(player);
-                    AllColors.Remove(AllColors.ElementAt(index));
-                    return check; 
-                }
-
-            }
-            else
-            {
-                return check;
             }
         }
 
-
-        public string GetPlayerName()
-        {
-            return players.ElementAt(players.Count - 1).Name;
-        }
-
-        public int GetDiceRoll()
-        {
-            return diceNumber;
-        }
-
-        public void Roll(string userName)
-        {
-            MessageEventArgs e = new MessageEventArgs();
-            diceNumber = rnd.Next(1, 7);
-            e.userName = userName;
-            e.diceNumber = diceNumber;
-            messageEvent(this, e);
-        }
-
-        public string GetColorPlayer(Color color)
+        public string GetPlayer(Color color)
         {
             foreach (Player item in players)
             {
                 if (item.Color == color)
                 {
-                    return item.Name;
+                    return item.PlayerName;
                 }
             }
-
-            return "No player";
+            return "Empty";
         }
 
+        public string RollToClient(string playername)
+        {
+            diceNumber = GenerateRoll();
+            string s = DateTime.Now.ToString("HH:MM") + " <" + playername + "> rolled: " + diceNumber.ToString();
+            return s;
+        }
+
+        public void Roll(string playername)
+        {
+            foreach (Player item in players)
+            {
+                if (item.PlayerName != playername)
+                {
+                    item.callback.OnRollCallback(playername, diceNumber);
+                }
+            }
+        }
+
+
+        public int NumberToClient()
+        {
+            return diceNumber;
+        }
+
+        public void CreatePlayers(string userName, Color color)
+        {
+
+            if (AllColors.Exists(x => x.Equals(color)))
+            {
+                Player player = new Player(userName, color);
+                player.callback = OperationContext.Current.GetCallbackChannel<ILudoCallback>();
+                AllColors.Remove(color);
+                players.Add(player);
+            }
+
+            else
+            {
+                int index = rnd.Next(0, AllColors.Count);
+                Player player = new Player(userName, AllColors.ElementAt(index));
+                player.callback = OperationContext.Current.GetCallbackChannel<ILudoCallback>();
+                players.Add(player);
+                AllColors.Remove(AllColors.ElementAt(index));
+            }
+        }
+
+
+        public void Chat(string playername, string message)
+        {
+            foreach (Player item in players)
+            {
+                if (item.PlayerName != playername)
+                {
+                    item.callback.OnChatCallback(playername, message);
+                }
+            }
+        }
+
+        public string ChatToClient(string playername, string message)
+        {
+            if (message != "")
+            {
+                string temp = DateTime.Now.ToString("HH:MM") + " <" + playername + ">: " + message;
+                return temp;
+            }
+            else return null;
+        }
 
         public void Subscribe()
         {
             clientCallBack = OperationContext.Current.GetCallbackChannel<ILudoCallback>();
-            messageHandler = new MessageEventHandler(MessageHandler);
-            messageEvent += messageHandler;
         }
 
-        public void Unsubscribe()
-        {
-            messageEvent -= messageHandler;
-        }
-
-        public void MessageHandler(object sender, MessageEventArgs e)
-        {
-            clientCallBack.showDiceRoll(e.userName, e.diceNumber);
-        }
     }
 }

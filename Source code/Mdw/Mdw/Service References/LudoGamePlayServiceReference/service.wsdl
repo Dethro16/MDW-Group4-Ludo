@@ -34,8 +34,8 @@
   <wsdl:binding name="NetTcpBinding_ILudo" type="i0:ILudo">
     <wsp:PolicyReference URI="#NetTcpBinding_ILudo_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="GetDiceRoll">
-      <soap12:operation soapAction="ludoService/ILudo/GetDiceRoll" style="document" />
+    <wsdl:operation name="RollToClient">
+      <soap12:operation soapAction="ludoService/ILudo/RollToClient" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -48,6 +48,18 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumberToClient">
+      <soap12:operation soapAction="ludoService/ILudo/NumberToClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Subscribe">
       <soap12:operation soapAction="ludoService/ILudo/Subscribe" style="document" />
@@ -58,14 +70,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Unsubscribe">
-      <soap12:operation soapAction="ludoService/ILudo/Unsubscribe" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="Register">
-      <soap12:operation soapAction="ludoService/ILudo/Register" style="document" />
+    <wsdl:operation name="CreatePlayers">
+      <soap12:operation soapAction="ludoService/ILudo/CreatePlayers" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -73,8 +79,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <soap12:operation soapAction="ludoService/ILudo/Login" style="document" />
+    <wsdl:operation name="ChatToClient">
+      <soap12:operation soapAction="ludoService/ILudo/ChatToClient" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -82,8 +88,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetColorPlayer">
-      <soap12:operation soapAction="ludoService/ILudo/GetColorPlayer" style="document" />
+    <wsdl:operation name="GetPlayerColor">
+      <soap12:operation soapAction="ludoService/ILudo/GetPlayerColor" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -91,8 +97,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPlayerName">
-      <soap12:operation soapAction="ludoService/ILudo/GetPlayerName" style="document" />
+    <wsdl:operation name="GetPlayer">
+      <soap12:operation soapAction="ludoService/ILudo/GetPlayer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -100,8 +106,29 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="showDiceRoll">
-      <soap12:operation soapAction="ludoService/ILudo/showDiceRoll" style="document" />
+    <wsdl:operation name="Chat">
+      <soap12:operation soapAction="ludoService/ILudo/Chat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnChatCallback">
+      <soap12:operation soapAction="ludoService/ILudo/OnChatCallback" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnRollCallback">
+      <soap12:operation soapAction="ludoService/ILudo/OnRollCallback" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnPlayerLogin">
+      <soap12:operation soapAction="ludoService/ILudo/OnPlayerLogin" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

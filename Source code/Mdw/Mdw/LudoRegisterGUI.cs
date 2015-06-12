@@ -14,7 +14,8 @@ namespace Mdw
     public partial class LudoRegisterGUI : Form
     {
         //private RegisterLogin.RegisterLoginClient proxy;
-        private LudoGamePlayServiceReference.LudoClient proxy;
+        private RegisterLoginServiceReference.RegisterLoginClient proxy;
+        //private LudoGamePlayServiceReference.LudoClient proxy;
         InstanceContext context;
 
         bool togMove;
@@ -25,7 +26,7 @@ namespace Mdw
         {
             InitializeComponent();
             context = new InstanceContext(this);
-            proxy = new LudoGamePlayServiceReference.LudoClient(context);
+            proxy = new RegisterLoginServiceReference.RegisterLoginClient();
         }
 
         #region dragdrop

@@ -47,11 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
-    <Compile Include="Cchat.cs" />
+    <Compile Include="CRegisterLogin.cs" />
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="IChat.cs" />
     <Compile Include="ILudo.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="IRegisterLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CLudo.cs" />
     <Compile Include="Square.cs" />

@@ -11,10 +11,13 @@ using System.ServiceModel;
 
 namespace Mdw
 {
-    public partial class LudoLoginGUI : Form, LudoGamePlayServiceReference.ILudoCallback
+    public partial class LudoLoginGUI : Form
     {
+        public static string userName;
+        public static Color color;
         //private RegisterLoginServiceReference.RegisterLoginClient proxy;
-        private LudoGamePlayServiceReference.LudoClient proxy;
+        //private LudoGamePlayServiceReference.LudoClient proxy;
+        private RegisterLoginServiceReference.RegisterLoginClient proxy;
         //private RegisterLogin.RegisterLoginClient proxy;
         //private ILudoServiceReference.LudoClient proxy;
 
@@ -30,7 +33,7 @@ namespace Mdw
             InitializeComponent();
             context = new InstanceContext(this);
             //proxy1 = new RegisterLogin.RegisterLoginClient();
-            proxy = new LudoGamePlayServiceReference.LudoClient(context);
+            proxy = new RegisterLoginServiceReference.RegisterLoginClient();
         }
 
         #region dragdrop
@@ -85,31 +88,31 @@ namespace Mdw
 
         public void showDiceRoll(string userName, int diceNumber)
         {
-        //    string s = "<" + userName + "> has rolled a " + diceNumber.ToString();
-        //    lbChat.Items.Add(s);
+            //    string s = "<" + userName + "> has rolled a " + diceNumber.ToString();
+            //    lbChat.Items.Add(s);
 
-        //    int caseSwitch = diceNumber;
-        //    switch (caseSwitch)
-        //    {
-        //        case 1:
-        //            pbDice.Image = Properties.Resources.d1;
-        //            break;
-        //        case 2:
-        //            pbDice.Image = Properties.Resources.d2;
-        //            break;
-        //        case 3:
-        //            pbDice.Image = Properties.Resources.d3;
-        //            break;
-        //        case 4:
-        //            pbDice.Image = Properties.Resources.d4;
-        //            break;
-        //        case 5:
-        //            pbDice.Image = Properties.Resources.d5;
-        //            break;
-        //        case 6:
-        //            pbDice.Image = Properties.Resources.d6;
-        //            break;
-        //    }
+            //    int caseSwitch = diceNumber;
+            //    switch (caseSwitch)
+            //    {
+            //        case 1:
+            //            pbDice.Image = Properties.Resources.d1;
+            //            break;
+            //        case 2:
+            //            pbDice.Image = Properties.Resources.d2;
+            //            break;
+            //        case 3:
+            //            pbDice.Image = Properties.Resources.d3;
+            //            break;
+            //        case 4:
+            //            pbDice.Image = Properties.Resources.d4;
+            //            break;
+            //        case 5:
+            //            pbDice.Image = Properties.Resources.d5;
+            //            break;
+            //        case 6:
+            //            pbDice.Image = Properties.Resources.d6;
+            //            break;
+            //    }
         }
 
         private Color ChooseColor()
@@ -140,9 +143,12 @@ namespace Mdw
             string check = proxy.Login(tbUsername.Text, tbPassword.Text, ChooseColor());
             MessageBox.Show(check);
 
+
             bool login = check.Contains("successfully");
             if (login)
             {
+                userName = tbUsername.Text;
+                color = ChooseColor();
                 LudoGUI game = new LudoGUI();
                 this.SetVisibleCore(false);
                 game.ShowDialog();

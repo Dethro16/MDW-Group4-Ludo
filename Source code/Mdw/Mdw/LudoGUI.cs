@@ -14,13 +14,14 @@ namespace Mdw
     public partial class LudoGUI : Form,
         LudoGamePlayServiceReference.ILudoCallback
     {
-        ChatClient client = null;
         Panel selectedPanel = null;
 
         InstanceContext context;
         LudoGamePlayServiceReference.LudoClient proxy;
 
-        string userName;
+        string userName = LudoLoginGUI.userName;
+        Color color = LudoLoginGUI.color;
+        int caseSwitch;
 
         public LudoGUI()
         {
@@ -30,50 +31,49 @@ namespace Mdw
             proxy = new LudoGamePlayServiceReference.LudoClient(context);
             proxy.Subscribe();
 
-            userName = proxy.GetPlayerName();
-            this.tbRed.Text = proxy.GetColorPlayer(Color.Red);
-            this.tbBlue.Text = proxy.GetColorPlayer(Color.Blue);
-            this.tbGreen.Text = proxy.GetColorPlayer(Color.Green);
-            this.tbYellow.Text = proxy.GetColorPlayer(Color.Yellow);
+            proxy.CreatePlayers(LudoLoginGUI.userName, LudoLoginGUI.color);
 
-            client = new ChatClient();
-            client.Start(client, userName);
-            client.ReceiveMsg += new ReceiveMessage(client_ReceiveMsg);
-            client.NewNames += new GotNames(client_NewNames);
+            proxy.GetPlayerColor(userName, color);
+
+            this.tbRed.Text = proxy.GetPlayer(Color.Red);
+            this.tbBlue.Text = proxy.GetPlayer(Color.Blue);
+            this.tbGreen.Text = proxy.GetPlayer(Color.Green);
+            this.tbYellow.Text = proxy.GetPlayer(Color.Yellow);
 
 
-            
-
-            
         }
 
-        void client_NewNames(object sender, List<string> names)
+        public void OnPlayerLogin(string playername, Color color)
         {
-            lBPlayers.Items.Clear();
-            foreach (string item in names)
+            string temp = color.ToString();
+
+            switch (temp)
             {
-                if (item != userName)
-                {
-                    lBPlayers.Items.Add(item);
-                }
+                case "Color [Red]":
+                    this.tbRed.Text = playername;
+                    break;
+                case "Color [Blue]":
+                    this.tbBlue.Text = playername;
+                    break;
+                case "Color [Green]":
+                    this.tbGreen.Text = playername;
+                    break;
+                case "Color [Yellow]":
+                    this.tbYellow.Text = playername;
+                    break;
             }
         }
 
-        void client_ReceiveMsg(string sender, string message)
+        public void OnChatCallback(string username, string message)
         {
-            if (message.Length > 0)
-            {
-                lbChat.Text += Environment.NewLine + sender + ">" + message;
-            }
+            lbChat.Items.Add(DateTime.Now.ToString("HH:MM") + " <" + username + ">: " + message);
         }
 
-
-        public void showDiceRoll(string userName, int diceNumber)
+        public void OnRollCallback(string username, int diceroll)
         {
-            string s = "<" + userName + "> has rolled a " + diceNumber.ToString();
-            lbChat.Items.Add(s);
+            lbChat.Items.Add(DateTime.Now.ToString("HH:MM") + " <" + username + "> rolled: " + diceroll.ToString());
 
-            int caseSwitch = diceNumber;
+            caseSwitch = diceroll;
             switch (caseSwitch)
             {
                 case 1:
@@ -97,15 +97,39 @@ namespace Mdw
             }
         }
 
+
         private void pbDice_Click(object sender, EventArgs e)
         {
+            string temp = proxy.RollToClient(userName);
             proxy.Roll(userName);
+            lbChat.Items.Add(temp);
+
+            switch (proxy.NumberToClient())
+            {
+                case 1:
+                    pbDice.Image = Properties.Resources.d1;
+                    break;
+                case 2:
+                    pbDice.Image = Properties.Resources.d2;
+                    break;
+                case 3:
+                    pbDice.Image = Properties.Resources.d3;
+                    break;
+                case 4:
+                    pbDice.Image = Properties.Resources.d4;
+                    break;
+                case 5:
+                    pbDice.Image = Properties.Resources.d5;
+                    break;
+                case 6:
+                    pbDice.Image = Properties.Resources.d6;
+                    break;
+            }
         }
 
-        private void RollDiceGUI_FormClosing(object sender, FormClosingEventArgs e)
+        private void LudoGUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            proxy.Unsubscribe();
-            client.Stop(userName);
+
         }
 
         private int GetSquareNumber(Panel p)
@@ -136,38 +160,22 @@ namespace Mdw
 
         private void btLeave_Click(object sender, EventArgs e)
         {
-            proxy.Unsubscribe();
             this.Close();
         }
         #endregion
 
-        private void btnSend_Click(object sender, EventArgs e)
+        private void BtnSend_Click(object sender, EventArgs e)
         {
-            if (lBPlayers.SelectedIndex >= 0 && lBPlayers.SelectedIndex < lBPlayers.Items.Count)
-            {
-                SendMessage();
-            }
+            string message = this.tbChat.Text;
+            string temp = proxy.ChatToClient(userName, message);
+
+            proxy.Chat(userName, message);
+            lbChat.Items.Add(temp);
+            tbChat.Clear();
+            tbChat.Focus();
         }
 
-        private void SendMessage()
-        {
-            if (lBPlayers.Items.Count != 0)
-            {
-                lbChat.Text += Environment.NewLine + userName + ">" + rtbChat.Text;
-                if (lBPlayers.SelectedItems.Count == 0)
-                {
-                    client.SendMessage(rtbChat.Text, userName, lBPlayers.Items[0].ToString());
-                }
-                else
-                {
-                    if (!string.IsNullOrEmpty(lBPlayers.SelectedItem.ToString()))
-                    {
-                        client.SendMessage(rtbChat.Text, userName, lBPlayers.SelectedItem.ToString());
-                    }
-                }
-                rtbChat.Clear();
-            }
-        }
+
 
     }
 }
