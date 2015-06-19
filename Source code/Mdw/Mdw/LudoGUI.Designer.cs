@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LudoGUI));
-            this.pnChat = new System.Windows.Forms.Panel();
             this.tbChat = new System.Windows.Forms.TextBox();
             this.BtnSend = new System.Windows.Forms.Button();
             this.lbChat = new System.Windows.Forms.ListBox();
@@ -135,29 +134,19 @@
             this.goalBlue3 = new System.Windows.Forms.Panel();
             this.goalBlue2 = new System.Windows.Forms.Panel();
             this.goalBlue4 = new System.Windows.Forms.Panel();
-            this.pnChat.SuspendLayout();
+            this.btStart = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnChat
-            // 
-            this.pnChat.BackColor = System.Drawing.Color.Transparent;
-            this.pnChat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnChat.Controls.Add(this.tbChat);
-            this.pnChat.Controls.Add(this.BtnSend);
-            this.pnChat.Controls.Add(this.lbChat);
-            this.pnChat.Location = new System.Drawing.Point(792, 44);
-            this.pnChat.Name = "pnChat";
-            this.pnChat.Size = new System.Drawing.Size(306, 537);
-            this.pnChat.TabIndex = 0;
             // 
             // tbChat
             // 
-            this.tbChat.Location = new System.Drawing.Point(44, 368);
+            this.tbChat.Location = new System.Drawing.Point(29, 414);
             this.tbChat.Name = "tbChat";
             this.tbChat.Size = new System.Drawing.Size(226, 20);
             this.tbChat.TabIndex = 4;
@@ -165,7 +154,7 @@
             // 
             // BtnSend
             // 
-            this.BtnSend.Location = new System.Drawing.Point(98, 396);
+            this.BtnSend.Location = new System.Drawing.Point(74, 368);
             this.BtnSend.Name = "BtnSend";
             this.BtnSend.Size = new System.Drawing.Size(119, 23);
             this.BtnSend.TabIndex = 3;
@@ -178,7 +167,7 @@
             this.lbChat.BackColor = System.Drawing.Color.LightBlue;
             this.lbChat.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.Location = new System.Drawing.Point(44, 15);
+            this.lbChat.Location = new System.Drawing.Point(29, 18);
             this.lbChat.Name = "lbChat";
             this.lbChat.ScrollAlwaysVisible = true;
             this.lbChat.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -871,6 +860,7 @@
             // 
             // pbDice
             // 
+            this.pbDice.Enabled = false;
             this.pbDice.Image = global::Mdw.Properties.Resources.d1;
             this.pbDice.Location = new System.Drawing.Point(663, 86);
             this.pbDice.Name = "pbDice";
@@ -943,6 +933,7 @@
             this.pbRed.Size = new System.Drawing.Size(158, 158);
             this.pbRed.TabIndex = 33;
             this.pbRed.TabStop = false;
+            this.pbRed.Click += new System.EventHandler(this.pbRed_Click);
             // 
             // pbGreen
             // 
@@ -1107,6 +1098,37 @@
             this.goalBlue4.Size = new System.Drawing.Size(15, 15);
             this.goalBlue4.TabIndex = 40;
             // 
+            // btStart
+            // 
+            this.btStart.BackColor = System.Drawing.Color.Transparent;
+            this.btStart.BackgroundImage = global::Mdw.Properties.Resources.button;
+            this.btStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btStart.FlatAppearance.BorderSize = 0;
+            this.btStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btStart.Location = new System.Drawing.Point(640, 583);
+            this.btStart.Name = "btStart";
+            this.btStart.Size = new System.Drawing.Size(142, 37);
+            this.btStart.TabIndex = 41;
+            this.btStart.Text = "Start!";
+            this.btStart.UseVisualStyleBackColor = false;
+            this.btStart.Click += new System.EventHandler(this.btStart_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.lbChat);
+            this.groupBox1.Controls.Add(this.tbChat);
+            this.groupBox1.Controls.Add(this.BtnSend);
+            this.groupBox1.Location = new System.Drawing.Point(842, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(270, 450);
+            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Chat";
+            // 
             // LudoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1114,6 +1136,8 @@
             this.BackgroundImage = global::Mdw.Properties.Resources.PlayBoardv1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1124, 632);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btStart);
             this.Controls.Add(this.goalBlue4);
             this.Controls.Add(this.goalBlue2);
             this.Controls.Add(this.goalBlue3);
@@ -1216,7 +1240,6 @@
             this.Controls.Add(this.startRed);
             this.Controls.Add(this.field52);
             this.Controls.Add(this.field51);
-            this.Controls.Add(this.pnChat);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1224,13 +1247,13 @@
             this.Name = "LudoGUI";
             this.Text = "Ludo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LudoGUI_FormClosing);
-            this.pnChat.ResumeLayout(false);
-            this.pnChat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1238,7 +1261,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnChat;
         private System.Windows.Forms.ListBox lbChat;
         private System.Windows.Forms.Panel startRed;
         private System.Windows.Forms.Panel startGreen;
@@ -1344,5 +1366,7 @@
         private System.Windows.Forms.Panel goalBlue4;
         private System.Windows.Forms.Button BtnSend;
         private System.Windows.Forms.TextBox tbChat;
+        private System.Windows.Forms.Button btStart;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

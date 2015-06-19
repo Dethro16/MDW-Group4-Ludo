@@ -34,10 +34,19 @@ namespace LudoService
         void GetPlayerColor(string playername, Color color);
 
         [OperationContract]
+        void StartGame();
+
+        [OperationContract]
+        void NextTurn();
+
+        [OperationContract]
         string GetPlayer(Color color);
 
         [OperationContract]
         void Chat(string playername, string message);
+
+        [OperationContract]
+        bool Check(string playerName);
     }
 
     public class Player
@@ -54,6 +63,8 @@ namespace LudoService
         public bool First { get; set; }
         [DataMember]
         public int ID { get; set; }
+        [DataMember]
+        public bool RolledSix { get; set; }
 
         [DataMember]
         public ILudoCallback callback { get; set; }
@@ -88,5 +99,8 @@ namespace LudoService
 
         [OperationContract(IsOneWay = true)]
         void OnPlayerLogin(string playername, Color color);
+
+        [OperationContract(IsOneWay = true)]
+        void OnPlayerTurn();
     }
 }

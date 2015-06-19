@@ -57,6 +57,18 @@ namespace Mdw.LudoGamePlayServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayerColor", ReplyAction="ludoService/ILudo/GetPlayerColorResponse")]
         System.Threading.Tasks.Task GetPlayerColorAsync(string playername, System.Drawing.Color color);
         
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/StartGame", ReplyAction="ludoService/ILudo/StartGameResponse")]
+        void StartGame();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/StartGame", ReplyAction="ludoService/ILudo/StartGameResponse")]
+        System.Threading.Tasks.Task StartGameAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/NextTurn", ReplyAction="ludoService/ILudo/NextTurnResponse")]
+        void NextTurn();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/NextTurn", ReplyAction="ludoService/ILudo/NextTurnResponse")]
+        System.Threading.Tasks.Task NextTurnAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayer", ReplyAction="ludoService/ILudo/GetPlayerResponse")]
         string GetPlayer(System.Drawing.Color color);
         
@@ -68,6 +80,12 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Chat", ReplyAction="ludoService/ILudo/ChatResponse")]
         System.Threading.Tasks.Task ChatAsync(string playername, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Check", ReplyAction="ludoService/ILudo/CheckResponse")]
+        bool Check(string playerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Check", ReplyAction="ludoService/ILudo/CheckResponse")]
+        System.Threading.Tasks.Task<bool> CheckAsync(string playerName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -81,6 +99,9 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnPlayerLogin")]
         void OnPlayerLogin(string playername, System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnPlayerTurn")]
+        void OnPlayerTurn();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,6 +188,22 @@ namespace Mdw.LudoGamePlayServiceReference {
             return base.Channel.GetPlayerColorAsync(playername, color);
         }
         
+        public void StartGame() {
+            base.Channel.StartGame();
+        }
+        
+        public System.Threading.Tasks.Task StartGameAsync() {
+            return base.Channel.StartGameAsync();
+        }
+        
+        public void NextTurn() {
+            base.Channel.NextTurn();
+        }
+        
+        public System.Threading.Tasks.Task NextTurnAsync() {
+            return base.Channel.NextTurnAsync();
+        }
+        
         public string GetPlayer(System.Drawing.Color color) {
             return base.Channel.GetPlayer(color);
         }
@@ -181,6 +218,14 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         public System.Threading.Tasks.Task ChatAsync(string playername, string message) {
             return base.Channel.ChatAsync(playername, message);
+        }
+        
+        public bool Check(string playerName) {
+            return base.Channel.Check(playerName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckAsync(string playerName) {
+            return base.Channel.CheckAsync(playerName);
         }
     }
 }

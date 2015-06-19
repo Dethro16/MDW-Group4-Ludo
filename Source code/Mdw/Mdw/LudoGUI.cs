@@ -15,6 +15,8 @@ namespace Mdw
         LudoGamePlayServiceReference.ILudoCallback
     {
         Panel selectedPanel = null;
+        List<Panel> controllist = new List<Panel>();
+        
 
         InstanceContext context;
         LudoGamePlayServiceReference.LudoClient proxy;
@@ -40,6 +42,17 @@ namespace Mdw
             this.tbGreen.Text = proxy.GetPlayer(Color.Green);
             this.tbYellow.Text = proxy.GetPlayer(Color.Yellow);
 
+            //controllist.Add(pbDice);
+            //controllist.Add(pbRed);
+            //controllist.Add(pbBlue);
+            //controllist.Add(pbGreen);
+            //controllist.Add(pbYellow);
+
+            foreach (Panel pb in this.Controls.OfType<Panel>())
+            {
+                controllist.Add(pb);
+            }
+            EnablePanels(false);
 
         }
 
@@ -67,6 +80,14 @@ namespace Mdw
         public void OnChatCallback(string username, string message)
         {
             lbChat.Items.Add("["+DateTime.Now.ToString("HH:MM")+"] <" + username + ">: " + message);
+        }
+
+        public void EnablePanels(bool state)
+        {
+            foreach (Panel item in controllist)
+            {
+                item.Enabled = state;
+            }
         }
 
         public void OnRollCallback(string username, int diceroll)
@@ -126,6 +147,10 @@ namespace Mdw
                     pbDice.Image = Properties.Resources.d6;
                     break;
             }
+
+            EnablePanels(true);
+            this.pbDice.Enabled = false;
+
         }
 
         private void LudoGUI_FormClosing(object sender, FormClosingEventArgs e)
@@ -147,7 +172,19 @@ namespace Mdw
             Panel p = (Panel)sender;
 
             MessageBox.Show(p.Name);
+
+            if (proxy.NumberToClient() == 6)
+            {
+                this.pbDice.Enabled = true;
+            }
+            else
+            {
+                proxy.NextTurn();
+            }
+
+            EnablePanels(false);
         }
+
         #region Leave Button functions
         private void btLeave_MouseDown(object sender, MouseEventArgs e)
         {
@@ -189,6 +226,32 @@ namespace Mdw
                 tbChat.Focus();
             }
         }
+
+        private void pbRed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btStart_Click(object sender, EventArgs e)
+        {
+            if (proxy.Check(userName))
+            {
+                OnPlayerTurn();
+            }
+            else
+            {
+                proxy.StartGame();
+            }
+
+        }
+
+        public void OnPlayerTurn()
+        {
+            this.pbDice.Enabled = true;
+            lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ Its your turn!!! ~~~");
+            this.btStart.Enabled = false;
+        }
+
 
 
 

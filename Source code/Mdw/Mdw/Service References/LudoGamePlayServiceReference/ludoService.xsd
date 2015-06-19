@@ -90,6 +90,26 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="StartGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartGameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NextTurn">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NextTurnResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetPlayer">
     <xs:complexType>
       <xs:sequence>
@@ -117,6 +137,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Check">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="playerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="OnChatCallback">
     <xs:complexType>
       <xs:sequence>
@@ -139,6 +173,11 @@
         <xs:element minOccurs="0" name="playername" nillable="true" type="xs:string" />
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q4:Color" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnPlayerTurn">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

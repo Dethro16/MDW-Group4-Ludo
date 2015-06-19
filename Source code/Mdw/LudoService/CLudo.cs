@@ -14,8 +14,9 @@ namespace LudoService
     {
         DatabaseHelper db = new DatabaseHelper();
 
-        public List<Player> players = new List<Player>();
+        int turn = 1;
 
+        public List<Player> players = new List<Player>();
         public List<Color> AllColors = new List<Color>{
             Color.Red,Color.Blue, Color.Green, Color.Yellow};
 
@@ -61,6 +62,18 @@ namespace LudoService
         public string RollToClient(string playername)
         {
             diceNumber = GenerateRoll();
+
+            if (diceNumber == 6)
+            {
+                foreach (Player item in players)
+                {
+                    if (item.PlayerName == playername)
+                    {
+                        item.RolledSix = true;
+                    }
+                }
+            }
+
             string s = "[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + playername + "> rolled a " + diceNumber.ToString() + "!!! ~~~";
             return s;
         }
@@ -87,10 +100,12 @@ namespace LudoService
             if (AllColors.Exists(x => x.Equals(color)))
             {
                 Player player = new Player(userName, color);
+
                 if (players.Count < 1)
                 {
                     player.First = true;
                 }
+
                 player.ID = players.Count + 1;
                 player.callback = OperationContext.Current.GetCallbackChannel<ILudoCallback>();
                 AllColors.Remove(color);
@@ -123,7 +138,7 @@ namespace LudoService
         {
             if (message != "")
             {
-                string temp = "["+DateTime.Now.ToString("HH:MM") + "] <" + playername + ">: " + message;
+                string temp = "[" + DateTime.Now.ToString("HH:MM") + "] <" + playername + ">: " + message;
                 return temp;
             }
             else return null;
@@ -134,5 +149,44 @@ namespace LudoService
             clientCallBack = OperationContext.Current.GetCallbackChannel<ILudoCallback>();
         }
 
+        public void StartGame()
+        {
+            foreach (Player p in players)
+            {
+                if (p.ID == turn)
+                {
+                    p.callback.OnPlayerTurn();
+                }
+            }
+        }
+
+        public bool Check(string playerName)
+        {
+            foreach (Player p in players)
+            {
+                if (playerName == p.PlayerName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void NextTurn()
+        {
+            if (turn == players.Count)
+            {
+                turn = 0;
+            }
+
+            turn++;
+            foreach (Player p in players)
+            {
+                if (p.ID == turn)
+                {
+                    p.callback.OnPlayerTurn();
+                }
+            }
+        }
     }
 }

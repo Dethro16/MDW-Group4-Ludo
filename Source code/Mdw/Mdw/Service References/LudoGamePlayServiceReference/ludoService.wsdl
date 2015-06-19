@@ -49,6 +49,18 @@
   <wsdl:message name="ILudo_GetPlayerColor_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayerColorResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_StartGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_NextTurn_InputMessage">
+    <wsdl:part name="parameters" element="tns:NextTurn" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_NextTurn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NextTurnResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_GetPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayer" />
   </wsdl:message>
@@ -61,6 +73,12 @@
   <wsdl:message name="ILudo_Chat_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChatResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_Check_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_Check_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_OnChatCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnChatCallback" />
   </wsdl:message>
@@ -69,6 +87,9 @@
   </wsdl:message>
   <wsdl:message name="ILudo_OnPlayerLogin_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnPlayerLogin" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_OnPlayerTurn_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnPlayerTurn" />
   </wsdl:message>
   <wsdl:portType name="ILudo">
     <wsdl:operation name="RollToClient">
@@ -99,6 +120,14 @@
       <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayerColor" message="tns:ILudo_GetPlayerColor_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerColorResponse" message="tns:ILudo_GetPlayerColor_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <wsdl:input wsaw:Action="ludoService/ILudo/StartGame" message="tns:ILudo_StartGame_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/StartGameResponse" message="tns:ILudo_StartGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NextTurn">
+      <wsdl:input wsaw:Action="ludoService/ILudo/NextTurn" message="tns:ILudo_NextTurn_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/NextTurnResponse" message="tns:ILudo_NextTurn_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPlayer">
       <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayer" message="tns:ILudo_GetPlayer_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerResponse" message="tns:ILudo_GetPlayer_OutputMessage" />
@@ -106,6 +135,10 @@
     <wsdl:operation name="Chat">
       <wsdl:input wsaw:Action="ludoService/ILudo/Chat" message="tns:ILudo_Chat_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/ChatResponse" message="tns:ILudo_Chat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Check">
+      <wsdl:input wsaw:Action="ludoService/ILudo/Check" message="tns:ILudo_Check_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/CheckResponse" message="tns:ILudo_Check_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="OnChatCallback">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnChatCallback" message="tns:ILudo_OnChatCallback_OutputCallbackMessage" />
@@ -115,6 +148,9 @@
     </wsdl:operation>
     <wsdl:operation name="OnPlayerLogin">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnPlayerLogin" message="tns:ILudo_OnPlayerLogin_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnPlayerTurn">
+      <wsdl:output wsaw:Action="ludoService/ILudo/OnPlayerTurn" message="tns:ILudo_OnPlayerTurn_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>
