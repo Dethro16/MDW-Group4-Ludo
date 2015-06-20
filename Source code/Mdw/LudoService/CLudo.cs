@@ -189,13 +189,17 @@ namespace LudoService
             }
         }
 
-        public string PutTokenInPlay(Color color)
+        public string PutTokenInPlay(Color color, bool remove)
         {
             foreach (Player player in players)
             {
                 if (player.Color == color)
                 {
-                    player.Tokens.RemoveAt(0);
+                    if (remove)
+                    {
+                        player.Tokens.RemoveAt(0);
+                    }
+
                     switch (color.ToString())
                     {
                         case "Color [Red]":
@@ -207,10 +211,20 @@ namespace LudoService
                         case "Color [Yellow]":
                             return "startYellow";
                     }
-
                 }
             }
             return "";
+        }
+
+        public void PlaceToken(string playername, string tokenname, Color color, string destination)
+        {
+            foreach (Player item in players)
+            {
+                if (item.PlayerName != playername)
+                {
+                    item.callback.OnPlaceToken(tokenname, color, destination);
+                }
+            }
         }
     }
 }

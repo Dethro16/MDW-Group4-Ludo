@@ -70,10 +70,16 @@ namespace Mdw.LudoGamePlayServiceReference {
         System.Threading.Tasks.Task NextTurnAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/PutTokenInPlay", ReplyAction="ludoService/ILudo/PutTokenInPlayResponse")]
-        string PutTokenInPlay(System.Drawing.Color color);
+        string PutTokenInPlay(System.Drawing.Color color, bool remove);
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/PutTokenInPlay", ReplyAction="ludoService/ILudo/PutTokenInPlayResponse")]
-        System.Threading.Tasks.Task<string> PutTokenInPlayAsync(System.Drawing.Color color);
+        System.Threading.Tasks.Task<string> PutTokenInPlayAsync(System.Drawing.Color color, bool remove);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/PlaceToken", ReplyAction="ludoService/ILudo/PlaceTokenResponse")]
+        void PlaceToken(string playername, string tokenname, System.Drawing.Color color, string destination);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/PlaceToken", ReplyAction="ludoService/ILudo/PlaceTokenResponse")]
+        System.Threading.Tasks.Task PlaceTokenAsync(string playername, string tokenname, System.Drawing.Color color, string destination);
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayer", ReplyAction="ludoService/ILudo/GetPlayerResponse")]
         string GetPlayer(System.Drawing.Color color);
@@ -108,6 +114,9 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnPlayerTurn")]
         void OnPlayerTurn();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnPlaceToken")]
+        void OnPlaceToken(string TokenName, System.Drawing.Color color, string destination);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -210,12 +219,20 @@ namespace Mdw.LudoGamePlayServiceReference {
             return base.Channel.NextTurnAsync();
         }
         
-        public string PutTokenInPlay(System.Drawing.Color color) {
-            return base.Channel.PutTokenInPlay(color);
+        public string PutTokenInPlay(System.Drawing.Color color, bool remove) {
+            return base.Channel.PutTokenInPlay(color, remove);
         }
         
-        public System.Threading.Tasks.Task<string> PutTokenInPlayAsync(System.Drawing.Color color) {
-            return base.Channel.PutTokenInPlayAsync(color);
+        public System.Threading.Tasks.Task<string> PutTokenInPlayAsync(System.Drawing.Color color, bool remove) {
+            return base.Channel.PutTokenInPlayAsync(color, remove);
+        }
+        
+        public void PlaceToken(string playername, string tokenname, System.Drawing.Color color, string destination) {
+            base.Channel.PlaceToken(playername, tokenname, color, destination);
+        }
+        
+        public System.Threading.Tasks.Task PlaceTokenAsync(string playername, string tokenname, System.Drawing.Color color, string destination) {
+            return base.Channel.PlaceTokenAsync(playername, tokenname, color, destination);
         }
         
         public string GetPlayer(System.Drawing.Color color) {

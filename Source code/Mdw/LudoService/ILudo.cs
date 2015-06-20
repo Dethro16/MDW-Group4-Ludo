@@ -40,7 +40,10 @@ namespace LudoService
         void NextTurn();
 
         [OperationContract]
-        string PutTokenInPlay(Color color);
+        string PutTokenInPlay(Color color, bool remove);
+
+        [OperationContract]
+        void PlaceToken(string playername, string tokenname, Color color, string destination);
 
         [OperationContract]
         string GetPlayer(Color color);
@@ -118,5 +121,8 @@ namespace LudoService
 
         [OperationContract(IsOneWay = true)]
         void OnPlayerTurn();
+
+        [OperationContract(IsOneWay = true)]
+        void OnPlaceToken(string TokenName, Color color, string destination);
     }
 }

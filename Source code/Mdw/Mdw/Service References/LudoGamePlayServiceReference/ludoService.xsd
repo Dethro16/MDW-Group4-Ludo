@@ -114,6 +114,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q3:Color" />
+        <xs:element minOccurs="0" name="remove" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,10 +125,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="PlaceToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="playername" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tokenname" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q4:Color" />
+        <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlaceTokenResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetPlayer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q4:Color" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q5:Color" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -185,13 +201,22 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="playername" nillable="true" type="xs:string" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q5:Color" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q6:Color" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="OnPlayerTurn">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnPlaceToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TokenName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q7:Color" />
+        <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -124,6 +124,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PlaceToken">
+      <soap12:operation soapAction="ludoService/ILudo/PlaceToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetPlayer">
       <soap12:operation soapAction="ludoService/ILudo/GetPlayer" style="document" />
       <wsdl:input>
@@ -171,6 +180,12 @@
     </wsdl:operation>
     <wsdl:operation name="OnPlayerTurn">
       <soap12:operation soapAction="ludoService/ILudo/OnPlayerTurn" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnPlaceToken">
+      <soap12:operation soapAction="ludoService/ILudo/OnPlaceToken" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

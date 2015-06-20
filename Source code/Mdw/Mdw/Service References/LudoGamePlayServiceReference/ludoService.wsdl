@@ -67,6 +67,12 @@
   <wsdl:message name="ILudo_PutTokenInPlay_OutputMessage">
     <wsdl:part name="parameters" element="tns:PutTokenInPlayResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_PlaceToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlaceToken" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_PlaceToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlaceTokenResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_GetPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayer" />
   </wsdl:message>
@@ -96,6 +102,9 @@
   </wsdl:message>
   <wsdl:message name="ILudo_OnPlayerTurn_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnPlayerTurn" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_OnPlaceToken_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnPlaceToken" />
   </wsdl:message>
   <wsdl:portType name="ILudo">
     <wsdl:operation name="RollToClient">
@@ -138,6 +147,10 @@
       <wsdl:input wsaw:Action="ludoService/ILudo/PutTokenInPlay" message="tns:ILudo_PutTokenInPlay_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/PutTokenInPlayResponse" message="tns:ILudo_PutTokenInPlay_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="PlaceToken">
+      <wsdl:input wsaw:Action="ludoService/ILudo/PlaceToken" message="tns:ILudo_PlaceToken_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/PlaceTokenResponse" message="tns:ILudo_PlaceToken_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPlayer">
       <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayer" message="tns:ILudo_GetPlayer_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/GetPlayerResponse" message="tns:ILudo_GetPlayer_OutputMessage" />
@@ -161,6 +174,9 @@
     </wsdl:operation>
     <wsdl:operation name="OnPlayerTurn">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnPlayerTurn" message="tns:ILudo_OnPlayerTurn_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnPlaceToken">
+      <wsdl:output wsaw:Action="ludoService/ILudo/OnPlaceToken" message="tns:ILudo_OnPlaceToken_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

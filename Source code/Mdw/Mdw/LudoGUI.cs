@@ -16,7 +16,7 @@ namespace Mdw
     {
         Panel selectedPanel = null;
         List<Panel> controllist = new List<Panel>();
-        
+
 
         InstanceContext context;
         LudoGamePlayServiceReference.LudoClient proxy;
@@ -143,13 +143,17 @@ namespace Mdw
                     }
                     break;
             }
-            lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + playername + "> has joined!!! ~~~");
+
+            if (playername != "Empty")
+            {
+                lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + playername + "> has joined!!! ~~~");
+            }
 
         }
 
         public void OnChatCallback(string username, string message)
         {
-            lbChat.Items.Add("["+DateTime.Now.ToString("HH:MM")+"] <" + username + ">: " + message);
+            lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] <" + username + ">: " + message);
         }
 
         public void EnablePanels(bool state)
@@ -162,7 +166,7 @@ namespace Mdw
 
         public void OnRollCallback(string username, int diceroll)
         {
-            lbChat.Items.Add("["+DateTime.Now.ToString("HH:MM") + "] ~~~ <" + username + "> rolled a " + diceroll.ToString()+"!!! ~~~");
+            lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + username + "> rolled a " + diceroll.ToString() + "!!! ~~~");
 
             caseSwitch = diceroll;
             switch (caseSwitch)
@@ -193,7 +197,7 @@ namespace Mdw
         {
             string temp = proxy.RollToClient(userName);
             proxy.Roll(userName);
-            
+
             lbChat.Items.Add(temp);
 
             switch (proxy.NumberToClient())
@@ -332,7 +336,9 @@ namespace Mdw
         {
             PictureBox pb = (PictureBox)sender;
 
-            string destination = proxy.PutTokenInPlay(color);
+            string destination = proxy.PutTokenInPlay(color, true);
+
+            proxy.PlaceToken(userName, pb.Name, color, destination);
 
             foreach (Panel panel in controllist)
             {
@@ -350,6 +356,28 @@ namespace Mdw
             foreach (PictureBox item in ReturnBaseTokens(color))
             {
                 item.Enabled = false;
+            }
+
+        }
+
+        public void OnPlaceToken(string TokenName, Color color, string destination)
+        {
+
+            foreach (PictureBox pic in ReturnBaseTokens(color))
+            {
+                if (pic.Name == TokenName)
+                {
+                    foreach (Panel panel in controllist)
+                    {
+                        panel.BackgroundImageLayout = ImageLayout.Stretch;
+                        if (panel.Name == destination)
+                        {
+                            panel.BackgroundImage = pic.BackgroundImage;
+                        }
+                    }
+                    pic.BackgroundImage = null;
+                    return;
+                }
             }
 
         }
