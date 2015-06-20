@@ -91,6 +91,18 @@
   <wsdl:message name="ILudo_Check_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_MoveToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveToken" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_MoveToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_MoveToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveToClient" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_MoveToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveToClientResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_OnChatCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnChatCallback" />
   </wsdl:message>
@@ -105,6 +117,9 @@
   </wsdl:message>
   <wsdl:message name="ILudo_OnPlaceToken_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnPlaceToken" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_OnMoveToken_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnMoveToken" />
   </wsdl:message>
   <wsdl:portType name="ILudo">
     <wsdl:operation name="RollToClient">
@@ -163,6 +178,14 @@
       <wsdl:input wsaw:Action="ludoService/ILudo/Check" message="tns:ILudo_Check_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/CheckResponse" message="tns:ILudo_Check_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="MoveToken">
+      <wsdl:input wsaw:Action="ludoService/ILudo/MoveToken" message="tns:ILudo_MoveToken_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/MoveTokenResponse" message="tns:ILudo_MoveToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveToClient">
+      <wsdl:input wsaw:Action="ludoService/ILudo/MoveToClient" message="tns:ILudo_MoveToClient_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/MoveToClientResponse" message="tns:ILudo_MoveToClient_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OnChatCallback">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnChatCallback" message="tns:ILudo_OnChatCallback_OutputCallbackMessage" />
     </wsdl:operation>
@@ -177,6 +200,9 @@
     </wsdl:operation>
     <wsdl:operation name="OnPlaceToken">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnPlaceToken" message="tns:ILudo_OnPlaceToken_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnMoveToken">
+      <wsdl:output wsaw:Action="ludoService/ILudo/OnMoveToken" message="tns:ILudo_OnMoveToken_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

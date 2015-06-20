@@ -160,6 +160,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MoveToken">
+      <soap12:operation soapAction="ludoService/ILudo/MoveToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveToClient">
+      <soap12:operation soapAction="ludoService/ILudo/MoveToClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="OnChatCallback">
       <soap12:operation soapAction="ludoService/ILudo/OnChatCallback" style="document" />
       <wsdl:output>
@@ -186,6 +204,12 @@
     </wsdl:operation>
     <wsdl:operation name="OnPlaceToken">
       <soap12:operation soapAction="ludoService/ILudo/OnPlaceToken" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnMoveToken">
+      <soap12:operation soapAction="ludoService/ILudo/OnMoveToken" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

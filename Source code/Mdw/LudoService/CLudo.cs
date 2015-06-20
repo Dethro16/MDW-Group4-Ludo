@@ -21,6 +21,9 @@ namespace LudoService
             Color.Red,Color.Blue, Color.Green, Color.Yellow};
 
 
+        Board board = new Board();
+
+
         ILudoCallback clientCallBack;
 
         Random rnd;
@@ -33,7 +36,7 @@ namespace LudoService
 
         public int GenerateRoll()
         {
-            return 6;//rnd.Next(1, 7);
+            return rnd.Next(1, 7);
         }
 
         public void GetPlayerColor(string playername, Color color)
@@ -195,9 +198,17 @@ namespace LudoService
             {
                 if (player.Color == color)
                 {
+                    List<Square> path = board.GetPath(color);
+
+                    Token tk = new Token(color);
+                    tk.Path = path;
+                    tk.Place = tk.Path[tk.Index];
+                    path[0].Token = tk;
+                    
                     if (remove)
                     {
-                        player.Tokens.RemoveAt(0);
+                        player.FieldTokens.Add(tk);
+                        player.BaseTokens.RemoveAt(0);
                     }
 
                     switch (color.ToString())
@@ -223,6 +234,32 @@ namespace LudoService
                 if (item.PlayerName != playername)
                 {
                     item.callback.OnPlaceToken(tokenname, color, destination);
+                }
+            }
+        }
+
+        public string MoveToken(string field, Color color)
+        {
+            foreach (Square sq in board.GetPath(color))
+            {
+                if (sq.Name == field)
+                {
+                    sq.Token.Index += diceNumber;
+                    sq.Token.Place = sq.Token.Path[sq.Token.Index];
+                    sq.Token.Path[sq.Token.Index].Token = sq.Token;
+                    return sq.Token.Path[sq.Token.Index].Name;
+                }
+            }
+            return field;
+        }
+
+        public void MoveToClient(string playername, string tokenname, Color color, string destination)
+        {
+            foreach (Player item in players)
+            {
+                if (item.PlayerName != playername)
+                {
+                    item.callback.OnMoveToken(tokenname, color, destination);
                 }
             }
         }

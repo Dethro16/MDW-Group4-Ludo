@@ -98,6 +98,18 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/Check", ReplyAction="ludoService/ILudo/CheckResponse")]
         System.Threading.Tasks.Task<bool> CheckAsync(string playerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/MoveToken", ReplyAction="ludoService/ILudo/MoveTokenResponse")]
+        string MoveToken(string field, System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/MoveToken", ReplyAction="ludoService/ILudo/MoveTokenResponse")]
+        System.Threading.Tasks.Task<string> MoveTokenAsync(string field, System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/MoveToClient", ReplyAction="ludoService/ILudo/MoveToClientResponse")]
+        void MoveToClient(string playername, string tokenname, System.Drawing.Color color, string destination);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/MoveToClient", ReplyAction="ludoService/ILudo/MoveToClientResponse")]
+        System.Threading.Tasks.Task MoveToClientAsync(string playername, string tokenname, System.Drawing.Color color, string destination);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -117,6 +129,9 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnPlaceToken")]
         void OnPlaceToken(string TokenName, System.Drawing.Color color, string destination);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ludoService/ILudo/OnMoveToken")]
+        void OnMoveToken(string TokenName, System.Drawing.Color color, string destination);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -257,6 +272,22 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         public System.Threading.Tasks.Task<bool> CheckAsync(string playerName) {
             return base.Channel.CheckAsync(playerName);
+        }
+        
+        public string MoveToken(string field, System.Drawing.Color color) {
+            return base.Channel.MoveToken(field, color);
+        }
+        
+        public System.Threading.Tasks.Task<string> MoveTokenAsync(string field, System.Drawing.Color color) {
+            return base.Channel.MoveTokenAsync(field, color);
+        }
+        
+        public void MoveToClient(string playername, string tokenname, System.Drawing.Color color, string destination) {
+            base.Channel.MoveToClient(playername, tokenname, color, destination);
+        }
+        
+        public System.Threading.Tasks.Task MoveToClientAsync(string playername, string tokenname, System.Drawing.Color color, string destination) {
+            return base.Channel.MoveToClientAsync(playername, tokenname, color, destination);
         }
     }
 }

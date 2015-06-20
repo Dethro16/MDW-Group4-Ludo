@@ -11,16 +11,18 @@ namespace LudoService
     {
         //Fields
         Color color;
-        int id;
+        int index;
         bool atBase;
         bool atEnd;
+        Square place;
+        List<Square> path;
 
 
         //Properties
-        public int Id
+        public int Index
         {
-            get { return id; }
-            set { id = value; }
+            get { return index; }
+            set { index = value; }
         }
 
         public bool AtBase
@@ -41,14 +43,25 @@ namespace LudoService
             set { color = value; }
         }
 
-        //Constructor
-        public Token(int id, Color color)
+        public Square Place
         {
-            Id = id;
+            get { return place; }
+            set { place = value; }
+        }
+
+        public List<Square> Path
+        {
+            get { return path; }
+            set { path = value; }
+        }
+
+        //Constructor
+        public Token(Color color)
+        {
             Color = color;
+            this.Index = 0;
             AtBase = true;
             AtEnd = false;
-
         }
 
         //Methods

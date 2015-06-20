@@ -53,6 +53,12 @@ namespace LudoService
 
         [OperationContract]
         bool Check(string playerName);
+
+        [OperationContract]
+        string MoveToken(string field, Color color);
+
+        [OperationContract]
+        void MoveToClient(string playername, string tokenname, Color color, string destination);
     }
 
     public class Player
@@ -72,35 +78,33 @@ namespace LudoService
         [DataMember]
         public bool RolledSix { get; set; }
         [DataMember]
-        public List<Token> Tokens { get; set; }
+        public List<Token> BaseTokens { get; set; }
+        [DataMember]
+        public List<Token> FieldTokens { get; set; }
 
         [DataMember]
         public ILudoCallback callback { get; set; }
 
         public Player(string name, Color color)
         {
-            if (color == Color.Black)
+
+            this.PlayerName = name;
+            this.Color = color;
+            this.HasWon = false;
+            this.Loggedin = true;
+            this.BaseTokens = new List<Token>(4);
+            this.FieldTokens = new List<Token>();
+
+            for (int i = 0; i < 4; i++)
             {
-
+                BaseTokens.Add(new Token(color));
             }
-            else
+
+            foreach (Token item in BaseTokens)
             {
-                this.PlayerName = name;
-                this.Color = color;
-                this.HasWon = false;
-                this.Loggedin = true;
-                this.Tokens = new List<Token>(4);
-
-                for (int i = 0; i < 4; i++)
-                {
-                    Tokens.Add(new Token(i, color));
-                }
-
-                foreach (Token item in Tokens)
-                {
-                    item.Color = this.Color;  
-                }
+                item.Color = this.Color;
             }
+
         }
     }
 
@@ -124,5 +128,8 @@ namespace LudoService
 
         [OperationContract(IsOneWay = true)]
         void OnPlaceToken(string TokenName, Color color, string destination);
+
+        [OperationContract(IsOneWay = true)]
+        void OnMoveToken(string TokenName, Color color, string destination);
     }
 }

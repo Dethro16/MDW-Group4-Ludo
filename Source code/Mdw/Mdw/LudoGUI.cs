@@ -14,6 +14,12 @@ namespace Mdw
     public partial class LudoGUI : Form,
         LudoGamePlayServiceReference.ILudoCallback
     {
+
+        Bitmap red = Properties.Resources.TokenRed;
+        Bitmap blue = Properties.Resources.TokenBlue;
+        Bitmap yellow = Properties.Resources.TokenYellow;
+        Bitmap green = Properties.Resources.TokenGreen;
+
         Panel selectedPanel = null;
         List<Panel> controllist = new List<Panel>();
 
@@ -73,26 +79,20 @@ namespace Mdw
 
             proxy.GetPlayerColor(userName, color);
 
-            //this.tbRed.Text = proxy.GetPlayer(Color.Red);
-            //this.tbBlue.Text = proxy.GetPlayer(Color.Blue);
-            //this.tbGreen.Text = proxy.GetPlayer(Color.Green);
-            //this.tbYellow.Text = proxy.GetPlayer(Color.Yellow);
 
             OnPlayerLogin(proxy.GetPlayer(Color.Red), Color.Red);
             OnPlayerLogin(proxy.GetPlayer(Color.Blue), Color.Blue);
             OnPlayerLogin(proxy.GetPlayer(Color.Green), Color.Green);
             OnPlayerLogin(proxy.GetPlayer(Color.Yellow), Color.Yellow);
-            //controllist.Add(pbDice);
-            //controllist.Add(pbRed);
-            //controllist.Add(pbBlue);
-            //controllist.Add(pbGreen);
-            //controllist.Add(pbYellow);
+
 
             foreach (Panel pb in this.Controls.OfType<Panel>())
             {
                 controllist.Add(pb);
+                pb.Enabled = false;
             }
-            EnablePanels(false);
+
+            //EnablePanels(false, color);
 
         }
 
@@ -108,7 +108,7 @@ namespace Mdw
                     {
                         foreach (PictureBox item in ReturnBaseTokens(color))
                         {
-                            item.BackgroundImage = Properties.Resources.TokenRed;
+                            item.BackgroundImage = red;
                         }
                     }
                     break;
@@ -118,7 +118,7 @@ namespace Mdw
                     {
                         foreach (PictureBox item in ReturnBaseTokens(color))
                         {
-                            item.BackgroundImage = Properties.Resources.TokenBlue;
+                            item.BackgroundImage = blue;
                         }
                     }
                     break;
@@ -128,7 +128,7 @@ namespace Mdw
                     {
                         foreach (PictureBox item in ReturnBaseTokens(color))
                         {
-                            item.BackgroundImage = Properties.Resources.TokenGreen;
+                            item.BackgroundImage = green;
                         }
                     }
                     break;
@@ -138,7 +138,7 @@ namespace Mdw
                     {
                         foreach (PictureBox item in ReturnBaseTokens(color))
                         {
-                            item.BackgroundImage = Properties.Resources.TokenYellow;
+                            item.BackgroundImage = yellow;
                         }
                     }
                     break;
@@ -156,11 +156,41 @@ namespace Mdw
             lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] <" + username + ">: " + message);
         }
 
-        public void EnablePanels(bool state)
+        public void EnablePanels(bool state, Color color)
         {
             foreach (Panel item in controllist)
             {
-                item.Enabled = state;
+                if (state)
+                {
+                    if (item.BackgroundImage == EnablePic(color))
+                    {
+                        item.Enabled = true;
+                    }
+                    else
+                    {
+                        item.Enabled = false;
+                    }
+                }
+                else
+                {
+                    item.Enabled = false;
+                }
+            }
+        }
+
+        public Bitmap EnablePic(Color color)
+        {
+            switch (color.ToString())
+            {
+                case "Color [Red]":
+                    return red;
+                case "Color [Blue]":
+                    return blue;
+                case "Color [Yellow]":
+                    return yellow;
+                case "Color [Green]":
+                    return green;
+                default: return null;
             }
         }
 
@@ -227,7 +257,7 @@ namespace Mdw
             }
 
 
-            EnablePanels(true);
+            EnablePanels(true, color);
             this.pbDice.Enabled = false;
 
         }
@@ -250,8 +280,19 @@ namespace Mdw
         {
             Panel p = (Panel)sender;
 
-            MessageBox.Show(p.Name);
+            //MessageBox.Show(p.Name);
 
+           
+            string s = proxy.MoveToken(p.Name, color);
+            foreach (Panel panel in controllist)
+            {
+                if (panel.Name == s)
+                {
+                    proxy.MoveToClient(userName, p.Name, color, panel.Name);
+                    panel.BackgroundImage = p.BackgroundImage;
+                    p.BackgroundImage = null;
+                }
+            }
             if (proxy.NumberToClient() == 6)
             {
                 this.pbDice.Enabled = true;
@@ -261,7 +302,7 @@ namespace Mdw
                 proxy.NextTurn();
             }
 
-            EnablePanels(false);
+            EnablePanels(false, color);
         }
 
         #region Leave Button functions
@@ -351,7 +392,7 @@ namespace Mdw
             pb.BackgroundImage = null;
             this.pbDice.Enabled = true;
 
-            EnablePanels(false);
+            EnablePanels(false, color);
 
             foreach (PictureBox item in ReturnBaseTokens(color))
             {
@@ -381,5 +422,26 @@ namespace Mdw
             }
 
         }
+
+       public void OnMoveToken(string TokenName, Color color, string destination)
+        {
+            foreach (Panel p in controllist)
+            {
+                if (p.Name == TokenName)
+                {
+                    foreach (Panel panel in controllist)
+                    {
+                        panel.BackgroundImageLayout = ImageLayout.Stretch;
+                        if (panel.Name == destination)
+                        {
+                            panel.BackgroundImage = p.BackgroundImage;
+                        }
+                    }
+                    p.BackgroundImage = null;
+                    return;
+                }
+            }
+        }
+
     }
 }

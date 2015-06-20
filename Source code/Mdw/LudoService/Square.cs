@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace LudoService
 {
-    class Square
+    public class Square
     {
         //Fields
         string name;
@@ -16,6 +16,8 @@ namespace LudoService
         bool isBase;
         bool isEnd;
         bool isToken;
+
+        Token token;
 
         List<Token> tokens;
 
@@ -59,6 +61,13 @@ namespace LudoService
         public List<Token> Tokens
         {
             get { return tokens; }
+            set { tokens = value; }
+        }
+
+        public Token Token
+        {
+            get { return token; }
+            set { token = value; }
         }
 
         //Constructor
@@ -69,22 +78,17 @@ namespace LudoService
             this.Color = color;
             this.IsBase = isBase;
             this.IsEnd = isEnd;
+            this.Tokens = new List<Token>();
         }
 
         //this.squares.Add(new Square(Color.White, i, false, false));
 
         //Methods
 
-        public void AddToken(Token token)
-        {
-            IsToken = true;
-        }
-
         public void RemoveToken(Token token)
         {
             IsToken = false;
         }
-
 
     }
 }
