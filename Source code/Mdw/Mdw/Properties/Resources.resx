@@ -178,4 +178,16 @@
   <data name="_005_X_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\005-X-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TokenBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TokenBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TokenGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TokenGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TokenRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TokenRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TokenYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TokenYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

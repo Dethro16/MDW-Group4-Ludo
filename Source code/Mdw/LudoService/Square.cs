@@ -15,7 +15,7 @@ namespace LudoService
         int position = 0;
         bool isBase;
         bool isEnd;
-        bool isEmpty;
+        bool isToken;
 
         List<Token> tokens;
 
@@ -44,10 +44,10 @@ namespace LudoService
             set { isEnd = value; }
         }
 
-        public bool IsEmpty
+        public bool IsToken
         {
-            get { return isEmpty; }
-            set { isEmpty = value; }
+            get { return isToken; }
+            set { isToken = value; }
         }
 
         public Color Color
@@ -77,11 +77,12 @@ namespace LudoService
 
         public void AddToken(Token token)
         {
-            isEmpty = false;
+            IsToken = true;
         }
 
         public void RemoveToken(Token token)
         {
+            IsToken = false;
         }
 
 

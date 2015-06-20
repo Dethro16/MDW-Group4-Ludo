@@ -33,7 +33,7 @@ namespace LudoService
 
         public int GenerateRoll()
         {
-            return rnd.Next(1, 7);
+            return 6;//rnd.Next(1, 7);
         }
 
         public void GetPlayerColor(string playername, Color color)
@@ -187,6 +187,30 @@ namespace LudoService
                     p.callback.OnPlayerTurn();
                 }
             }
+        }
+
+        public string PutTokenInPlay(Color color)
+        {
+            foreach (Player player in players)
+            {
+                if (player.Color == color)
+                {
+                    player.Tokens.RemoveAt(0);
+                    switch (color.ToString())
+                    {
+                        case "Color [Red]":
+                            return "startRed";
+                        case "Color [Blue]":
+                            return "startBlue";
+                        case "Color [Green]":
+                            return "startGreen";
+                        case "Color [Yellow]":
+                            return "startYellow";
+                    }
+
+                }
+            }
+            return "";
         }
     }
 }

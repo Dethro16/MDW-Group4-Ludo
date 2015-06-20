@@ -113,10 +113,7 @@
             this.tbYellow = new System.Windows.Forms.TextBox();
             this.tbGreen = new System.Windows.Forms.TextBox();
             this.tbRed = new System.Windows.Forms.TextBox();
-            this.pbBlue = new System.Windows.Forms.PictureBox();
-            this.pbRed = new System.Windows.Forms.PictureBox();
-            this.pbGreen = new System.Windows.Forms.PictureBox();
-            this.pbYellow = new System.Windows.Forms.PictureBox();
+            this.tokenRed1 = new System.Windows.Forms.PictureBox();
             this.btLeave = new System.Windows.Forms.Button();
             this.goalRed1 = new System.Windows.Forms.Panel();
             this.goalRed3 = new System.Windows.Forms.Panel();
@@ -136,12 +133,39 @@
             this.goalBlue4 = new System.Windows.Forms.Panel();
             this.btStart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tokenRed2 = new System.Windows.Forms.PictureBox();
+            this.tokenRed3 = new System.Windows.Forms.PictureBox();
+            this.tokenRed4 = new System.Windows.Forms.PictureBox();
+            this.tokenBlu4 = new System.Windows.Forms.PictureBox();
+            this.tokenBlu3 = new System.Windows.Forms.PictureBox();
+            this.tokenBlu2 = new System.Windows.Forms.PictureBox();
+            this.tokenBlu1 = new System.Windows.Forms.PictureBox();
+            this.tokenGre4 = new System.Windows.Forms.PictureBox();
+            this.tokenGre3 = new System.Windows.Forms.PictureBox();
+            this.tokenGre2 = new System.Windows.Forms.PictureBox();
+            this.tokenGre1 = new System.Windows.Forms.PictureBox();
+            this.tokenYel4 = new System.Windows.Forms.PictureBox();
+            this.tokenYel3 = new System.Windows.Forms.PictureBox();
+            this.tokenYel2 = new System.Windows.Forms.PictureBox();
+            this.tokenYel1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbChat
@@ -918,38 +942,17 @@
             this.tbRed.TabIndex = 31;
             this.tbRed.Text = "Player Red";
             // 
-            // pbBlue
+            // tokenRed1
             // 
-            this.pbBlue.Location = new System.Drawing.Point(89, 409);
-            this.pbBlue.Name = "pbBlue";
-            this.pbBlue.Size = new System.Drawing.Size(158, 158);
-            this.pbBlue.TabIndex = 32;
-            this.pbBlue.TabStop = false;
-            // 
-            // pbRed
-            // 
-            this.pbRed.Location = new System.Drawing.Point(465, 409);
-            this.pbRed.Name = "pbRed";
-            this.pbRed.Size = new System.Drawing.Size(158, 158);
-            this.pbRed.TabIndex = 33;
-            this.pbRed.TabStop = false;
-            this.pbRed.Click += new System.EventHandler(this.pbRed_Click);
-            // 
-            // pbGreen
-            // 
-            this.pbGreen.Location = new System.Drawing.Point(465, 53);
-            this.pbGreen.Name = "pbGreen";
-            this.pbGreen.Size = new System.Drawing.Size(158, 158);
-            this.pbGreen.TabIndex = 34;
-            this.pbGreen.TabStop = false;
-            // 
-            // pbYellow
-            // 
-            this.pbYellow.Location = new System.Drawing.Point(89, 53);
-            this.pbYellow.Name = "pbYellow";
-            this.pbYellow.Size = new System.Drawing.Size(158, 158);
-            this.pbYellow.TabIndex = 35;
-            this.pbYellow.TabStop = false;
+            this.tokenRed1.BackColor = System.Drawing.Color.Transparent;
+            this.tokenRed1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenRed1.Enabled = false;
+            this.tokenRed1.Location = new System.Drawing.Point(488, 410);
+            this.tokenRed1.Name = "tokenRed1";
+            this.tokenRed1.Size = new System.Drawing.Size(55, 55);
+            this.tokenRed1.TabIndex = 33;
+            this.tokenRed1.TabStop = false;
+            this.tokenRed1.Click += new System.EventHandler(this.PictureBoxOnClick);
             // 
             // btLeave
             // 
@@ -1129,6 +1132,186 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chat";
             // 
+            // tokenRed2
+            // 
+            this.tokenRed2.BackColor = System.Drawing.Color.Transparent;
+            this.tokenRed2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenRed2.Enabled = false;
+            this.tokenRed2.Location = new System.Drawing.Point(549, 409);
+            this.tokenRed2.Name = "tokenRed2";
+            this.tokenRed2.Size = new System.Drawing.Size(55, 55);
+            this.tokenRed2.TabIndex = 43;
+            this.tokenRed2.TabStop = false;
+            this.tokenRed2.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenRed3
+            // 
+            this.tokenRed3.BackColor = System.Drawing.Color.Transparent;
+            this.tokenRed3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenRed3.Enabled = false;
+            this.tokenRed3.Location = new System.Drawing.Point(488, 472);
+            this.tokenRed3.Name = "tokenRed3";
+            this.tokenRed3.Size = new System.Drawing.Size(55, 55);
+            this.tokenRed3.TabIndex = 44;
+            this.tokenRed3.TabStop = false;
+            this.tokenRed3.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenRed4
+            // 
+            this.tokenRed4.BackColor = System.Drawing.Color.Transparent;
+            this.tokenRed4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenRed4.Enabled = false;
+            this.tokenRed4.Location = new System.Drawing.Point(549, 472);
+            this.tokenRed4.Name = "tokenRed4";
+            this.tokenRed4.Size = new System.Drawing.Size(55, 55);
+            this.tokenRed4.TabIndex = 45;
+            this.tokenRed4.TabStop = false;
+            this.tokenRed4.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenBlu4
+            // 
+            this.tokenBlu4.BackColor = System.Drawing.Color.Transparent;
+            this.tokenBlu4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenBlu4.Enabled = false;
+            this.tokenBlu4.Location = new System.Drawing.Point(172, 467);
+            this.tokenBlu4.Name = "tokenBlu4";
+            this.tokenBlu4.Size = new System.Drawing.Size(55, 55);
+            this.tokenBlu4.TabIndex = 49;
+            this.tokenBlu4.TabStop = false;
+            this.tokenBlu4.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenBlu3
+            // 
+            this.tokenBlu3.BackColor = System.Drawing.Color.Transparent;
+            this.tokenBlu3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenBlu3.Enabled = false;
+            this.tokenBlu3.Location = new System.Drawing.Point(111, 467);
+            this.tokenBlu3.Name = "tokenBlu3";
+            this.tokenBlu3.Size = new System.Drawing.Size(55, 55);
+            this.tokenBlu3.TabIndex = 48;
+            this.tokenBlu3.TabStop = false;
+            this.tokenBlu3.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenBlu2
+            // 
+            this.tokenBlu2.BackColor = System.Drawing.Color.Transparent;
+            this.tokenBlu2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenBlu2.Enabled = false;
+            this.tokenBlu2.Location = new System.Drawing.Point(172, 404);
+            this.tokenBlu2.Name = "tokenBlu2";
+            this.tokenBlu2.Size = new System.Drawing.Size(55, 55);
+            this.tokenBlu2.TabIndex = 47;
+            this.tokenBlu2.TabStop = false;
+            this.tokenBlu2.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenBlu1
+            // 
+            this.tokenBlu1.BackColor = System.Drawing.Color.Transparent;
+            this.tokenBlu1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenBlu1.Enabled = false;
+            this.tokenBlu1.Location = new System.Drawing.Point(111, 405);
+            this.tokenBlu1.Name = "tokenBlu1";
+            this.tokenBlu1.Size = new System.Drawing.Size(55, 55);
+            this.tokenBlu1.TabIndex = 46;
+            this.tokenBlu1.TabStop = false;
+            this.tokenBlu1.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenGre4
+            // 
+            this.tokenGre4.BackColor = System.Drawing.Color.Transparent;
+            this.tokenGre4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenGre4.Enabled = false;
+            this.tokenGre4.Location = new System.Drawing.Point(549, 115);
+            this.tokenGre4.Name = "tokenGre4";
+            this.tokenGre4.Size = new System.Drawing.Size(55, 55);
+            this.tokenGre4.TabIndex = 53;
+            this.tokenGre4.TabStop = false;
+            this.tokenGre4.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenGre3
+            // 
+            this.tokenGre3.BackColor = System.Drawing.Color.Transparent;
+            this.tokenGre3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenGre3.Enabled = false;
+            this.tokenGre3.Location = new System.Drawing.Point(488, 115);
+            this.tokenGre3.Name = "tokenGre3";
+            this.tokenGre3.Size = new System.Drawing.Size(55, 55);
+            this.tokenGre3.TabIndex = 52;
+            this.tokenGre3.TabStop = false;
+            this.tokenGre3.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenGre2
+            // 
+            this.tokenGre2.BackColor = System.Drawing.Color.Transparent;
+            this.tokenGre2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenGre2.Enabled = false;
+            this.tokenGre2.Location = new System.Drawing.Point(549, 52);
+            this.tokenGre2.Name = "tokenGre2";
+            this.tokenGre2.Size = new System.Drawing.Size(55, 55);
+            this.tokenGre2.TabIndex = 51;
+            this.tokenGre2.TabStop = false;
+            this.tokenGre2.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenGre1
+            // 
+            this.tokenGre1.BackColor = System.Drawing.Color.Transparent;
+            this.tokenGre1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenGre1.Enabled = false;
+            this.tokenGre1.Location = new System.Drawing.Point(488, 53);
+            this.tokenGre1.Name = "tokenGre1";
+            this.tokenGre1.Size = new System.Drawing.Size(55, 55);
+            this.tokenGre1.TabIndex = 50;
+            this.tokenGre1.TabStop = false;
+            this.tokenGre1.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenYel4
+            // 
+            this.tokenYel4.BackColor = System.Drawing.Color.Transparent;
+            this.tokenYel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenYel4.Enabled = false;
+            this.tokenYel4.Location = new System.Drawing.Point(172, 115);
+            this.tokenYel4.Name = "tokenYel4";
+            this.tokenYel4.Size = new System.Drawing.Size(55, 55);
+            this.tokenYel4.TabIndex = 57;
+            this.tokenYel4.TabStop = false;
+            this.tokenYel4.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenYel3
+            // 
+            this.tokenYel3.BackColor = System.Drawing.Color.Transparent;
+            this.tokenYel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenYel3.Enabled = false;
+            this.tokenYel3.Location = new System.Drawing.Point(111, 115);
+            this.tokenYel3.Name = "tokenYel3";
+            this.tokenYel3.Size = new System.Drawing.Size(55, 55);
+            this.tokenYel3.TabIndex = 56;
+            this.tokenYel3.TabStop = false;
+            this.tokenYel3.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenYel2
+            // 
+            this.tokenYel2.BackColor = System.Drawing.Color.Transparent;
+            this.tokenYel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenYel2.Enabled = false;
+            this.tokenYel2.Location = new System.Drawing.Point(172, 52);
+            this.tokenYel2.Name = "tokenYel2";
+            this.tokenYel2.Size = new System.Drawing.Size(55, 55);
+            this.tokenYel2.TabIndex = 55;
+            this.tokenYel2.TabStop = false;
+            this.tokenYel2.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
+            // tokenYel1
+            // 
+            this.tokenYel1.BackColor = System.Drawing.Color.Transparent;
+            this.tokenYel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tokenYel1.Enabled = false;
+            this.tokenYel1.Location = new System.Drawing.Point(111, 53);
+            this.tokenYel1.Name = "tokenYel1";
+            this.tokenYel1.Size = new System.Drawing.Size(55, 55);
+            this.tokenYel1.TabIndex = 54;
+            this.tokenYel1.TabStop = false;
+            this.tokenYel1.Click += new System.EventHandler(this.PictureBoxOnClick);
+            // 
             // LudoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1136,6 +1319,21 @@
             this.BackgroundImage = global::Mdw.Properties.Resources.PlayBoardv1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1124, 632);
+            this.Controls.Add(this.tokenYel4);
+            this.Controls.Add(this.tokenYel3);
+            this.Controls.Add(this.tokenYel2);
+            this.Controls.Add(this.tokenYel1);
+            this.Controls.Add(this.tokenGre4);
+            this.Controls.Add(this.tokenGre3);
+            this.Controls.Add(this.tokenGre2);
+            this.Controls.Add(this.tokenGre1);
+            this.Controls.Add(this.tokenBlu4);
+            this.Controls.Add(this.tokenBlu3);
+            this.Controls.Add(this.tokenBlu2);
+            this.Controls.Add(this.tokenBlu1);
+            this.Controls.Add(this.tokenRed4);
+            this.Controls.Add(this.tokenRed3);
+            this.Controls.Add(this.tokenRed2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btStart);
             this.Controls.Add(this.goalBlue4);
@@ -1155,10 +1353,7 @@
             this.Controls.Add(this.goalRed3);
             this.Controls.Add(this.goalRed1);
             this.Controls.Add(this.btLeave);
-            this.Controls.Add(this.pbYellow);
-            this.Controls.Add(this.pbGreen);
-            this.Controls.Add(this.pbRed);
-            this.Controls.Add(this.pbBlue);
+            this.Controls.Add(this.tokenRed1);
             this.Controls.Add(this.tbRed);
             this.Controls.Add(this.tbGreen);
             this.Controls.Add(this.tbYellow);
@@ -1248,12 +1443,24 @@
             this.Text = "Ludo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LudoGUI_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGreen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbYellow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenRed4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenBlu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenGre1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tokenYel1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1343,10 +1550,7 @@
         private System.Windows.Forms.TextBox tbYellow;
         private System.Windows.Forms.TextBox tbGreen;
         private System.Windows.Forms.TextBox tbRed;
-        private System.Windows.Forms.PictureBox pbBlue;
-        private System.Windows.Forms.PictureBox pbRed;
-        private System.Windows.Forms.PictureBox pbGreen;
-        private System.Windows.Forms.PictureBox pbYellow;
+        private System.Windows.Forms.PictureBox tokenRed1;
         private System.Windows.Forms.Button btLeave;
         private System.Windows.Forms.Panel goalRed1;
         private System.Windows.Forms.Panel goalRed2;
@@ -1368,5 +1572,20 @@
         private System.Windows.Forms.TextBox tbChat;
         private System.Windows.Forms.Button btStart;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox tokenRed2;
+        private System.Windows.Forms.PictureBox tokenRed3;
+        private System.Windows.Forms.PictureBox tokenRed4;
+        private System.Windows.Forms.PictureBox tokenBlu4;
+        private System.Windows.Forms.PictureBox tokenBlu3;
+        private System.Windows.Forms.PictureBox tokenBlu2;
+        private System.Windows.Forms.PictureBox tokenBlu1;
+        private System.Windows.Forms.PictureBox tokenGre4;
+        private System.Windows.Forms.PictureBox tokenGre3;
+        private System.Windows.Forms.PictureBox tokenGre2;
+        private System.Windows.Forms.PictureBox tokenGre1;
+        private System.Windows.Forms.PictureBox tokenYel4;
+        private System.Windows.Forms.PictureBox tokenYel3;
+        private System.Windows.Forms.PictureBox tokenYel2;
+        private System.Windows.Forms.PictureBox tokenYel1;
     }
 }

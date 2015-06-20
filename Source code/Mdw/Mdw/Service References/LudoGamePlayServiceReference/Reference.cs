@@ -69,6 +69,12 @@ namespace Mdw.LudoGamePlayServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/NextTurn", ReplyAction="ludoService/ILudo/NextTurnResponse")]
         System.Threading.Tasks.Task NextTurnAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/PutTokenInPlay", ReplyAction="ludoService/ILudo/PutTokenInPlayResponse")]
+        string PutTokenInPlay(System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/PutTokenInPlay", ReplyAction="ludoService/ILudo/PutTokenInPlayResponse")]
+        System.Threading.Tasks.Task<string> PutTokenInPlayAsync(System.Drawing.Color color);
+        
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/GetPlayer", ReplyAction="ludoService/ILudo/GetPlayerResponse")]
         string GetPlayer(System.Drawing.Color color);
         
@@ -202,6 +208,14 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         public System.Threading.Tasks.Task NextTurnAsync() {
             return base.Channel.NextTurnAsync();
+        }
+        
+        public string PutTokenInPlay(System.Drawing.Color color) {
+            return base.Channel.PutTokenInPlay(color);
+        }
+        
+        public System.Threading.Tasks.Task<string> PutTokenInPlayAsync(System.Drawing.Color color) {
+            return base.Channel.PutTokenInPlayAsync(color);
         }
         
         public string GetPlayer(System.Drawing.Color color) {

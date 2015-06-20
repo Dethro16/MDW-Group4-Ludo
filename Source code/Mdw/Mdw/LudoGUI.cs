@@ -25,6 +25,42 @@ namespace Mdw
         Color color = LudoLoginGUI.color;
         int caseSwitch;
 
+        public List<PictureBox> ReturnBaseTokens(Color c)
+        {
+            List<PictureBox> BaseTokens = new List<PictureBox>();
+            if (c == Color.Red)
+            {
+                BaseTokens.Add(tokenRed1);
+                BaseTokens.Add(tokenRed2);
+                BaseTokens.Add(tokenRed3);
+                BaseTokens.Add(tokenRed4);
+            }
+            else if (c == Color.Green)
+            {
+                BaseTokens.Add(tokenGre1);
+                BaseTokens.Add(tokenGre2);
+                BaseTokens.Add(tokenGre3);
+                BaseTokens.Add(tokenGre4);
+            }
+            else if (c == Color.Blue)
+            {
+                BaseTokens.Add(tokenBlu1);
+                BaseTokens.Add(tokenBlu2);
+                BaseTokens.Add(tokenBlu3);
+                BaseTokens.Add(tokenBlu4);
+            }
+            else if (c == Color.Yellow)
+            {
+                BaseTokens.Add(tokenYel1);
+                BaseTokens.Add(tokenYel2);
+                BaseTokens.Add(tokenYel3);
+                BaseTokens.Add(tokenYel4);
+            }
+            return BaseTokens;
+        }
+
+
+
         public LudoGUI()
         {
 
@@ -37,11 +73,15 @@ namespace Mdw
 
             proxy.GetPlayerColor(userName, color);
 
-            this.tbRed.Text = proxy.GetPlayer(Color.Red);
-            this.tbBlue.Text = proxy.GetPlayer(Color.Blue);
-            this.tbGreen.Text = proxy.GetPlayer(Color.Green);
-            this.tbYellow.Text = proxy.GetPlayer(Color.Yellow);
+            //this.tbRed.Text = proxy.GetPlayer(Color.Red);
+            //this.tbBlue.Text = proxy.GetPlayer(Color.Blue);
+            //this.tbGreen.Text = proxy.GetPlayer(Color.Green);
+            //this.tbYellow.Text = proxy.GetPlayer(Color.Yellow);
 
+            OnPlayerLogin(proxy.GetPlayer(Color.Red), Color.Red);
+            OnPlayerLogin(proxy.GetPlayer(Color.Blue), Color.Blue);
+            OnPlayerLogin(proxy.GetPlayer(Color.Green), Color.Green);
+            OnPlayerLogin(proxy.GetPlayer(Color.Yellow), Color.Yellow);
             //controllist.Add(pbDice);
             //controllist.Add(pbRed);
             //controllist.Add(pbBlue);
@@ -64,17 +104,47 @@ namespace Mdw
             {
                 case "Color [Red]":
                     this.tbRed.Text = playername;
+                    if (playername != "Empty")
+                    {
+                        foreach (PictureBox item in ReturnBaseTokens(color))
+                        {
+                            item.BackgroundImage = Properties.Resources.TokenRed;
+                        }
+                    }
                     break;
                 case "Color [Blue]":
                     this.tbBlue.Text = playername;
+                    if (playername != "Empty")
+                    {
+                        foreach (PictureBox item in ReturnBaseTokens(color))
+                        {
+                            item.BackgroundImage = Properties.Resources.TokenBlue;
+                        }
+                    }
                     break;
                 case "Color [Green]":
                     this.tbGreen.Text = playername;
+                    if (playername != "Empty")
+                    {
+                        foreach (PictureBox item in ReturnBaseTokens(color))
+                        {
+                            item.BackgroundImage = Properties.Resources.TokenGreen;
+                        }
+                    }
                     break;
                 case "Color [Yellow]":
                     this.tbYellow.Text = playername;
+                    if (playername != "Empty")
+                    {
+                        foreach (PictureBox item in ReturnBaseTokens(color))
+                        {
+                            item.BackgroundImage = Properties.Resources.TokenYellow;
+                        }
+                    }
                     break;
             }
+            lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + playername + "> has joined!!! ~~~");
+
         }
 
         public void OnChatCallback(string username, string message)
@@ -144,9 +214,14 @@ namespace Mdw
                     pbDice.Image = Properties.Resources.d5;
                     break;
                 case 6:
+                    foreach (PictureBox item in ReturnBaseTokens(color))
+                    {
+                        item.Enabled = true;
+                    }
                     pbDice.Image = Properties.Resources.d6;
                     break;
             }
+
 
             EnablePanels(true);
             this.pbDice.Enabled = false;
@@ -253,7 +328,30 @@ namespace Mdw
         }
 
 
+        private void PictureBoxOnClick(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
 
+            string destination = proxy.PutTokenInPlay(color);
 
+            foreach (Panel panel in controllist)
+            {
+                panel.BackgroundImageLayout = ImageLayout.Stretch;
+                if (panel.Name == destination)
+                {
+                    panel.BackgroundImage = pb.BackgroundImage;
+                }
+            }
+            pb.BackgroundImage = null;
+            this.pbDice.Enabled = true;
+
+            EnablePanels(false);
+
+            foreach (PictureBox item in ReturnBaseTokens(color))
+            {
+                item.Enabled = false;
+            }
+
+        }
     }
 }

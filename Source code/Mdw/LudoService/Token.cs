@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace LudoService
 {
-    class Token
+   public class Token
     {
         //Fields
         Color color;

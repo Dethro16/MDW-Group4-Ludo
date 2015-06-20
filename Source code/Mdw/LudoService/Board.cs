@@ -87,7 +87,7 @@ namespace LudoService
             this.Squares[75].Color = Color.Red;
             this.Squares[75].IsEnd = true;
 
-            this.Squares[3].Color = Color.Black;
+            this.Squares[3].Color = Color.Yellow;
 
             this.Squares[16].Color = Color.Green;
 
@@ -95,6 +95,7 @@ namespace LudoService
 
             this.Squares[42].Color = Color.Red;
 
+            //Home squares
             for (int i = 52; i <= 56; i++)
             {
                 this.Squares[i].Color = Color.Yellow;
@@ -114,6 +115,7 @@ namespace LudoService
             {
                 this.Squares[i].Color = Color.Red;
             }
+
         }
 
         public void CreateToken(List<Player> players)

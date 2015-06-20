@@ -40,6 +40,9 @@ namespace LudoService
         void NextTurn();
 
         [OperationContract]
+        string PutTokenInPlay(Color color);
+
+        [OperationContract]
         string GetPlayer(Color color);
 
         [OperationContract]
@@ -65,6 +68,8 @@ namespace LudoService
         public int ID { get; set; }
         [DataMember]
         public bool RolledSix { get; set; }
+        [DataMember]
+        public List<Token> Tokens { get; set; }
 
         [DataMember]
         public ILudoCallback callback { get; set; }
@@ -81,6 +86,17 @@ namespace LudoService
                 this.Color = color;
                 this.HasWon = false;
                 this.Loggedin = true;
+                this.Tokens = new List<Token>(4);
+
+                for (int i = 0; i < 4; i++)
+                {
+                    Tokens.Add(new Token(i, color));
+                }
+
+                foreach (Token item in Tokens)
+                {
+                    item.Color = this.Color;  
+                }
             }
         }
     }

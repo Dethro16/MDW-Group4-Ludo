@@ -61,6 +61,12 @@
   <wsdl:message name="ILudo_NextTurn_OutputMessage">
     <wsdl:part name="parameters" element="tns:NextTurnResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_PutTokenInPlay_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutTokenInPlay" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_PutTokenInPlay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutTokenInPlayResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_GetPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayer" />
   </wsdl:message>
@@ -127,6 +133,10 @@
     <wsdl:operation name="NextTurn">
       <wsdl:input wsaw:Action="ludoService/ILudo/NextTurn" message="tns:ILudo_NextTurn_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/NextTurnResponse" message="tns:ILudo_NextTurn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutTokenInPlay">
+      <wsdl:input wsaw:Action="ludoService/ILudo/PutTokenInPlay" message="tns:ILudo_PutTokenInPlay_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/PutTokenInPlayResponse" message="tns:ILudo_PutTokenInPlay_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPlayer">
       <wsdl:input wsaw:Action="ludoService/ILudo/GetPlayer" message="tns:ILudo_GetPlayer_InputMessage" />

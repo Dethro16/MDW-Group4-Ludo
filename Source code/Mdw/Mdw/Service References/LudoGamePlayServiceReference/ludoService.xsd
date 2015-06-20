@@ -110,10 +110,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPlayer">
+  <xs:element name="PutTokenInPlay">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q3:Color" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutTokenInPlayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PutTokenInPlayResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlayer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q4:Color" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -171,7 +185,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="playername" nillable="true" type="xs:string" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q4:Color" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q5:Color" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
