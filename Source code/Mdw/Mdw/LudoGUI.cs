@@ -268,7 +268,8 @@ namespace Mdw
             {
                 if (item.BackgroundImage == EnablePic(color))
                 {
-                    tokenOnField = true;
+                    if (!item.Name.Contains("goal"))
+                        tokenOnField = true;
                 }
             }
             if (tokenOnField)
@@ -276,12 +277,16 @@ namespace Mdw
                 tBTurn.Text = "Move a token!";
                 EnablePanels(true, color);
             }
-            else 
+            else
             {
                 if (proxy.NumberToClient() != 6)
                 {
+<<<<<<< HEAD
                  tBTurn.Text = "End of turn!";
                  proxy.NextTurn();
+=======
+                    proxy.NextTurn();
+>>>>>>> origin/EnterGoal
                 }
             }
             this.pbDice.Enabled = false;
@@ -310,33 +315,51 @@ namespace Mdw
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.TokenMove);
             player.Play();
 
-           
-            string s = proxy.MoveToken(p.Name, color);
-            foreach (Panel panel in controllist)
+            if (!p.Name.Contains("goal"))
             {
-                if (panel.Name == s)
+                string s = proxy.MoveToken(p.Name, color);
+                foreach (Panel panel in controllist)
                 {
-                    proxy.MoveToClient(userName, p.Name, color, panel.Name);
-                    panel.BackgroundImage = p.BackgroundImage;
-                    p.BackgroundImage = null;
+                    if (panel.Name == s)
+                    {
+                        proxy.MoveToClient(userName, p.Name, color, panel.Name);
+                        panel.BackgroundImage = p.BackgroundImage;
+                        p.BackgroundImage = null;
+                    }
                 }
+<<<<<<< HEAD
             }
             if (proxy.NumberToClient() == 6)
             {
                 this.pbDice.Enabled = true;
                 tBTurn.Text = "Roll the dice!";
                 foreach (PictureBox item in ReturnBaseTokens(color))
+=======
+                if (proxy.NumberToClient() == 6)
+>>>>>>> origin/EnterGoal
                 {
-                    item.Enabled = false;
+                    this.pbDice.Enabled = true;
+                    foreach (PictureBox item in ReturnBaseTokens(color))
+                    {
+                        item.Enabled = false;
+                    }
                 }
+                else
+                {
+                    proxy.NextTurn();
+                }
+<<<<<<< HEAD
             }
             else
             {
                 proxy.NextTurn();
                 tBTurn.Text = "End of turn!";
             }
+=======
+>>>>>>> origin/EnterGoal
 
-            EnablePanels(false, color);
+                EnablePanels(false, color);
+            }
         }
 
         #region Leave Button functions
@@ -478,7 +501,7 @@ namespace Mdw
 
         }
 
-       public void OnMoveToken(string TokenName, Color color, string destination)
+        public void OnMoveToken(string TokenName, Color color, string destination)
         {
             foreach (Panel p in controllist)
             {
