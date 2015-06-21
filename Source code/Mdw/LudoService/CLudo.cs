@@ -257,7 +257,7 @@ namespace LudoService
                         {
                             if (check > 60)
                             {
-                                sq.Token.Index += p.TokenIn+1;
+                                sq.Token.Index = p.TokenIn+61;
                                 p.TokenIn++;
                             }
                             else
