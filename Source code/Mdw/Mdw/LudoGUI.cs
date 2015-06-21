@@ -259,8 +259,25 @@ namespace Mdw
                     break;
             }
 
-
-            EnablePanels(true, color);
+            bool tokenOnField = false;
+            foreach (Panel item in controllist)
+            {
+                if (item.BackgroundImage == EnablePic(color))
+                {
+                    tokenOnField = true;
+                }
+            }
+            if (tokenOnField)
+            {
+                EnablePanels(true, color);
+            }
+            else 
+            {
+                if (proxy.NumberToClient() != 6)
+                {
+                 proxy.NextTurn();
+                }
+            }
             this.pbDice.Enabled = false;
 
         }
@@ -299,6 +316,10 @@ namespace Mdw
             if (proxy.NumberToClient() == 6)
             {
                 this.pbDice.Enabled = true;
+                foreach (PictureBox item in ReturnBaseTokens(color))
+                {
+                    item.Enabled = false;
+                }
             }
             else
             {

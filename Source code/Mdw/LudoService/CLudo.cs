@@ -169,7 +169,10 @@ namespace LudoService
             {
                 if (playerName == p.PlayerName)
                 {
-                    return true;
+                    if (p.ID == turn)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
