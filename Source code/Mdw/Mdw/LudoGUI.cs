@@ -281,12 +281,8 @@ namespace Mdw
             {
                 if (proxy.NumberToClient() != 6)
                 {
-<<<<<<< HEAD
-                 tBTurn.Text = "End of turn!";
-                 proxy.NextTurn();
-=======
+                    tBTurn.Text = "End of turn!";
                     proxy.NextTurn();
->>>>>>> origin/EnterGoal
                 }
             }
             this.pbDice.Enabled = false;
@@ -327,39 +323,26 @@ namespace Mdw
                         p.BackgroundImage = null;
                     }
                 }
-<<<<<<< HEAD
+
             }
             if (proxy.NumberToClient() == 6)
             {
                 this.pbDice.Enabled = true;
                 tBTurn.Text = "Roll the dice!";
                 foreach (PictureBox item in ReturnBaseTokens(color))
-=======
-                if (proxy.NumberToClient() == 6)
->>>>>>> origin/EnterGoal
                 {
-                    this.pbDice.Enabled = true;
-                    foreach (PictureBox item in ReturnBaseTokens(color))
-                    {
-                        item.Enabled = false;
-                    }
+                    item.Enabled = false;
                 }
-                else
-                {
-                    proxy.NextTurn();
-                }
-<<<<<<< HEAD
             }
             else
             {
                 proxy.NextTurn();
                 tBTurn.Text = "End of turn!";
             }
-=======
->>>>>>> origin/EnterGoal
 
-                EnablePanels(false, color);
-            }
+
+            EnablePanels(false, color);
+
         }
 
         #region Leave Button functions
@@ -393,22 +376,7 @@ namespace Mdw
 
         private void tbChat_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (tbChat.Text == "")
-            {
-                return;   
-            }
 
-            if (e.KeyChar == (char)13)
-            {
-                string message = this.tbChat.Text;
-                string temp = proxy.ChatToClient(userName, message);
-
-                proxy.Chat(userName, message);
-                lbChat.Items.Add(temp);
-                lbChat.TopIndex = lbChat.Items.Count - 1;
-                tbChat.Clear();
-                tbChat.Focus();
-            }
         }
 
         private void pbRed_Click(object sender, EventArgs e)

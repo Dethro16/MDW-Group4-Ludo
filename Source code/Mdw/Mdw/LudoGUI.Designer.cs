@@ -132,6 +132,7 @@
             this.goalBlue4 = new System.Windows.Forms.Panel();
             this.btStart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnSend = new System.Windows.Forms.Button();
             this.tokenRed2 = new System.Windows.Forms.PictureBox();
             this.tokenRed3 = new System.Windows.Forms.PictureBox();
             this.tokenRed4 = new System.Windows.Forms.PictureBox();
@@ -148,7 +149,6 @@
             this.tokenYel2 = new System.Windows.Forms.PictureBox();
             this.tokenYel1 = new System.Windows.Forms.PictureBox();
             this.tBTurn = new System.Windows.Forms.TextBox();
-            this.BtnSend = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tokenRed1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -1122,6 +1122,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chat";
             // 
+            // BtnSend
+            // 
+            this.BtnSend.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSend.BackgroundImage = global::Mdw.Properties.Resources.buttonSend;
+            this.BtnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnSend.FlatAppearance.BorderSize = 0;
+            this.BtnSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSend.Location = new System.Drawing.Point(27, 565);
+            this.BtnSend.Name = "BtnSend";
+            this.BtnSend.Size = new System.Drawing.Size(226, 37);
+            this.BtnSend.TabIndex = 42;
+            this.BtnSend.UseVisualStyleBackColor = false;
+            this.BtnSend.Click += new System.EventHandler(this.BtnSend_Click);
+            // 
             // tokenRed2
             // 
             this.tokenRed2.BackColor = System.Drawing.Color.Transparent;
@@ -1309,23 +1326,6 @@
             this.tBTurn.Name = "tBTurn";
             this.tBTurn.Size = new System.Drawing.Size(100, 20);
             this.tBTurn.TabIndex = 58;
-            // 
-            // BtnSend
-            // 
-            this.BtnSend.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSend.BackgroundImage = global::Mdw.Properties.Resources.buttonSend;
-            this.BtnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnSend.FlatAppearance.BorderSize = 0;
-            this.BtnSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSend.Location = new System.Drawing.Point(27, 565);
-            this.BtnSend.Name = "BtnSend";
-            this.BtnSend.Size = new System.Drawing.Size(226, 37);
-            this.BtnSend.TabIndex = 42;
-            this.BtnSend.UseVisualStyleBackColor = false;
-            this.BtnSend.Click += new System.EventHandler(this.BtnSend_Click);
             // 
             // LudoGUI
             // 
