@@ -243,14 +243,34 @@ namespace LudoService
 
         public string MoveToken(string field, Color color)
         {
+
+           
             foreach (Square sq in board.GetPath(color))
             {
                 if (sq.Name == field)
                 {
-                    sq.Token.Index += diceNumber;
+                    int check = sq.Token.Index + diceNumber;
+
+                    foreach (Player p in players)
+                    {
+                        if (p.Color == color)
+                        {
+                            if (check > 60)
+                            {
+                                sq.Token.Index += p.TokenIn+1;
+                                p.TokenIn++;
+                            }
+                            else
+                            {
+                                sq.Token.Index = check;
+                            }
+                        }
+                    }
+
                     sq.Token.Place = sq.Token.Path[sq.Token.Index];
                     sq.Token.Path[sq.Token.Index].Token = sq.Token;
                     return sq.Token.Path[sq.Token.Index].Name;
+                    
                 }
             }
             return field;

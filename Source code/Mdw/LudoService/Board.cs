@@ -129,6 +129,7 @@ namespace LudoService
 
             switch (color.ToString())
             {
+                #region Red Squares
                 case "Color [Red]":
                     tmp.Add(Squares[52]);
                     for (int i = 0; i <= 12; i++)
@@ -150,12 +151,19 @@ namespace LudoService
                     {
                         tmp.Add(Squares[i]);
                     }
-
+                    //Home
                     for (int i = 71; i <= 75; i++)
                     {
                         tmp.Add(Squares[i]);
                     }
+                    //Goal
+                    for (int i = 88; i <= 91; i++)
+                    {
+                        tmp.Add(Squares[i]);
+                    }
                     return tmp;
+                #endregion
+                #region Blue Squares
                 case "Color [Blue]":
                     tmp.Add(Squares[55]);
                     for (int i = 39; i <= 51; i++)
@@ -177,12 +185,19 @@ namespace LudoService
                     {
                         tmp.Add(Squares[i]);
                     }
-
+                    //Home
                     for (int i = 66; i <= 70; i++)
                     {
                         tmp.Add(Squares[i]);
                     }
-                    return tmp;
+                    //Goal
+                    for (int i = 84; i <= 87; i++)
+                    {
+                        tmp.Add(Squares[i]);
+                    }
+                        return tmp;
+                #endregion
+                #region Yellow Squares
                 case "Color [Yellow]":
                     tmp.Add(Squares[54]);
                     for (int i = 26; i <= 38; i++)
@@ -204,12 +219,19 @@ namespace LudoService
                     {
                         tmp.Add(Squares[i]);
                     }
-
+                    //Home
+                    for (int i = 56; i <= 60; i++)
+                    {
+                        tmp.Add(Squares[i]);
+                    }
+                    //Goal
                     for (int i = 76; i <= 79; i++)
                     {
                         tmp.Add(Squares[i]);
                     }
                     return tmp;
+                #endregion
+                #region Green Squares
                 case "Color [Green]":
                     tmp.Add(Squares[53]);
                     for (int i = 13; i <= 25; i++)
@@ -231,14 +253,18 @@ namespace LudoService
                     {
                         tmp.Add(Squares[i]);
                     }
-
+                    //Home
                     for (int i = 61; i <= 65; i++)
                     {
                         tmp.Add(Squares[i]);
                     }
-
+                    //Goal
+                    for (int i = 80; i <= 83; i++)
+                    {
+                        tmp.Add(Squares[i]);
+                    }
                     return tmp;
-
+                #endregion
                 default: return null;
             }
         }

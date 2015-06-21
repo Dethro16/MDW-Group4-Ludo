@@ -81,6 +81,8 @@ namespace LudoService
         public List<Token> BaseTokens { get; set; }
         [DataMember]
         public List<Token> FieldTokens { get; set; }
+        [DataMember]
+        public int TokenIn { get; set; }
 
         [DataMember]
         public ILudoCallback callback { get; set; }
@@ -94,6 +96,7 @@ namespace LudoService
             this.Loggedin = true;
             this.BaseTokens = new List<Token>(4);
             this.FieldTokens = new List<Token>();
+            this.TokenIn = 0;
 
             for (int i = 0; i < 4; i++)
             {
