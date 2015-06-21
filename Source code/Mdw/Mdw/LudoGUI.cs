@@ -147,6 +147,7 @@ namespace Mdw
             if (playername != "Empty")
             {
                 lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + playername + "> has joined!!! ~~~");
+                lbChat.TopIndex = lbChat.Items.Count - 1;
             }
 
         }
@@ -154,6 +155,7 @@ namespace Mdw
         public void OnChatCallback(string username, string message)
         {
             lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] <" + username + ">: " + message);
+            lbChat.TopIndex = lbChat.Items.Count - 1;
         }
 
         public void EnablePanels(bool state, Color color)
@@ -197,6 +199,7 @@ namespace Mdw
         public void OnRollCallback(string username, int diceroll)
         {
             lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ <" + username + "> rolled a " + diceroll.ToString() + "!!! ~~~");
+            lbChat.TopIndex = lbChat.Items.Count - 1;
 
             caseSwitch = diceroll;
             switch (caseSwitch)
@@ -232,6 +235,7 @@ namespace Mdw
             proxy.Roll(userName);
 
             lbChat.Items.Add(temp);
+            lbChat.TopIndex = lbChat.Items.Count - 1;
 
             switch (proxy.NumberToClient())
             {
@@ -301,6 +305,8 @@ namespace Mdw
             Panel p = (Panel)sender;
 
             //MessageBox.Show(p.Name);
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.TokenMove);
+            player.Play();
 
            
             string s = proxy.MoveToken(p.Name, color);
@@ -353,12 +359,18 @@ namespace Mdw
 
             proxy.Chat(userName, message);
             lbChat.Items.Add(temp);
+            lbChat.TopIndex = lbChat.Items.Count - 1;
             tbChat.Clear();
             tbChat.Focus();
         }
 
         private void tbChat_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (tbChat.Text == "")
+            {
+                return;   
+            }
+
             if (e.KeyChar == (char)13)
             {
                 string message = this.tbChat.Text;
@@ -366,6 +378,7 @@ namespace Mdw
 
                 proxy.Chat(userName, message);
                 lbChat.Items.Add(temp);
+                lbChat.TopIndex = lbChat.Items.Count - 1;
                 tbChat.Clear();
                 tbChat.Focus();
             }
@@ -393,6 +406,7 @@ namespace Mdw
         {
             this.pbDice.Enabled = true;
             lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ Its your turn!!! ~~~");
+            lbChat.TopIndex = lbChat.Items.Count - 1;
             this.btStart.Enabled = false;
         }
 
@@ -400,6 +414,9 @@ namespace Mdw
         private void PictureBoxOnClick(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
+
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.TokenMove);
+            player.Play();
 
             string destination = proxy.PutTokenInPlay(color, true);
 

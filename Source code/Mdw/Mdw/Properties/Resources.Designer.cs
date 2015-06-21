@@ -180,6 +180,15 @@ namespace Mdw.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Login {
+            get {
+                return ResourceManager.GetStream("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Loginb {
@@ -266,6 +275,15 @@ namespace Mdw.Properties {
             get {
                 object obj = ResourceManager.GetObject("TokenGreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream TokenMove {
+            get {
+                return ResourceManager.GetStream("TokenMove", resourceCulture);
             }
         }
         

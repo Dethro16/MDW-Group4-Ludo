@@ -114,6 +114,9 @@ namespace Mdw
             bool login = check.Contains("successfully");
             if (login)
             {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.Login);
+                player.Play();
+
                 userName = tbUsername.Text;
 
                 LudoGUI game = new LudoGUI();
