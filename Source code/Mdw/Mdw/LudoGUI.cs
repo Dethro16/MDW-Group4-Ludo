@@ -241,58 +241,18 @@ namespace Mdw
             {
                 case 1:
                     pbDice.Image = Properties.Resources.d1;
-                    if (tokenOnField)
-                    {
-                        tBTurn.Text = "Move a token!";
-                    }
-                    else
-                    {
-                        tBTurn.Text = "End of turn!";
-                    }
                     break;
                 case 2:
                     pbDice.Image = Properties.Resources.d2;
-                    if (tokenOnField)
-                    {
-                        tBTurn.Text = "Move a token!";
-                    }
-                    else
-                    {
-                        tBTurn.Text = "End of turn!";
-                    }
                     break;
                 case 3:
                     pbDice.Image = Properties.Resources.d3;
-                    if (tokenOnField)
-                    {
-                        tBTurn.Text = "Move a token!";
-                    }
-                    else
-                    {
-                        tBTurn.Text = "End of turn!";
-                    }
                     break;
                 case 4:
                     pbDice.Image = Properties.Resources.d4;
-                    if (tokenOnField)
-                    {
-                        tBTurn.Text = "Move a token!";
-                    }
-                    else
-                    {
-                        tBTurn.Text = "End of turn!";
-                    }
                     break;
                 case 5:
                     pbDice.Image = Properties.Resources.d5;
-                    if (tokenOnField)
-                    {
-                        tBTurn.Text = "Move a token!";
-                    }
-                    else
-                    {
-                        tBTurn.Text = "End of turn!";
-                    }
                     break;
                 case 6:
                     foreach (PictureBox item in ReturnBaseTokens(color))
@@ -313,12 +273,14 @@ namespace Mdw
             }
             if (tokenOnField)
             {
+                tBTurn.Text = "Move a token!";
                 EnablePanels(true, color);
             }
             else 
             {
                 if (proxy.NumberToClient() != 6)
                 {
+                 tBTurn.Text = "End of turn!";
                  proxy.NextTurn();
                 }
             }
