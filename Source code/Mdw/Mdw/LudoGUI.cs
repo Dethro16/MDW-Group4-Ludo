@@ -225,6 +225,9 @@ namespace Mdw
 
         private void pbDice_Click(object sender, EventArgs e)
         {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.Dice);
+            player.Play();
+
             string temp = proxy.RollToClient(userName);
             proxy.Roll(userName);
 
