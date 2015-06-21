@@ -40,4 +40,3 @@ C:\Users\JChan\Documents\GitHub\MDW-Group4-Ludo\Source Code\Mdw\Mdw\obj\Debug\Md
 C:\Users\Loic\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\obj\Debug\Mdw.LudoLoginGUI.resources
 C:\Users\Loic\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\obj\Debug\Mdw.LudoRegisterGUI.resources
 C:\Users\Loic\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\bin\Debug\Mdw.exe.config
-C:\Users\Loic\Documents\GitHub\MDW-Group4-Ludo\Source code\Mdw\Mdw\obj\Debug\Mdw.csprojResolveAssemblyReference.cache

@@ -14,7 +14,7 @@ namespace Mdw
     public partial class LudoGUI : Form,
         LudoGamePlayServiceReference.ILudoCallback
     {
-
+        bool tokenOnField = false;
         Bitmap red = Properties.Resources.TokenRed;
         Bitmap blue = Properties.Resources.TokenBlue;
         Bitmap yellow = Properties.Resources.TokenYellow;
@@ -241,18 +241,58 @@ namespace Mdw
             {
                 case 1:
                     pbDice.Image = Properties.Resources.d1;
+                    if (tokenOnField)
+                    {
+                        tBTurn.Text = "Move a token!";
+                    }
+                    else
+                    {
+                        tBTurn.Text = "End of turn!";
+                    }
                     break;
                 case 2:
                     pbDice.Image = Properties.Resources.d2;
+                    if (tokenOnField)
+                    {
+                        tBTurn.Text = "Move a token!";
+                    }
+                    else
+                    {
+                        tBTurn.Text = "End of turn!";
+                    }
                     break;
                 case 3:
                     pbDice.Image = Properties.Resources.d3;
+                    if (tokenOnField)
+                    {
+                        tBTurn.Text = "Move a token!";
+                    }
+                    else
+                    {
+                        tBTurn.Text = "End of turn!";
+                    }
                     break;
                 case 4:
                     pbDice.Image = Properties.Resources.d4;
+                    if (tokenOnField)
+                    {
+                        tBTurn.Text = "Move a token!";
+                    }
+                    else
+                    {
+                        tBTurn.Text = "End of turn!";
+                    }
                     break;
                 case 5:
                     pbDice.Image = Properties.Resources.d5;
+                    if (tokenOnField)
+                    {
+                        tBTurn.Text = "Move a token!";
+                    }
+                    else
+                    {
+                        tBTurn.Text = "End of turn!";
+                    }
                     break;
                 case 6:
                     foreach (PictureBox item in ReturnBaseTokens(color))
@@ -264,7 +304,6 @@ namespace Mdw
                     break;
             }
 
-            bool tokenOnField = false;
             foreach (Panel item in controllist)
             {
                 if (item.BackgroundImage == EnablePic(color))
@@ -323,6 +362,7 @@ namespace Mdw
             if (proxy.NumberToClient() == 6)
             {
                 this.pbDice.Enabled = true;
+                tBTurn.Text = "Roll the dice!";
                 foreach (PictureBox item in ReturnBaseTokens(color))
                 {
                     item.Enabled = false;
@@ -331,6 +371,7 @@ namespace Mdw
             else
             {
                 proxy.NextTurn();
+                tBTurn.Text = "End of turn!";
             }
 
             EnablePanels(false, color);
@@ -440,6 +481,15 @@ namespace Mdw
             foreach (PictureBox item in ReturnBaseTokens(color))
             {
                 item.Enabled = false;
+            }
+
+            if (proxy.NumberToClient() == 6)
+            {
+                tBTurn.Text = "Roll the dice!";
+            }
+            else
+            {
+                tBTurn.Text = "End of turn!";
             }
 
         }
