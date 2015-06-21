@@ -264,6 +264,7 @@ namespace Mdw
                     break;
             }
 
+            tokenOnField = false;
             foreach (Panel item in controllist)
             {
                 if (item.BackgroundImage == EnablePic(color))
