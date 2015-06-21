@@ -259,6 +259,7 @@ namespace Mdw
                     {
                         item.Enabled = true;
                     }
+                    tBTurn.Text = "Move a token!";
                     pbDice.Image = Properties.Resources.d6;
                     break;
             }
@@ -406,6 +407,7 @@ namespace Mdw
         {
             this.pbDice.Enabled = true;
             lbChat.Items.Add("[" + DateTime.Now.ToString("HH:MM") + "] ~~~ Its your turn!!! ~~~");
+            tBTurn.Text = "Roll the dice!";
             lbChat.TopIndex = lbChat.Items.Count - 1;
             this.btStart.Enabled = false;
         }

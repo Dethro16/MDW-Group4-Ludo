@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LudoGUI));
             this.tbChat = new System.Windows.Forms.TextBox();
-            this.BtnSend = new System.Windows.Forms.Button();
             this.lbChat = new System.Windows.Forms.ListBox();
             this.startRed = new System.Windows.Forms.Panel();
             this.field1 = new System.Windows.Forms.Panel();
@@ -148,6 +147,8 @@
             this.tokenYel3 = new System.Windows.Forms.PictureBox();
             this.tokenYel2 = new System.Windows.Forms.PictureBox();
             this.tokenYel1 = new System.Windows.Forms.PictureBox();
+            this.tBTurn = new System.Windows.Forms.TextBox();
+            this.BtnSend = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbDice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tokenRed1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -170,32 +171,22 @@
             // 
             // tbChat
             // 
-            this.tbChat.Location = new System.Drawing.Point(29, 414);
+            this.tbChat.Location = new System.Drawing.Point(6, 539);
             this.tbChat.Name = "tbChat";
-            this.tbChat.Size = new System.Drawing.Size(226, 20);
+            this.tbChat.Size = new System.Drawing.Size(258, 20);
             this.tbChat.TabIndex = 4;
             this.tbChat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbChat_KeyPress);
-            // 
-            // BtnSend
-            // 
-            this.BtnSend.Location = new System.Drawing.Point(74, 368);
-            this.BtnSend.Name = "BtnSend";
-            this.BtnSend.Size = new System.Drawing.Size(119, 23);
-            this.BtnSend.TabIndex = 3;
-            this.BtnSend.Text = "Send message!";
-            this.BtnSend.UseVisualStyleBackColor = true;
-            this.BtnSend.Click += new System.EventHandler(this.BtnSend_Click);
             // 
             // lbChat
             // 
             this.lbChat.BackColor = System.Drawing.Color.LightBlue;
             this.lbChat.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.Location = new System.Drawing.Point(29, 18);
+            this.lbChat.Location = new System.Drawing.Point(6, 18);
             this.lbChat.Name = "lbChat";
             this.lbChat.ScrollAlwaysVisible = true;
             this.lbChat.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbChat.Size = new System.Drawing.Size(226, 342);
+            this.lbChat.Size = new System.Drawing.Size(258, 498);
             this.lbChat.TabIndex = 0;
             // 
             // startRed
@@ -1104,7 +1095,7 @@
             // btStart
             // 
             this.btStart.BackColor = System.Drawing.Color.Transparent;
-            this.btStart.BackgroundImage = global::Mdw.Properties.Resources.button;
+            this.btStart.BackgroundImage = global::Mdw.Properties.Resources.buttonStart;
             this.btStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btStart.FlatAppearance.BorderSize = 0;
             this.btStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -1115,19 +1106,18 @@
             this.btStart.Name = "btStart";
             this.btStart.Size = new System.Drawing.Size(142, 37);
             this.btStart.TabIndex = 41;
-            this.btStart.Text = "Start!";
             this.btStart.UseVisualStyleBackColor = false;
             this.btStart.Click += new System.EventHandler(this.btStart_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.BtnSend);
             this.groupBox1.Controls.Add(this.lbChat);
             this.groupBox1.Controls.Add(this.tbChat);
-            this.groupBox1.Controls.Add(this.BtnSend);
             this.groupBox1.Location = new System.Drawing.Point(842, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 450);
+            this.groupBox1.Size = new System.Drawing.Size(270, 608);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chat";
@@ -1312,6 +1302,31 @@
             this.tokenYel1.TabStop = false;
             this.tokenYel1.Click += new System.EventHandler(this.PictureBoxOnClick);
             // 
+            // tBTurn
+            // 
+            this.tBTurn.Enabled = false;
+            this.tBTurn.Location = new System.Drawing.Point(663, 192);
+            this.tBTurn.Name = "tBTurn";
+            this.tBTurn.Size = new System.Drawing.Size(100, 20);
+            this.tBTurn.TabIndex = 58;
+            // 
+            // BtnSend
+            // 
+            this.BtnSend.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSend.BackgroundImage = global::Mdw.Properties.Resources.buttonSend;
+            this.BtnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnSend.FlatAppearance.BorderSize = 0;
+            this.BtnSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSend.Location = new System.Drawing.Point(27, 565);
+            this.BtnSend.Name = "BtnSend";
+            this.BtnSend.Size = new System.Drawing.Size(226, 37);
+            this.BtnSend.TabIndex = 42;
+            this.BtnSend.UseVisualStyleBackColor = false;
+            this.BtnSend.Click += new System.EventHandler(this.BtnSend_Click);
+            // 
             // LudoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1319,6 +1334,7 @@
             this.BackgroundImage = global::Mdw.Properties.Resources.PlayBoardv1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1124, 632);
+            this.Controls.Add(this.tBTurn);
             this.Controls.Add(this.tokenYel4);
             this.Controls.Add(this.tokenYel3);
             this.Controls.Add(this.tokenYel2);
@@ -1568,7 +1584,6 @@
         private System.Windows.Forms.Panel goalBlue3;
         private System.Windows.Forms.Panel goalBlue2;
         private System.Windows.Forms.Panel goalBlue4;
-        private System.Windows.Forms.Button BtnSend;
         private System.Windows.Forms.TextBox tbChat;
         private System.Windows.Forms.Button btStart;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1587,5 +1602,7 @@
         private System.Windows.Forms.PictureBox tokenYel3;
         private System.Windows.Forms.PictureBox tokenYel2;
         private System.Windows.Forms.PictureBox tokenYel1;
+        private System.Windows.Forms.TextBox tBTurn;
+        private System.Windows.Forms.Button BtnSend;
     }
 }
