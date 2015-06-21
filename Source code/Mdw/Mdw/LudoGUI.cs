@@ -264,18 +264,19 @@ namespace Mdw
             {
                 if (item.BackgroundImage == EnablePic(color))
                 {
-                    tokenOnField = true;
+                    if (!item.Name.Contains("goal"))
+                        tokenOnField = true;
                 }
             }
             if (tokenOnField)
             {
                 EnablePanels(true, color);
             }
-            else 
+            else
             {
                 if (proxy.NumberToClient() != 6)
                 {
-                 proxy.NextTurn();
+                    proxy.NextTurn();
                 }
             }
             this.pbDice.Enabled = false;
@@ -302,31 +303,33 @@ namespace Mdw
 
             //MessageBox.Show(p.Name);
 
-           
-            string s = proxy.MoveToken(p.Name, color);
-            foreach (Panel panel in controllist)
+            if (!p.Name.Contains("goal"))
             {
-                if (panel.Name == s)
+                string s = proxy.MoveToken(p.Name, color);
+                foreach (Panel panel in controllist)
                 {
-                    proxy.MoveToClient(userName, p.Name, color, panel.Name);
-                    panel.BackgroundImage = p.BackgroundImage;
-                    p.BackgroundImage = null;
+                    if (panel.Name == s)
+                    {
+                        proxy.MoveToClient(userName, p.Name, color, panel.Name);
+                        panel.BackgroundImage = p.BackgroundImage;
+                        p.BackgroundImage = null;
+                    }
                 }
-            }
-            if (proxy.NumberToClient() == 6)
-            {
-                this.pbDice.Enabled = true;
-                foreach (PictureBox item in ReturnBaseTokens(color))
+                if (proxy.NumberToClient() == 6)
                 {
-                    item.Enabled = false;
+                    this.pbDice.Enabled = true;
+                    foreach (PictureBox item in ReturnBaseTokens(color))
+                    {
+                        item.Enabled = false;
+                    }
                 }
-            }
-            else
-            {
-                proxy.NextTurn();
-            }
+                else
+                {
+                    proxy.NextTurn();
+                }
 
-            EnablePanels(false, color);
+                EnablePanels(false, color);
+            }
         }
 
         #region Leave Button functions
@@ -447,7 +450,7 @@ namespace Mdw
 
         }
 
-       public void OnMoveToken(string TokenName, Color color, string destination)
+        public void OnMoveToken(string TokenName, Color color, string destination)
         {
             foreach (Panel p in controllist)
             {
