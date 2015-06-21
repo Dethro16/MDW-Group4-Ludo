@@ -59,25 +59,25 @@ namespace LudoService
             //Home squares
             for (int i = 56; i <= 60; i++)
             {
-                this.Squares[i].Name = "homeYellow" + (i - 83).ToString();
+                this.Squares[i].Name = "homeYellow" + (i - 55).ToString();
                 this.Squares[i].Color = Color.Yellow;
             }
 
             for (int i = 61; i <= 65; i++)
             {
-                this.Squares[i].Name = "homeGreen" + (i - 83).ToString();
+                this.Squares[i].Name = "homeGreen" + (i - 60).ToString();
                 this.Squares[i].Color = Color.Green;
             }
 
             for (int i = 66; i <= 70; i++)
             {
-                this.Squares[i].Name = "homeBlue" + (i - 83).ToString();
+                this.Squares[i].Name = "homeBlue" + (i - 65).ToString();
                 this.Squares[i].Color = Color.Blue;
             }
 
             for (int i = 71; i <= 75; i++)
             {
-                this.Squares[i].Name = "homeRed" + (i - 83).ToString();
+                this.Squares[i].Name = "homeRed" + (i - 70).ToString();
                 this.Squares[i].Color = Color.Red;
             }
 
