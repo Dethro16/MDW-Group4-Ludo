@@ -120,6 +120,7 @@ namespace Mdw
                 userName = tbUsername.Text;
 
                 LudoGUI game = new LudoGUI();
+                game.Text = "Ludo <"+userName+">";
                 this.SetVisibleCore(false);
                 game.ShowDialog();
                 tbPassword.Text = "";
