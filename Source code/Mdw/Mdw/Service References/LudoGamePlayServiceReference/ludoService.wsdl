@@ -115,6 +115,12 @@
   <wsdl:message name="ILudo_EatToClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:EatToClientResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_HasWon_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasWon" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_HasWon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasWonResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_OnChatCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnChatCallback" />
   </wsdl:message>
@@ -208,6 +214,10 @@
     <wsdl:operation name="EatToClient">
       <wsdl:input wsaw:Action="ludoService/ILudo/EatToClient" message="tns:ILudo_EatToClient_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/EatToClientResponse" message="tns:ILudo_EatToClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasWon">
+      <wsdl:input wsaw:Action="ludoService/ILudo/HasWon" message="tns:ILudo_HasWon_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/HasWonResponse" message="tns:ILudo_HasWon_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="OnChatCallback">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnChatCallback" message="tns:ILudo_OnChatCallback_OutputCallbackMessage" />

@@ -66,6 +66,9 @@ namespace LudoService
         [OperationContract]
         void EatToClient(string playername, Color color);
 
+        [OperationContract]
+        bool HasWon(string playername);
+
 
     }
 

@@ -122,6 +122,12 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/EatToClient", ReplyAction="ludoService/ILudo/EatToClientResponse")]
         System.Threading.Tasks.Task EatToClientAsync(string playername, System.Drawing.Color color);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/HasWon", ReplyAction="ludoService/ILudo/HasWonResponse")]
+        bool HasWon(string playername);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ludoService/ILudo/HasWon", ReplyAction="ludoService/ILudo/HasWonResponse")]
+        System.Threading.Tasks.Task<bool> HasWonAsync(string playername);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -319,6 +325,14 @@ namespace Mdw.LudoGamePlayServiceReference {
         
         public System.Threading.Tasks.Task EatToClientAsync(string playername, System.Drawing.Color color) {
             return base.Channel.EatToClientAsync(playername, color);
+        }
+        
+        public bool HasWon(string playername) {
+            return base.Channel.HasWon(playername);
+        }
+        
+        public System.Threading.Tasks.Task<bool> HasWonAsync(string playername) {
+            return base.Channel.HasWonAsync(playername);
         }
     }
 }

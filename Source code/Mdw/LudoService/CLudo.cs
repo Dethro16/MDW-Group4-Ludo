@@ -181,7 +181,7 @@ namespace LudoService
 
         public void NextTurn()
         {
-            if (turn == players.Count)
+            if (turn > players.Count)
             {
                 turn = 0;
             }
@@ -191,7 +191,15 @@ namespace LudoService
             {
                 if (p.ID == turn)
                 {
-                    p.callback.OnPlayerTurn();
+                    if (!p.HasWon)
+                    {
+                        p.callback.OnPlayerTurn();
+                    }
+                    else
+                    {
+                        turn++;
+                        NextTurn();
+                    }
                 }
             }
         }
@@ -274,28 +282,35 @@ namespace LudoService
                 {
                     int before = sq.Token.Index;
                     int check = sq.Token.Index + diceNumber;
-                    if (sq.Token.Path[check].Token != null)
+                    if (check < 61)
                     {
-                        if (sq.Token.Path[check].Token.Color != color)
+                        if (sq.Token.Path[check].Token != null)
                         {
-                            eat = sq.Token.Path[check].Token.Color;
-
-                            foreach (Player pl in players)
+                            if (sq.Token.Path[check].Token.Color != color)
                             {
-                                if (pl.Color == color)
-                                {
-                                    pl.BaseTokens.Add(sq.Token.Path[check].Token);
-                                    sq.Token.Path[check].Token = null;
-                                }
-                            }
+                                eat = sq.Token.Path[check].Token.Color;
 
-                        }
-                        else
-                        {
-                            eat = Color.Black;
-                            return field;
+                                foreach (Player pl in players)
+                                {
+                                    if (pl.Color == color)
+                                    {
+                                        pl.BaseTokens.Add(sq.Token.Path[check].Token);
+                                        sq.Token.Path[check].Token = null;
+                                    }
+                                }
+
+                            }
+                            else
+                            {
+                                // if (check < 61)
+                                // {
+                                eat = Color.Black;
+                                return field;
+                                //}
+                            }
                         }
                     }
+
 
                     foreach (Player p in players)
                     {
@@ -305,6 +320,11 @@ namespace LudoService
                             {
                                 sq.Token.Index = p.TokenIn + 61;
                                 p.TokenIn++;
+
+                                if (p.TokenIn >= 4)
+                                {
+                                    p.HasWon = true;
+                                }
                             }
                             else
                             {
@@ -348,6 +368,18 @@ namespace LudoService
         public Color GetReadyToEat()
         {
             return eat;
+        }
+
+        public bool HasWon(string playername)
+        {
+            foreach (Player player in players)
+            {
+                if (player.PlayerName == playername)
+                {
+                    return player.HasWon;
+                }
+            }
+            return false;
         }
     }
 }

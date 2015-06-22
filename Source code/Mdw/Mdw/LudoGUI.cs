@@ -20,7 +20,6 @@ namespace Mdw
         Bitmap yellow = Properties.Resources.TokenYellow;
         Bitmap green = Properties.Resources.TokenGreen;
 
-        Panel selectedPanel = null;
         List<Panel> controllist = new List<Panel>();
 
 
@@ -342,21 +341,41 @@ namespace Mdw
                 }
 
             }
+
+
             if (proxy.NumberToClient() == 6)
             {
-                this.pbDice.Enabled = true;
-                tBTurn.Text = "Roll the dice!";
-                foreach (PictureBox item in ReturnBaseTokens(color))
+                if (proxy.HasWon(userName))
                 {
-                    item.Enabled = false;
+                    tBTurn.Text = "You have won!";
+                    proxy.NextTurn();
                 }
+                else
+                {
+                    this.pbDice.Enabled = true;
+
+                    tBTurn.Text = "Roll the dice!";
+                    foreach (PictureBox item in ReturnBaseTokens(color))
+                    {
+                        item.Enabled = false;
+                    }
+                }
+
             }
             else
             {
-                proxy.NextTurn();
-                tBTurn.Text = "End of turn!";
-            }
+                if (proxy.HasWon(userName))
+                {
+                    tBTurn.Text = "You have won!";
+                }
+                else
+                {
+                    tBTurn.Text = "End of turn!";
+                }
 
+                proxy.NextTurn();
+
+            }
 
             EnablePanels(false, color);
 
@@ -428,8 +447,6 @@ namespace Mdw
         {
             PictureBox pb = (PictureBox)sender;
 
-
-
             string destination = proxy.PutTokenInPlay(color, true);
 
             proxy.PlaceToken(userName, pb.Name, color, destination);
@@ -460,26 +477,27 @@ namespace Mdw
 
                     panel.BackgroundImage = pb.BackgroundImage;
                     pb.BackgroundImage = null;
+                    this.pbDice.Enabled = true;
+
+                    EnablePanels(false, color);
+
+                    foreach (PictureBox item in ReturnBaseTokens(color))
+                    {
+                        item.Enabled = false;
+                    }
+
+                    if (proxy.NumberToClient() == 6)
+                    {
+                        tBTurn.Text = "Roll the dice!";
+                    }
+                    else
+                    {
+                        tBTurn.Text = "End of turn!";
+                    }
                 }
             }
 
-            this.pbDice.Enabled = true;
 
-            EnablePanels(false, color);
-
-            foreach (PictureBox item in ReturnBaseTokens(color))
-            {
-                item.Enabled = false;
-            }
-
-            if (proxy.NumberToClient() == 6)
-            {
-                tBTurn.Text = "Roll the dice!";
-            }
-            else
-            {
-                tBTurn.Text = "End of turn!";
-            }
 
         }
 
@@ -496,9 +514,9 @@ namespace Mdw
                         if (panel.Name == destination)
                         {
                             panel.BackgroundImage = pic.BackgroundImage;
+                            pic.BackgroundImage = null;
                         }
                     }
-                    pic.BackgroundImage = null;
                     return;
                 }
             }

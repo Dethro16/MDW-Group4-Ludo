@@ -196,6 +196,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="HasWon">
+      <soap12:operation soapAction="ludoService/ILudo/HasWon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="OnChatCallback">
       <soap12:operation soapAction="ludoService/ILudo/OnChatCallback" style="document" />
       <wsdl:output>
