@@ -214,7 +214,7 @@ namespace LudoService
 
                             foreach (Player pl in players)
                             {
-                                if (pl.Color == color)
+                                if (pl.Color == eat)
                                 {
                                     pl.BaseTokens.Add(tk.Path[tk.Index].Token);
                                     

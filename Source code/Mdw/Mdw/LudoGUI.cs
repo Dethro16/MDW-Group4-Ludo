@@ -516,9 +516,9 @@ namespace Mdw
                         if (panel.Name == destination)
                         {
                             panel.BackgroundImage = p.BackgroundImage;
+                            p.BackgroundImage = null;
                         }
                     }
-                    p.BackgroundImage = null;
                     return;
                 }
             }
