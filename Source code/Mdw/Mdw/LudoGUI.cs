@@ -257,7 +257,8 @@ namespace Mdw
                 case 6:
                     foreach (PictureBox item in ReturnBaseTokens(color))
                     {
-                        item.Enabled = true;
+                        if(item.BackgroundImage != null)
+                            item.Enabled = true;
                     }
                     tBTurn.Text = "Move a token!";
                     pbDice.Image = Properties.Resources.d6;
