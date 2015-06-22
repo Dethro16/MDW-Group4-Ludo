@@ -181,7 +181,7 @@ namespace LudoService
 
         public void NextTurn()
         {
-            if (turn > players.Count)
+            if (turn >= players.Count)
             {
                 turn = 0;
             }
@@ -292,7 +292,7 @@ namespace LudoService
 
                                 foreach (Player pl in players)
                                 {
-                                    if (pl.Color == color)
+                                    if (pl.Color == eat)
                                     {
                                         pl.BaseTokens.Add(sq.Token.Path[check].Token);
                                         sq.Token.Path[check].Token = null;
