@@ -206,9 +206,32 @@ namespace LudoService
 
                     Token tk = new Token(color);
                     tk.Path = path;
+                    if (tk.Path[tk.Index].Token != null)
+                    {
+                        if (tk.Path[tk.Index].Token.Color != color)
+                        {
+                            eat = tk.Path[tk.Index].Token.Color;
+
+                            foreach (Player pl in players)
+                            {
+                                if (pl.Color == color)
+                                {
+                                    pl.BaseTokens.Add(tk.Path[tk.Index].Token);
+                                    
+                                    tk.Path[tk.Index].Token = null;
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            eat = Color.Black;
+                            return "error";
+                        }
+                    }
                     tk.Place = tk.Path[tk.Index];
                     path[0].Token = tk;
-                    
+
                     if (remove)
                     {
                         player.FieldTokens.Add(tk);
@@ -244,23 +267,33 @@ namespace LudoService
 
         public string MoveToken(string field, Color color)
         {
+            eat = Color.Black;
             foreach (Square sq in board.GetPath(color))
             {
                 if (sq.Name == field)
                 {
+                    int before = sq.Token.Index;
                     int check = sq.Token.Index + diceNumber;
                     if (sq.Token.Path[check].Token != null)
                     {
                         if (sq.Token.Path[check].Token.Color != color)
                         {
                             eat = sq.Token.Path[check].Token.Color;
-                            sq.Token.Path[check].Token = null;
-                            
+
+                            foreach (Player pl in players)
+                            {
+                                if (pl.Color == color)
+                                {
+                                    pl.BaseTokens.Add(sq.Token.Path[check].Token);
+                                    sq.Token.Path[check].Token = null;
+                                }
+                            }
+
                         }
                         else
                         {
                             eat = Color.Black;
-                            return field;                     
+                            return field;
                         }
                     }
 
@@ -270,7 +303,7 @@ namespace LudoService
                         {
                             if (check > 60)
                             {
-                                sq.Token.Index = p.TokenIn+61;
+                                sq.Token.Index = p.TokenIn + 61;
                                 p.TokenIn++;
                             }
                             else
@@ -279,11 +312,12 @@ namespace LudoService
                             }
                         }
                     }
-
                     sq.Token.Place = sq.Token.Path[sq.Token.Index];
                     sq.Token.Path[sq.Token.Index].Token = sq.Token;
-                    return sq.Token.Path[sq.Token.Index].Name;
-                    
+                    string s = sq.Token.Path[sq.Token.Index].Name;
+                    sq.Token.Path[before].Token = null;
+                    return s;
+
                 }
             }
             return field;

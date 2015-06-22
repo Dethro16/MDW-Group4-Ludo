@@ -300,8 +300,7 @@ namespace Mdw
             Panel p = (Panel)sender;
 
             //MessageBox.Show(p.Name);
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.TokenMove);
-            player.Play();
+
 
             if (!p.Name.Contains("goal"))
             {
@@ -311,10 +310,14 @@ namespace Mdw
                     MessageBox.Show("No stacking allowed (Maybe in v2!)");
                     return;
                 }
+
                 foreach (Panel panel in controllist)
                 {
                     if (panel.Name == destination)
                     {
+                        System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.TokenMove);
+                        player.Play();
+
                         if (proxy.GetReadyToEat() != Color.Black)
                         {
                             proxy.EatToClient(userName, proxy.GetReadyToEat());
@@ -424,8 +427,7 @@ namespace Mdw
         {
             PictureBox pb = (PictureBox)sender;
 
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.TokenMove);
-            player.Play();
+
 
             string destination = proxy.PutTokenInPlay(color, true);
 
@@ -436,10 +438,30 @@ namespace Mdw
                 panel.BackgroundImageLayout = ImageLayout.Stretch;
                 if (panel.Name == destination)
                 {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.TokenMove);
+                    player.Play();
+
+                    if (proxy.GetReadyToEat() != Color.Black)
+                    {
+                        proxy.EatToClient(userName, proxy.GetReadyToEat());
+
+                        foreach (PictureBox pic in ReturnBaseTokens(proxy.GetReadyToEat()))
+                        {
+                            if (pic.BackgroundImage == null)
+                            {
+                                pic.BackgroundImage = EnablePic(proxy.GetReadyToEat());
+                                break;
+                            }
+                        }
+                        //break;
+
+                    }
+
                     panel.BackgroundImage = pb.BackgroundImage;
+                    pb.BackgroundImage = null;
                 }
             }
-            pb.BackgroundImage = null;
+
             this.pbDice.Enabled = true;
 
             EnablePanels(false, color);
