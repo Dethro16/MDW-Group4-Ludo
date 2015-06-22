@@ -295,15 +295,6 @@ namespace Mdw
 
         }
 
-        private int GetSquareNumber(Panel p)
-        {
-            switch (p.Name)
-            {
-                case "": return 1;
-                default: return 0;
-            }
-        }
-
         private void PanelOnClick(object sender, EventArgs e)
         {
             Panel p = (Panel)sender;
@@ -314,12 +305,33 @@ namespace Mdw
 
             if (!p.Name.Contains("goal"))
             {
-                string s = proxy.MoveToken(p.Name, color);
+                string destination = proxy.MoveToken(p.Name, color);
+                if (destination == p.Name)
+                {
+                    MessageBox.Show("No stacking allowed (Maybe in v2!)");
+                    return;
+                }
                 foreach (Panel panel in controllist)
                 {
-                    if (panel.Name == s)
+                    if (panel.Name == destination)
                     {
+                        if (proxy.GetReadyToEat() != Color.Black)
+                        {
+                            proxy.EatToClient(userName, proxy.GetReadyToEat());
+
+                            foreach (PictureBox pic in ReturnBaseTokens(proxy.GetReadyToEat()))
+                            {
+                                if (pic.BackgroundImage == null)
+                                {
+                                    pic.BackgroundImage = EnablePic(proxy.GetReadyToEat());
+                                    break;
+                                }
+                            }
+                            //break;
+
+                        }
                         proxy.MoveToClient(userName, p.Name, color, panel.Name);
+                      
                         panel.BackgroundImage = p.BackgroundImage;
                         p.BackgroundImage = null;
                     }
@@ -485,6 +497,18 @@ namespace Mdw
                         }
                     }
                     p.BackgroundImage = null;
+                    return;
+                }
+            }
+        }
+
+        public void OnTokenEat(string playername, Color color)
+        {
+            foreach (PictureBox pic in ReturnBaseTokens(color))
+            {
+                if (pic.BackgroundImage == null)
+                {
+                    pic.BackgroundImage = EnablePic(color);
                     return;
                 }
             }

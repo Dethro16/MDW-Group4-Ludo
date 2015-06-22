@@ -59,6 +59,14 @@ namespace LudoService
 
         [OperationContract]
         void MoveToClient(string playername, string tokenname, Color color, string destination);
+
+        [OperationContract]
+        Color GetReadyToEat();
+
+        [OperationContract]
+        void EatToClient(string playername, Color color);
+
+
     }
 
     public class Player
@@ -134,5 +142,8 @@ namespace LudoService
 
         [OperationContract(IsOneWay = true)]
         void OnMoveToken(string TokenName, Color color, string destination);
+
+        [OperationContract(IsOneWay = true)]
+        void OnTokenEat(string playername, Color color);
     }
 }

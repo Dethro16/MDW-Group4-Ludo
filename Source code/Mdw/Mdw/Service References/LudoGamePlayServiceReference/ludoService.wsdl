@@ -103,6 +103,18 @@
   <wsdl:message name="ILudo_MoveToClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:MoveToClientResponse" />
   </wsdl:message>
+  <wsdl:message name="ILudo_GetReadyToEat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReadyToEat" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_GetReadyToEat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReadyToEatResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_EatToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:EatToClient" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_EatToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EatToClientResponse" />
+  </wsdl:message>
   <wsdl:message name="ILudo_OnChatCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnChatCallback" />
   </wsdl:message>
@@ -120,6 +132,9 @@
   </wsdl:message>
   <wsdl:message name="ILudo_OnMoveToken_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnMoveToken" />
+  </wsdl:message>
+  <wsdl:message name="ILudo_OnTokenEat_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnTokenEat" />
   </wsdl:message>
   <wsdl:portType name="ILudo">
     <wsdl:operation name="RollToClient">
@@ -186,6 +201,14 @@
       <wsdl:input wsaw:Action="ludoService/ILudo/MoveToClient" message="tns:ILudo_MoveToClient_InputMessage" />
       <wsdl:output wsaw:Action="ludoService/ILudo/MoveToClientResponse" message="tns:ILudo_MoveToClient_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetReadyToEat">
+      <wsdl:input wsaw:Action="ludoService/ILudo/GetReadyToEat" message="tns:ILudo_GetReadyToEat_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/GetReadyToEatResponse" message="tns:ILudo_GetReadyToEat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EatToClient">
+      <wsdl:input wsaw:Action="ludoService/ILudo/EatToClient" message="tns:ILudo_EatToClient_InputMessage" />
+      <wsdl:output wsaw:Action="ludoService/ILudo/EatToClientResponse" message="tns:ILudo_EatToClient_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OnChatCallback">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnChatCallback" message="tns:ILudo_OnChatCallback_OutputCallbackMessage" />
     </wsdl:operation>
@@ -203,6 +226,9 @@
     </wsdl:operation>
     <wsdl:operation name="OnMoveToken">
       <wsdl:output wsaw:Action="ludoService/ILudo/OnMoveToken" message="tns:ILudo_OnMoveToken_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnTokenEat">
+      <wsdl:output wsaw:Action="ludoService/ILudo/OnTokenEat" message="tns:ILudo_OnTokenEat_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

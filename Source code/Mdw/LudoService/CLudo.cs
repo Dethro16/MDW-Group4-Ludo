@@ -15,6 +15,7 @@ namespace LudoService
         DatabaseHelper db = new DatabaseHelper();
 
         int turn = 1;
+        Color eat = Color.Black;
 
         public List<Player> players = new List<Player>();
         public List<Color> AllColors = new List<Color>{
@@ -243,13 +244,25 @@ namespace LudoService
 
         public string MoveToken(string field, Color color)
         {
-
-           
             foreach (Square sq in board.GetPath(color))
             {
                 if (sq.Name == field)
                 {
                     int check = sq.Token.Index + diceNumber;
+                    if (sq.Token.Path[check].Token != null)
+                    {
+                        if (sq.Token.Path[check].Token.Color != color)
+                        {
+                            eat = sq.Token.Path[check].Token.Color;
+                            sq.Token.Path[check].Token = null;
+                            
+                        }
+                        else
+                        {
+                            eat = Color.Black;
+                            return field;                     
+                        }
+                    }
 
                     foreach (Player p in players)
                     {
@@ -285,6 +298,22 @@ namespace LudoService
                     item.callback.OnMoveToken(tokenname, color, destination);
                 }
             }
+        }
+
+        public void EatToClient(string playername, Color color)
+        {
+            foreach (Player item in players)
+            {
+                if (item.PlayerName != playername)
+                {
+                    item.callback.OnTokenEat(playername, color);
+                }
+            }
+        }
+
+        public Color GetReadyToEat()
+        {
+            return eat;
         }
     }
 }

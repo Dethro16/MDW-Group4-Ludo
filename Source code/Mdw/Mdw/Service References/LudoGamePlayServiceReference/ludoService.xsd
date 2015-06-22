@@ -211,6 +211,31 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetReadyToEat">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReadyToEatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="GetReadyToEatResult" type="q8:Color" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EatToClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="playername" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q9:Color" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EatToClientResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="OnChatCallback">
     <xs:complexType>
       <xs:sequence>
@@ -231,7 +256,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="playername" nillable="true" type="xs:string" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q8:Color" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q10:Color" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -244,7 +269,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="TokenName" nillable="true" type="xs:string" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q9:Color" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q11:Color" />
         <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -253,8 +278,16 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="TokenName" nillable="true" type="xs:string" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q10:Color" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q12:Color" />
         <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnTokenEat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="playername" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="color" type="q13:Color" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
