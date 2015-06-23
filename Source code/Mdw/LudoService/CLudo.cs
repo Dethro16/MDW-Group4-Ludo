@@ -29,6 +29,7 @@ namespace LudoService
 
         Random rnd;
         public int diceNumber;
+        Color newColor;
 
         public CLudo()
         {
@@ -46,7 +47,14 @@ namespace LudoService
             {
                 if (item.PlayerName != playername)
                 {
-                    item.callback.OnPlayerLogin(playername, color);
+                    if (AllColors.Exists(x => x.Equals(color)))
+                    {
+                        item.callback.OnPlayerLogin(playername, color);
+                    }
+                    else 
+                    {
+                        item.callback.OnPlayerLogin(playername, newColor);
+                    }
                 }
             }
         }
@@ -119,7 +127,8 @@ namespace LudoService
             else
             {
                 int index = rnd.Next(0, AllColors.Count);
-                Player player = new Player(userName, AllColors.ElementAt(index));
+                newColor = AllColors.ElementAt(index);
+                Player player = new Player(userName, newColor);
                 player.callback = OperationContext.Current.GetCallbackChannel<ILudoCallback>();
                 players.Add(player);
                 AllColors.Remove(AllColors.ElementAt(index));
